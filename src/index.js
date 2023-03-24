@@ -4,6 +4,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import AppRoutes from "./routes";
 import { Provider } from "react-redux";
 import store from "./redux/store";
+import "./styles/index.scss"
 
 export default function App() {
   return (
@@ -16,6 +17,6 @@ export default function App() {
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
-    <App />;
+    <App />
   </Provider>
 );
