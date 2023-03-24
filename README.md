@@ -1,3 +1,6 @@
+## Badges
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/atlp-rwanda/trojans-ec-fe/tree/dev.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/atlp-rwanda/trojans-ec-fe/tree/dev)
+[![Coverage Status](https://coveralls.io/repos/github/atlp-rwanda/trojans-ec-fe/badge.svg?branch=dev)](https://coveralls.io/github/atlp-rwanda/trojans-ec-fe?branch=dev)
 # This is Trojan Ecommerce FrontEnd
 
 ## How you can test our app
