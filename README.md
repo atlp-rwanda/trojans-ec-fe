@@ -1,6 +1,7 @@
 ## Badges
-[![CircleCI](https://dl.circleci.com/status-badge/img/gh/atlp-rwanda/trojans-ec-fe/tree/ch-setupTests-circleCi-coverage-184760033.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/atlp-rwanda/trojans-ec-fe/tree/ch-setupTests-circleCi-coverage-184760033)
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/atlp-rwanda/trojans-ec-fe/tree/dev.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/atlp-rwanda/trojans-ec-fe/tree/dev)
 [![Coverage Status](https://coveralls.io/repos/github/atlp-rwanda/trojans-ec-fe/badge.svg?branch=ch-setupTests-circleCi-coverage-184760033)](https://coveralls.io/github/atlp-rwanda/trojans-ec-fe?branch=ch-setupTests-circleCi-coverage-184760033)
+[![Maintainability](https://api.codeclimate.com/v1/badges/0ac4248811966208ffa8/maintainability)](https://codeclimate.com/github/atlp-rwanda/trojans-ec-fe/maintainability)
 # This is Trojan Ecommerce FrontEnd
 
 ## How you can test our app
