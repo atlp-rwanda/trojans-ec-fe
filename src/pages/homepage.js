@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Homepage = () => {
   return (
@@ -9,9 +10,9 @@ const Homepage = () => {
         <span className="button border py-2 px-4 rounded-xl text-white ">
           Login
         </span>
-        <span className="border rounded-xl py-2 px-4 signup mx-2 border-2 drop-shadow-xl">
+      <Link to="/register"><span className="border rounded-xl py-2 px-4 signup mx-2 border-2 drop-shadow-xl">
           Sign Up
-        </span>
+        </span></Link>  
       </div>
     </div>
     </div>
