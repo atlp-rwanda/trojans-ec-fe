@@ -8,10 +8,10 @@ export default function GoogleButton() {
   return (
     <div>
       <Link to= "http://trojans-ec-bn-staging.onrender.com/api/v1/users/auth/google">
-      <button className="google-btn">
+      <div className="google-btn">
       <img className="google-image"src={googleIcon} alt="google_icon" />
       <h6>Sign in with Google</h6>
-       </button>
+       </div>
       </Link>
     </div>
   )

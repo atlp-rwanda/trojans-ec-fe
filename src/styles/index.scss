@@ -3,6 +3,8 @@
 @import "tailwindcss/utilities";
 
 
+@import 'signUp';
+
 $primary-color: #5F3E8E;
 $primary-background-color: #F5F5F5;
 
@@ -126,4 +128,32 @@ $primary-background-color: #F5F5F5;
     .two-factor-form-div h1{
         font-size: 7vw;
     }    
+}
+.bg-signUp{
+
+  
+    background-image: url('../assets/images/SignUp.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+
+}
+
+.showImg{
+      
+        cursor: pointer;
+        position:relative;
+        width: 20px;
+      
+      
+}
+
+
+
+@media screen and (max-width:480px) {
+      .bg-signUp{
+        height: auto;
+     background-size: cover;
+      }
 }

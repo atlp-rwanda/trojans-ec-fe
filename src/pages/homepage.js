@@ -1,4 +1,6 @@
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
+import chatIcon from "../assets/images/chat.svg"
 
 const Homepage = () => {
   useEffect(()=>{
@@ -8,6 +10,8 @@ localStorage.setItem("token",token)
 
  }
   },[])
+
+
   return (
     <div data-testid='home'>
       <p>This is Homepage Page</p>
@@ -16,9 +20,9 @@ localStorage.setItem("token",token)
         <span className="button border py-2 px-4 rounded-xl text-white ">
           Login
         </span>
-        <span className="border rounded-xl py-2 px-4 signup mx-2 border-2 drop-shadow-xl">
+      <Link to="/register"><span className="border rounded-xl py-2 px-4 signup mx-2 border-2 drop-shadow-xl">
           Sign Up
-        </span>
+        </span></Link>  
       </div>
     </div>
     </div>

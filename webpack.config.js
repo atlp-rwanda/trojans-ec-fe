@@ -1,6 +1,19 @@
 const path = require("path");
-const webpack = require("webpack");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
+const webpack = require("webpack");
+const dotenv = require("dotenv");
+const env = dotenv.config().parsed;
+const vercelEnv = process.env;
+const envKeys = env
+  ? Object.keys(env).reduce((prev, next) => {
+      prev[`process.env.${next}`] = JSON.stringify(env[next]);
+      return prev;
+    }, {})
+  : Object.keys(vercelEnv).reduce((prev, next) => {
+      prev[`process.env.${next}`] = JSON.stringify(vercelEnv[next]);
+      return prev;
+    }, {});
+
 
 module.exports = {
   mode: "development",
@@ -22,16 +35,16 @@ module.exports = {
   },
 
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
     new HTMLWebpackPlugin({
       template: "public/index.html",
     }),
+    new webpack.DefinePlugin(envKeys),
   ],
 
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.js$/,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
@@ -41,20 +54,12 @@ module.exports = {
         },
       },
       {
-        test: /\.scss$/,
+        test: /\.(scss||css)$/,
         use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"],
       },
       {
-        test: /\.(png|jpeg|jpg|webp|gif|svg)$/i,
-        use: [
-          {
-            loader: "file-loader",
-            options: {
-              name: "[name].[ext]",
-              outputPath: "images/",
-            },
-          },
-        ],
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: "asset/resource",
       },
     ],
   },
