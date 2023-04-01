@@ -1,0 +1,14 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+$primary-color: #5F3E8E;
+$sub-main-color: #A791CA;
+
+.success{
+    background-color: #EBEBEB;
+    .okay{
+        background-color: $primary-color
+    }
+}
+

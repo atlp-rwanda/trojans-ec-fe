@@ -110,6 +110,7 @@ const userSlice = createSlice({
         return {...state, loading: false, user: token, twoFactorAuthToken: null, successAuth: true };
       }
     },
+
   },
 });
 export const {
