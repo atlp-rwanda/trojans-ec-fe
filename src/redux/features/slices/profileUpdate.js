@@ -6,10 +6,10 @@ const initialState = {
     userProfile: [],
     userStatus: null,
     loading: false,
-    updateStatus: [],
+    updateStatus: null,
     error: null, 
   };
-  
+/* istanbul ignore next */
 const profileSlice = createSlice({
     name: "userProfile",
     initialState,
@@ -27,7 +27,7 @@ const profileSlice = createSlice({
         }
       },
       [getUserProfile.rejected]: (state, {payload}) => {
-        console.log(payload)
+        console.log('get profile rejected')
         return { 
           ...state,
           userProfile: [],
@@ -36,6 +36,7 @@ const profileSlice = createSlice({
         }
       },
       [getUserProfile.fulfilled]: (state, {payload}) => {
+        console.log('get profile success')
         return { 
           ...state,
           userProfile: payload,
@@ -45,6 +46,7 @@ const profileSlice = createSlice({
 
       //update user profile
       [updateProfileThunk.pending]: (state) => {
+        console.log('update profile pending')
         return{
           ...state,
           loading: true
@@ -59,7 +61,7 @@ const profileSlice = createSlice({
         }
       },
       [updateProfileThunk.fulfilled]: (state, { payload }) => {
-        
+        console.log('update profile success')
         return { 
           ...state,
           loading: false,

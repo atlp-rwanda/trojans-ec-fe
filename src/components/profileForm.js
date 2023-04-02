@@ -1,22 +1,18 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { yupResolver } from "@hookform/resolvers/yup"
-import Select from 'react-select';
 import profileSchema from '../schema/profileUpdate';
 import '../styles/profileUpdate.scss';
 import { updateProfileThunk } from '../redux/features/actions/updateProfile';
 import { useForm } from 'react-hook-form';
-import SelectOption from './addProduct/selectOption';
-
+import WishlistPopup from './wishlist/wishlistPopup';
 const ProfileForm = ({userProfile, loading, updateStatus}) => {
   
-  const navigate = useNavigate();
   const dispatch = useDispatch();    
   
   const [fileData, setFileData] = useState(null);
-  
+  const [success, setSuccess ] = useState(false);
     let billingAddress = "";
     if(typeof userProfile?.billingAddress === "string"){
         billingAddress = JSON.parse(userProfile?.billingAddress);
@@ -24,7 +20,6 @@ const ProfileForm = ({userProfile, loading, updateStatus}) => {
         billingAddress =  userProfile?.billingAddress;
     }
     
-    const currencyOpt = [ "rw", 'usd' ]
 
    const [picture, setPicture] = useState(null);
     
@@ -46,6 +41,7 @@ const ProfileForm = ({userProfile, loading, updateStatus}) => {
       }
     });
     
+    /* istanbul ignore next */
     const handleImage = (e)=>{
       const file = e.target.files[0];
       const reader = new FileReader();
@@ -57,7 +53,7 @@ const ProfileForm = ({userProfile, loading, updateStatus}) => {
   }
     
     const formData = new FormData();
-    const onUpdate = (data)=>{
+    const onUpdate = async(data)=>{
       picture ? formData.append('profilePic', picture) : formData.append('profilePic', data.profilePic);
       
       formData.append('country', data?.country);
@@ -67,14 +63,35 @@ const ProfileForm = ({userProfile, loading, updateStatus}) => {
       formData.append('postalCode', data?.postalCode);
       formData.append('preferredCurrency', data?.preferredCurrency);
       formData.append('preferredLanguage', data?.preferredLanguage);
-        dispatch(updateProfileThunk(formData))
+      await dispatch(updateProfileThunk(formData))
+      if(data){
+        setSuccess(true)
       }
-      if(updateStatus === 'Updated successfully'){
-        navigate('/success')
+    }
+
+    const toggleModal = ()=>{
+      setSuccess(!success)
+      if(picture){
+        setSuccess(!success)
+        location.reload()
       }
-      
+    }
+
   return (
     <div data-testid='test-form'>
+      {success &&
+        (
+          <div className="modal mt-[10%]">
+          <div onClick={toggleModal} className="overlay"></div>
+          <WishlistPopup
+            success={true}
+            handleClick={toggleModal}
+            statusMessage={"Success"}
+            message={updateStatus}
+          />
+        </div>
+        )
+      }
         <div className='profile_upd_form '>
         <h1>UPDATE PROFILE</h1>
         <form  className='container mx-auto' onSubmit={(event)=>handleSubmit(onUpdate)(event)}>

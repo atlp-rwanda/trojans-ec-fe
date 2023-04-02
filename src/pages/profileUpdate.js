@@ -15,6 +15,8 @@ const ProfileUpdate = () => {
   useEffect(()=>{
       dispatch(getUserProfile())
   }, [dispatch])
+  
+  console.log('this profile: ',userProfile)
 
   return (
     
