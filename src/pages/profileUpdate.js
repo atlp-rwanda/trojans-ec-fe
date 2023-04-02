@@ -8,16 +8,12 @@ import ProfileForm from '../components/profileForm';
 import Spinner from "../components/viewProducts/spinner";
 
 const ProfileUpdate = () => {
-
   const {userProfile, userStatus, loading, updateStatus} = useSelector(userProfileUpdate);
   const dispatch = useDispatch();
-
   useEffect(()=>{
       dispatch(getUserProfile())
   }, [dispatch])
-
   return (
-    
     <div data-testid="profile">
       {
         userStatus === "pending"? (
@@ -38,14 +34,11 @@ const ProfileUpdate = () => {
               </div>
 
             </div>
-
             <div className='relative'>
-
               <div className='w-full md:w-1/4 absolute top-[-40%] left-[0%]  md:left-2 top-[-50%]'>
                 <span className=''>
                   <img src={userProfile?.profilePic} alt="" className="w-24 md:w-32 rounded-full mx-auto "/>
                 </span>
-              
                 <div className='text-center'>
                   <h1 className='font-bold text-2xl'>{userProfile?.name}</h1>
                   <p>{userProfile?.email}</p>
@@ -53,7 +46,6 @@ const ProfileUpdate = () => {
               </div>
               <div className='w-[100%]   h-32 py-2 flex justify-center md:w-3/5 items-end'>
               </div>
-
             </div>
             </div>
             <div>
@@ -62,11 +54,8 @@ const ProfileUpdate = () => {
           </div>
         )
       }
-
-
     </div>
   )
 }
-
 export default ProfileUpdate
 

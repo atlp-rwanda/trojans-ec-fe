@@ -5,8 +5,8 @@ export const getUserProfile = createAsyncThunk("user/getProfile", async(_,{rejec
     try {
       const response = await instance.get(
         `/users/profile`, );
-      return response.data.user
-    } catch (error) {
+        return response.data.user
+      } catch (error) {
       rejectWithValue(error)
     }
   }) 

@@ -11,6 +11,7 @@ import { searchSlice } from "./features/slices/product";
 import cartReducer from "./features/slices/cart"
 import profileReducer from "./features/slices/profileUpdate"
 import wishlistReducer from "./features/slices/wishlist";
+import getUsersReducer from './features/slices/getUsers.js';
 import chat from "./features/slices/chat";
 
 export const reducers={
@@ -26,7 +27,8 @@ export const reducers={
     userProfile: profileReducer,
     search: searchSlice.reducer,
     wishlist:wishlistReducer,
-    chat:chat
+    chat:chat,
+    users: getUsersReducer
 };
 
 const store = configureStore({

@@ -2,12 +2,12 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-$primary-color: #5f3e8e;
+$primary-color: #5F3E8E;
 $primary-background-color: #f5f5f5;
 
 @import 'signUp';
 @import 'twoFactor';
-$primary-color: #5F3E8E;
+@import 'users';
 $primary-background-color: #F5F5F5;
 $sub-main-color: #A791CA;
 
@@ -88,3 +88,4 @@ $dark-primary: #301f47;
 .input-div{
     @apply my-3
 }
+
