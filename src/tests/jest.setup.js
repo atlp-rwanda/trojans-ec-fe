@@ -4,9 +4,10 @@ import 'regenerator-runtime/runtime';
 import { render as rtlRender } from '@testing-library/react';
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
-
 import { BrowserRouter } from 'react-router-dom';
 import {reducers} from '../redux/store';
+
+jest.mock("../redux/axiosinstance");
 
 function render(
   ui,

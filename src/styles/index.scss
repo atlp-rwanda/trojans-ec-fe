@@ -5,10 +5,8 @@
 $primary-color: #5f3e8e;
 $primary-background-color: #f5f5f5;
 
-@import "signUp";
-
-$primary-color: #5f3e8e;
-$primary-background-color: #f5f5f5;
+@import 'signUp';
+@import 'twoFactor';
 
 .button {
   background-color: $primary-color;
@@ -19,121 +17,6 @@ $primary-background-color: #f5f5f5;
   border-color: $primary-color;
 }
 
-.two-factor-container {
-  background-color: $primary-background-color;
-  position: relative;
-  height: 100vh;
-}
-
-.two-factor-container .two-factor-form-div {
-  max-width: 350px;
-  width: 100%;
-  margin: auto;
-  padding-top: 150px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  z-index: 10;
-}
-
-.logo-image {
-  position: relative;
-  z-index: 1;
-}
-
-.two-factor-form-div h1 {
-  font-size: 24px;
-}
-
-.two-factor-input {
-  max-width: 200px;
-  width: 100%;
-  border: 2px solid black;
-  border-radius: 5px;
-  margin: 20px 0;
-}
-
-.two-fact-btn {
-  max-width: 200px;
-  width: 100%;
-  border-radius: 5px;
-  color: white;
-}
-
-.div-design-one {
-  width: 350px;
-  height: 350px;
-  background-color: #a791ca;
-  opacity: 29%;
-  border-radius: 50%;
-  margin-left: 100px;
-  position: absolute;
-}
-
-.div-design-two {
-  width: 450px;
-  height: 450px;
-  background-color: #bf9dda;
-  opacity: 53%;
-  border-radius: 50%;
-  position: absolute;
-  bottom: -100px;
-  left: -100px;
-}
-
-.vector-image {
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 85vh;
-  z-index: 1;
-}
-
-.loading {
-  padding: 20px;
-}
-
-@media screen and (max-width: 768px) {
-  .div-design-one {
-    width: 300px;
-    height: 300px;
-    top: 30%;
-  }
-
-  .div-design-two {
-    width: 350px;
-    height: 350px;
-    bottom: -50px;
-    left: -50px;
-  }
-}
-
-@media screen and (max-width: 712px) {
-  .div-design-one,
-  .div-design-two {
-    background-color: $primary-background-color;
-  }
-
-  .vector-image {
-    height: 100vh;
-  }
-}
-
-@media screen and (max-width: 375px) {
-  .two-factor-form-div h1 {
-    font-size: 6vw;
-  }
-}
-
-@media screen and (max-width: 200px) {
-  .two-factor-form-div h1 {
-    font-size: 7vw;
-  }
-}
-
-$primary-color: #5f3e8e;
 $secondary-color: #a791ca;
 $white-color: #f5f5f5;
 $dark-primary: #301f47;
