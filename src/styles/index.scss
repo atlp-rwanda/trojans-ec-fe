@@ -2,158 +2,182 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+$primary-color: #5f3e8e;
+$primary-background-color: #f5f5f5;
 
-@import 'signUp';
+@import "signUp";
 
-$primary-color: #5F3E8E;
-$primary-background-color: #F5F5F5;
+$primary-color: #5f3e8e;
+$primary-background-color: #f5f5f5;
 
-.button{
-    background-color: $primary-color;
-    border-color: $primary-color;
+.button {
+  background-color: $primary-color;
+  border-color: $primary-color;
 }
 
-.signup{
-    border-color: $primary-color;
+.signup {
+  border-color: $primary-color;
 }
 
-.two-factor-container{
-    background-color: $primary-background-color;
-    position: relative;
-    height: 100vh;
+.two-factor-container {
+  background-color: $primary-background-color;
+  position: relative;
+  height: 100vh;
 }
 
-.two-factor-container .two-factor-form-div{
-    max-width: 350px;
-    width: 100%;
-    margin: auto;
-    padding-top: 150px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    z-index: 10;
+.two-factor-container .two-factor-form-div {
+  max-width: 350px;
+  width: 100%;
+  margin: auto;
+  padding-top: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 10;
 }
 
-.logo-image{
-    position: relative;
-    z-index: 1; 
+.logo-image {
+  position: relative;
+  z-index: 1;
 }
 
-.two-factor-form-div h1{
-    font-size: 24px;
+.two-factor-form-div h1 {
+  font-size: 24px;
 }
 
-.two-factor-input{
-    max-width: 200px;
-    width: 100%;
-    border: 2px solid black;
-    border-radius: 5px;
-    margin: 20px 0;
+.two-factor-input {
+  max-width: 200px;
+  width: 100%;
+  border: 2px solid black;
+  border-radius: 5px;
+  margin: 20px 0;
 }
 
-.two-fact-btn{
-    max-width: 200px;
-    width: 100%;
-    border-radius: 5px;
-    color: white;
+.two-fact-btn {
+  max-width: 200px;
+  width: 100%;
+  border-radius: 5px;
+  color: white;
 }
 
-.div-design-one{
-    width: 350px;
-    height: 350px;
-    background-color: #A791CA;
-    opacity: 29%;
-    border-radius: 50%;
-    margin-left: 100px;
-    position: absolute;
+.div-design-one {
+  width: 350px;
+  height: 350px;
+  background-color: #a791ca;
+  opacity: 29%;
+  border-radius: 50%;
+  margin-left: 100px;
+  position: absolute;
 }
 
-.div-design-two{
-    width: 450px;
-    height: 450px;
-    background-color: #BF9DDA;
-    opacity: 53%;
-    border-radius: 50%;
-    position: absolute;
-    bottom: -100px;
-    left: -100px;
+.div-design-two {
+  width: 450px;
+  height: 450px;
+  background-color: #bf9dda;
+  opacity: 53%;
+  border-radius: 50%;
+  position: absolute;
+  bottom: -100px;
+  left: -100px;
 }
 
-.vector-image{  
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 85vh;
-    z-index: 1;
+.vector-image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 85vh;
+  z-index: 1;
 }
 
-.loading{
-    padding: 20px;
+.loading {
+  padding: 20px;
 }
 
 @media screen and (max-width: 768px) {
-    .div-design-one{
-        width: 300px;
-        height: 300px;
-        top: 30%;
-    }
+  .div-design-one {
+    width: 300px;
+    height: 300px;
+    top: 30%;
+  }
 
-    .div-design-two{
+  .div-design-two {
     width: 350px;
     height: 350px;
     bottom: -50px;
     left: -50px;
-    }
+  }
 }
 
 @media screen and (max-width: 712px) {
-    .div-design-one, .div-design-two{
-       background-color: $primary-background-color;
-    }
+  .div-design-one,
+  .div-design-two {
+    background-color: $primary-background-color;
+  }
 
-    .vector-image{
-        height: 100vh;
-    }
+  .vector-image {
+    height: 100vh;
+  }
 }
 
 @media screen and (max-width: 375px) {
-    .two-factor-form-div h1{
-        font-size: 6vw;
-    }    
+  .two-factor-form-div h1 {
+    font-size: 6vw;
+  }
 }
 
 @media screen and (max-width: 200px) {
-    .two-factor-form-div h1{
-        font-size: 7vw;
-    }    
+  .two-factor-form-div h1 {
+    font-size: 7vw;
+  }
 }
-.bg-signUp{
 
-  
-    background-image: url('../assets/images/SignUp.svg');
-    background-repeat: no-repeat;
+$primary-color: #5f3e8e;
+$secondary-color: #a791ca;
+$white-color: #f5f5f5;
+$dark-primary: #301f47;
+
+.p-container {
+  transition: all 0.3s ease-in;
+  &:hover {
+    .add-btn {
+      visibility: visible;
+    }
+    transform: scale(1.02);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+  }
+
+  .add-btn:hover {
+    div {
+      display: block;
+    }
+  }
+}
+
+.pagination {
+  .active {
+    background-color: $secondary-color;
+  }
+}
+.bg-signUp {
+  background-image: url("../assets/images/SignUp.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+}
+
+.showImg {
+  cursor: pointer;
+  position: relative;
+  width: 20px;
+}
+
+@media screen and (max-width: 480px) {
+  .bg-signUp {
+    height: auto;
     background-size: cover;
-    width: 100%;
-    height: 100vh;
-
-}
-
-.showImg{
-      
-        cursor: pointer;
-        position:relative;
-        width: 20px;
-      
-      
-}
-
-
-
-@media screen and (max-width:480px) {
-      .bg-signUp{
-        height: auto;
-     background-size: cover;
-      }
+  }
 }

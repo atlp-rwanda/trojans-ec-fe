@@ -1,19 +1,14 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import axios from "../../axiosinstance";
 
 export const loginThunk = createAsyncThunk("user/login", async (user) => {
   try {
-    const response = await axios.post(
-     "https://trojans-ec-bn-staging.onrender.com/api/v1/users/login",
-      {
-        email: user.email,
-        password: user.password,
-      }
-    )
+    const response = await axios.post("/users/login", {
+      email: user.email,
+      password: user.password,
+    });
     return response.data;
   } catch (error) {
-    return error.response.data
+    return error.response.data;
   }
-  });
-
- 
+});

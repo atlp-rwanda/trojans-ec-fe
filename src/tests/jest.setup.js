@@ -42,7 +42,6 @@ beforeEach(() => {
   store = {};
 });
 
-
 afterAll(() => {
   // global.Storage.prototype.setItem.mockReset();
   // global.Storage.prototype.getItem.mockReset();

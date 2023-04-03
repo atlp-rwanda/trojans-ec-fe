@@ -1,39 +1,39 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { loginThunk } from "../actions/userLogin";
 
-const initialState = {   
+const initialState = {
   user: null,
   loading: false,
-  error: null, };
+  error: null,
+};
 
 const userSlice = createSlice({
   name: "user",
   initialState,
-  reducers: {
-  },
+  reducers: {},
   extraReducers: {
     [loginThunk.pending]: (state) => {
       state.loading = true;
       console.log("Login Pending");
     },
-    [loginThunk.rejected]: (state,{payload}) => {
+    [loginThunk.rejected]: (state, { payload }) => {
       state.loading = false;
-      state.error = {...payload};
+      state.error = { ...payload };
       console.log("Rejected");
-      // console.log(payload)
     },
     [loginThunk.fulfilled]: (state, { payload }) => {
       console.log("fulfilled");
-      console.log(payload)
-      if(payload.message){
-        return { loading: false, user: null,error:payload.message};
+      console.log(payload);
+      if (payload.message) {
+        return { loading: false, user: null, error: payload.message };
       }
-      if(payload.token){
+      if (payload.token) {
         return { loading: false, user: payload.token };
       }
     },
   },
 });
-export const { loginStart, loginSuccess, loginFailure, logout } = userSlice.actions;
+export const { loginStart, loginSuccess, loginFailure, logout } =
+  userSlice.actions;
 export const getLoginUser = (state) => state.user;
 export default userSlice.reducer;
