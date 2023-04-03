@@ -1,23 +1,26 @@
 import React from "react";
-import {Route, Routes} from "react-router-dom"
+import { Route, Routes } from "react-router-dom";
 import Landing from "./pages/homepage";
-import  Login from "./pages/login";
+import Login from "./pages/login";
 import NotFound from "./pages/notFound";
-const AppRoutes=()=>{
-  return(
-        <Routes>
+import TwoFactorAuth from "./components/twoFactorAuth";
 
-          <Route path="" element={<Landing />} ></Route>
+const AppRoutes = () => {
+  return (
+    <Routes>
+      <Route path="" element={<Landing />}></Route>
 
-          <Route exact  path="/login" element={<Login />} />
+      <Route exact path="/login" element={<Login />} />
 
-            <Route path="*" element={<NotFound />} ></Route>
-   
+      <Route
+      exact path="/auth"
+        element={
+          <TwoFactorAuth />
+        }
+      />
+      <Route path="*" element={<NotFound />}></Route>
+    </Routes>
+  );
+};
 
-        </Routes>
-
-  )
-
-}
-
-export default AppRoutes
+export default AppRoutes;
