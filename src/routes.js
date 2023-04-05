@@ -17,6 +17,9 @@ import Cart from './pages/cart'
 import Success from './components/Success'
 import ViewSearch from "./pages/searchView";
 import ViewWishlist from "./components/wishlist/ViewWishlist";
+import PasswordUpdate from "./pages/updatepassword";
+
+
 const AppRoutes = () => {
   return (
     <Routes>
@@ -25,6 +28,7 @@ const AppRoutes = () => {
       <Route exact path="/register" element={<SignUp />} />
       <Route exact path="/products/:id" element={<MainProductDetail />} />
       <Route exact path="/products/wishlist" element={<ViewWishlist />} />
+       <Route path="user/password-update" element={ <PasswordUpdate />} />
       <Route
         exact
         path="/dashboard/seller/products"
@@ -57,10 +61,8 @@ const AppRoutes = () => {
       <Route exact path="/view-search" element={<ViewSearch />} />
       
       <Route path="*" element={<NotFound />}></Route>
-
       <Route exact path="/success" element={<Success/>} />
       <Route exact  path="/user/profile" element={<ProfileUpdate />} />
-    
       <Route path="*" element={<NotFound />} ></Route>
     </Routes>
   )

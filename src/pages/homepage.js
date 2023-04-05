@@ -48,7 +48,7 @@ const Homepage = () => {
             <div className="pt-4 mx-10">
              <Link to="/login" data-testid="navigate-to-login" className="button border py-2 px-4 rounded-xl text-white ">
               Login
-             </Link >
+             </Link>
               <Link to="/register">
                 <span className="rounded-xl py-2 px-4 signup mx-2 border-2 drop-shadow-xl">
                   Sign Up

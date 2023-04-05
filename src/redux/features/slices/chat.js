@@ -31,4 +31,4 @@ const initialState = {
   })
 export const { setLoading,setData,setSingle,setHasNewMessages } = chatSlice.actions;
 
-  export default chatSlice.reducer
+export default chatSlice.reducer

@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-undef
 /* eslint-disable no-undef */
 import axios from 'axios'
 

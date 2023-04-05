@@ -13,6 +13,7 @@ import profileReducer from "./features/slices/profileUpdate"
 import wishlistReducer from "./features/slices/wishlist";
 import chat from "./features/slices/chat";
 
+
 export const reducers={
     user: userReducer,
     signUp:signUpReducer,
@@ -23,14 +24,11 @@ export const reducers={
     sendEmail:sendEmailSlice.reducer,
     cat: categorySlice.reducer,
     cart:cartReducer,
-<<<<<<< HEAD
     userProfile: profileReducer,
     search: searchSlice.reducer,
     wishlist:wishlistReducer,
-    chat:chat
-=======
-    userProfile: profileReducer
->>>>>>> af24082 (main commit to profile update (#17))
+    chat:chat,
+    passwordUpdate: passwordReducer, 
 };
 
 const store = configureStore({
