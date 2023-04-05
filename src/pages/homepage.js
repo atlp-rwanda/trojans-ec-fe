@@ -1,6 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const Homepage = () => {
+  useEffect(()=>{
+ if(window.location.href.includes("token")){
+const token = window.location.href.split("token=")[1]
+localStorage.setItem("token",token)
+
+ }
+  },[])
   return (
     <div data-testid='home'>
       <p>This is Homepage Page</p>
