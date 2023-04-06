@@ -7,6 +7,7 @@ import passwordReducer from "./features/slices/resetPassword";
 import { sendEmailSlice } from "./features/slices/sendEmail";
 import { productSlice } from "./features/product-redux/productSlice";
 import { categorySlice } from "./features/product-redux/categoriesSlice";
+import { searchSlice } from "./features/slices/product";
 import cartReducer from "./features/slices/cart"
 import profileReducer from "./features/slices/profileUpdate"
 
@@ -20,7 +21,8 @@ export const reducers={
     sendEmail:sendEmailSlice.reducer,
     cat: categorySlice.reducer,
     cart:cartReducer,
-    userProfile: profileReducer
+    userProfile: profileReducer,
+    search: searchSlice.reducer,
 };
 
 const store = configureStore({

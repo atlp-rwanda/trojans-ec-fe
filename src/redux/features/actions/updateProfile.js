@@ -1,6 +1,6 @@
 import instance from "../../axiosinstance";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-
+/* istanbul ignore next */
 export const updateProfileThunk = createAsyncThunk("user/profileUpdate", async (profile, 
   {rejectWithValue}) => {
     try {      

@@ -10,8 +10,8 @@ import { firstPageSchema } from "../../validations/firstFormSchema";
 import { secondPageSchema } from "../../validations/secondPage";
 import Spinner from "../spinner";
 import { useNavigate } from "react-router-dom";
-import InputField from "../inputField";
-import SelectOption from "./selectOption";
+import { InputField } from "../inputField";
+import { SelectOption } from "./selectOption";
 import { handleImageUpload } from "../../helpers/ImageUpload";
 import { nextPage } from "../../helpers/nextPage";
 import { submitProductForm } from "../../helpers/submitForm";
@@ -107,6 +107,7 @@ function AddProduct() {
               className="input-field"
               name="categoryId"
               data-testid="categoryId"
+              default="---select Category"
               options={categories}
               register={register("categoryId")}
             />

@@ -41,7 +41,7 @@ export default function LoginInputs() {
   }, [loading, user, twoFactorAuthToken]);
 
   return (
-    <div className="login-container">
+    <div className="login-container overflow-hidden">
       <img className="logo-image" src={logo} alt="logo" />
       <div className="div-design-one"></div>
       <div className="div-design-two"></div>

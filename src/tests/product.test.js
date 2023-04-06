@@ -51,12 +51,16 @@ describe("Product", () => {
       },
     });
 
-    fireEvent.input(getByTestId("name"), {
+    if(getByTestId("name")){
+      console.log("found")
+    }
+
+    fireEvent.change(getByTestId("name"), {
       target: {
         value: "iphone 14",
       },
     });
-    fireEvent.input(getByTestId("price"), {
+    fireEvent.change(getByTestId("price"), {
       target: {
         value: "1099",
       },
