@@ -50,6 +50,7 @@ const Homepage = () => {
               <Link to="/dashboard/seller/products">
                 <button className="m-2 p-1">Go to seller dashboard</button>
               </Link>
+              <Link to="/dashboard/seller/product/create">Add Product</Link>
             </div>
           </div>
           <MainProductView products={products} categories={categories} />

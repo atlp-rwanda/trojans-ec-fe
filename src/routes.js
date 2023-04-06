@@ -8,6 +8,8 @@ import AllProducts from "./pages/dashboard/seller/AllProducts/allProducts";
 import ProductDetail from "./pages/dashboard/seller/ProductDetail.js/ProductDetail";
 import MainProductDetail from "./pages/MainProductDetail";
 import TwoFactorAuth from "./pages/twoFactorAuth";
+import Product from "./pages/dashboard/seller/addProduct";
+import SendSuccessfull from "./components/sendSuccess";
 
 const AppRoutes = () => {
   return (
@@ -16,7 +18,6 @@ const AppRoutes = () => {
       <Route exact path="/login" element={<Login />} />
       <Route exact path="/register" element={<SignUp />} />
       <Route exact path="/products/:id" element={<MainProductDetail />} />
-      <Route exact path="/login" element={<Login />} />
       <Route
         exact
         path="/dashboard/seller/products"
@@ -28,6 +29,8 @@ const AppRoutes = () => {
         element={<ProductDetail />}
       />
       <Route exact path="/auth" element={<TwoFactorAuth />} />
+      <Route exact path="/dashboard/seller/product/create" element={<Product />} />
+      <Route exact path="/dashboard/product/added" element={<SendSuccessfull />} />
       <Route path="*" element={<NotFound />}></Route>
     </Routes>
   );
