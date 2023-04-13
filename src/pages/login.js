@@ -6,7 +6,7 @@ function Login() {
   
   
   return (
-    <div>
+    <div data-testid='login'>
       <LoginInputs />
     </div>
   )
