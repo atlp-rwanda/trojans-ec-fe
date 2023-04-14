@@ -1,6 +1,6 @@
 // components in this folder
-import React from 'react'
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 import "../styles/login.scss";
 import googleIcon from "../images/googleIcon.svg";
 
@@ -14,5 +14,5 @@ export default function GoogleButton() {
        </div>
       </Link>
     </div>
-  )
+  );
 }

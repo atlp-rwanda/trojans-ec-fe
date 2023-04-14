@@ -1,164 +1,165 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
-$primary-color: #5F3E8E;
-$primary-background-color: #F5F5F5;
-body{
-    background-color: $primary-background-color;
-    overflow: hidden;
+$primary-color: #5f3e8e;
+$primary-background-color: #f5f5f5;
+body {
+  background-color: $primary-background-color;
 }
 
-.button{
-    background-color: $primary-color;
-    border-color: $primary-color;
+.button {
+  background-color: $primary-color;
+  border-color: $primary-color;
 }
 
-.signup{
-    border-color: $primary-color;
+.signup {
+  border-color: $primary-color;
 }
 
-.login-container{
-    background-color: $primary-background-color;
-    position: relative;
-    height: 100vh;
+.login-container {
+  background-color: $primary-background-color;
+  position: relative;
+  height: 100vh;
 }
 
-.login-container .login-form-div{
-    max-width: 350px;
-    width: 100%;
-    margin: auto;
-    padding-top: 150px;
-    display: flex;
-    flex-direction: column;
+.login-container .login-form-div {
+  max-width: 350px;
+  width: 100%;
+  margin: auto;
+  padding-top: 150px;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+  justify-content: center;
+  align-items: center;
+}
+.form-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+  z-index: 10;
+}
+.logo-image {
+  position: relative;
+  z-index: 1;
+}
+
+.login-form-div h2 {
+  font-size: 17px;
+  margin-bottom: 17px;
+  letter-spacing: 1.5px;
+}
+
+.forgot {
+  margin-top: 10px;
+}
+.login-input {
+  max-width: 300px;
+  width: 100%;
+  padding: 7px;
+  border: 1px solid #bf9dda;
+  border-radius: 5px;
+  margin: 10px;
+  justify-content: center;
+  align-items: center;
+}
+.login-btn {
+  max-width: 300px;
+  width: 100%;
+  padding: 7px;
+  border-radius: 5px;
+  color: white;
+  margin-top: 10px;
+}
+.google-btn {
+  width: 300px;
+  padding: 7px;
+  margin-top: 10px;
+  border: #bf9dda 0.3px solid;
+  border-radius: 5px;
+  display: flex;
+  background-color: white;
+  letter-spacing: 1.5px;
+  justify-content: space-evenly;
+  align-items: center;
+  z-index: 10;
+  h6 {
     z-index: 10;
-    justify-content: center;
-    align-items: center;
-}
-.form-div{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    flex-direction: column;
-    z-index: 10;
-}
-.logo-image{
-    position: relative;
-    z-index: 1; 
+  }
 }
 
-.login-form-div h2{
-    font-size: 17px;
-    margin-bottom: 17px;
-    letter-spacing: 1.5px;
-
+.div-design-one {
+  width: 350px;
+  height: 350px;
+  background-color: #a791ca;
+  opacity: 29%;
+  border-radius: 50%;
+  margin-left: 100px;
+  position: absolute;
 }
 
-.forgot{
-    margin-top: 10px;
+.div-design-two {
+  width: 450px;
+  height: 450px;
+  background-color: #bf9dda;
+  opacity: 53%;
+  border-radius: 50%;
+  position: absolute;
+  bottom: -100px;
+  left: -100px;
 }
-.login-input{
-    max-width: 300px;
-    width: 100%;
-    padding: 7px;
-    border: 1px solid #BF9DDA;
-    border-radius: 5px;
-    margin: 10px ;
-    justify-content: center;
-    align-items: center;
+.vector-image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 85vh;
+  z-index: 1;
 }
-.login-btn{
-    max-width: 300px;
-    width: 100%;
-    padding: 7px;
-    border-radius: 5px;
-    color: white;
-    margin-top:10px
-}
-.google-btn{
-    width: 300px;
-    padding: 7px;
-    margin-top:10px;
-    border: #BF9DDA 0.3px solid;
-    border-radius: 5px;
-    display: flex;
-    background-color: white;
-    letter-spacing: 1.5px;
-    justify-content: space-evenly;
-    align-items: center;
-    z-index: 10;
-    h6{z-index: 10;};
+.google-image {
+  height: 30px;
 }
 
-.div-design-one{
-    width: 350px;
-    height: 350px;
-    background-color: #A791CA;
-    opacity: 29%;
-    border-radius: 50%;
-    margin-left: 100px;
-    position: absolute;
-}
-
-.div-design-two{
-    width: 450px;
-    height: 450px;
-    background-color: #BF9DDA;
-    opacity: 53%;
-    border-radius: 50%;
-    position: absolute;
-    bottom: -100px;
-    left: -100px;
-}
-.vector-image{
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 85vh;
-    z-index: 1;
-}
-.google-image{
-    height: 30px;
-}
-
-.loading{
-    padding: 20px;
+.loading {
+  padding: 20px;
 }
 
 @media screen and (max-width: 768px) {
-    .div-design-one{
-        width: 300px;
-        height: 300px;
-        top: 30%;
-    }
+  .div-design-one {
+    width: 300px;
+    height: 300px;
+    top: 30%;
+  }
 
-    .div-design-two{
+  .div-design-two {
     width: 350px;
     height: 350px;
     bottom: -50px;
     left: -50px;
-    }
+  }
 }
 
 @media screen and (max-width: 712px) {
-    .div-design-one, .div-design-two{
-       background-color: $primary-background-color;
-    }
+  .div-design-one,
+  .div-design-two {
+    background-color: $primary-background-color;
+  }
 
-    .vector-image{
-        height: 100vh;
-    }
+  .vector-image {
+    height: 100vh;
+  }
 }
 
 @media screen and (max-width: 375px) {
-    .login-form-div h1{
-        font-size: 6vw;
-    }    
+  .login-form-div h1 {
+    font-size: 6vw;
+  }
 }
 
 @media screen and (max-width: 200px) {
-    .login-form-div h1{
-        font-size: 7vw;
-    }    
+  .login-form-div h1 {
+    font-size: 7vw;
+  }
 }
