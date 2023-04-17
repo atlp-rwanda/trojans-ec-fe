@@ -2,13 +2,17 @@
 import React from "react";
 // eslint-disable-next-line import/no-extraneous-dependencies
 import "regenerator-runtime/runtime";
-import { render as rtlRender } from "@testing-library/react";
-import { configureStore } from "@reduxjs/toolkit";
-import { Provider } from "react-redux";
-import { BrowserRouter } from "react-router-dom";
-import { reducers } from "../redux/store";
+import 'regenerator-runtime/runtime';
+import { render as rtlRender } from '@testing-library/react';
+import { configureStore } from '@reduxjs/toolkit';
+import "@testing-library/jest-dom";
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
+import {reducers} from '../redux/store';
+
 
 jest.mock("../redux/axiosinstance");
+
 
 function render(
   ui,
@@ -32,6 +36,7 @@ function render(
 
 let store = {};
 
+
 beforeAll(() => {
   // Mock local storage
   global.Storage.prototype.setItem = jest.fn((key, value) => {
@@ -41,9 +46,15 @@ beforeAll(() => {
   // const mockDispatch = jest.fn();
 });
 jest.mock("../redux/axiosinstance");
+
+
 beforeEach(() => {
   store = {};
 });
+
+afterEach(()=>{
+  jest.clearAllMocks();
+})
 
 afterAll(() => {
   // global.Storage.prototype.setItem.mockReset();

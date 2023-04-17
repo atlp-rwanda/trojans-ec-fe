@@ -2,23 +2,14 @@
 import React from 'react';
 import { render, fireEvent,screen } from '../jest.setup';
 import "@testing-library/jest-dom";
-import Details from '../../components/signUp/Details';
 import SignUp from '../../pages/signUp';
-import { reducers } from '../../redux/store';
-import { Provider,useDispatch, useSelector } from 'react-redux';
 
-
-// const mockDispatch = jest.fn();
-// jest.mock('react-redux', () => ({
-//   useDispatch: () => mockDispatch,
-//   useSelector: jest.fn(),
-// }));
 describe('Details component', () => {
   it('should render all form inputs', async () => {
-    const { getByPlaceholderText, getByLabelText,getByRole,getByTestId } =  render(<SignUp />);
+    const { getByPlaceholderText,getByRole,getByTestId } =  render(<SignUp />);
      const submitButton = getByRole('button', { name: /next/i });
      fireEvent.click(submitButton);
- 
+
     expect(screen.getByText(/Next/i)).toBeInTheDocument();
     expect(getByPlaceholderText('ENTER YOUR USERNAME')).toBeInTheDocument();
     expect(getByPlaceholderText('ENTER YOUR EMAIL')).toBeInTheDocument();
@@ -50,6 +41,53 @@ describe('Details component', () => {
     expect(dobError).toBeInTheDocument();
     expect(languageError).toBeInTheDocument();
   });
+
+
+  // it('',()=>{
+  //   const usernameRef=getByPlaceholderText('ENTER YOUR USERNAME');
+  //   const emailRef=getByPlaceholderText('ENTER YOUR EMAIL');
+  //   const passwordRef=getByPlaceholderText('ENTER YOUR PASSWORD');
+  //   const cpasswordRef=getByPlaceholderText('RE-ENTER YOUR PASSWORD');
+  //   const languageRef=getByTestId('language');
+  //   const currencyrRef=getByTestId('currency');
+  //   const genderRef=getByTestId('gender');
+
+  //   fireEvent.input(usernameRef, {
+  //     target: {
+  //       value: "renzo",
+  //     },
+  //   });
+  //   fireEvent.input(emailRef, {
+  //     target: {
+  //       value: "test@gmail.com",
+  //     },
+  //   });
+  //   fireEvent.input(passwordRef, {
+  //     target: {
+  //       value: "1234567a",
+  //     },
+  //   });
+  //   fireEvent.input(cpasswordRef, {
+  //     target: {
+  //       value: "1234567a",
+  //     },
+  //   });
+  //   fireEvent.input(languageRef, {
+  //     target: {
+  //       value: "kinyarwanda",
+  //     },
+  //   });
+  //   fireEvent.input(currencyrRef, {
+  //     target: {
+  //       value: "rwf",
+  //     },
+  //   });
+  //   fireEvent.input(genderRef, {
+  //     target: {
+  //       value: "male",
+  //     },
+  //   });
+  // })
 
 
 });

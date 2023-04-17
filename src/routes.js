@@ -19,6 +19,7 @@ const AppRoutes = () => {
       <Route exact path="/login" element={<Login />} />
       <Route exact path="/register" element={<SignUp />} />
       <Route exact path="/products/:id" element={<MainProductDetail />} />
+      <Route exact path="/login" element={<Login />} />
       <Route
         exact
         path="/dashboard/seller/products"

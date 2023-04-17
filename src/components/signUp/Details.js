@@ -114,6 +114,7 @@ const UserDetails = () => {
                   <span className="text-red-800">{errors.gender?.message}</span>
 
                   <Input
+                   data-testid='dob'
                     type="date"
                     register={{ ...register("dob") }}
                     errorText={errors.dob?.message}

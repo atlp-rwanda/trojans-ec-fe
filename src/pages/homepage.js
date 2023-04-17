@@ -1,5 +1,9 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import ChatModel from "../components/chatModel";
+
+   
+
 import { useDispatch, useSelector } from "react-redux";
 import { getProductsThunk } from "../redux/features/actions/products";
 import { getProduct } from "../redux/features/slices/products";
@@ -37,6 +41,7 @@ const Homepage = () => {
   }, [dispatch]);
   const { products, loading, error, categories } = useSelector(getProduct);
 
+
   return (
     <div data-testid="home">
       {loading && <Spinner />}
@@ -48,6 +53,9 @@ const Homepage = () => {
           <MainProductView products={products} categories={categories} />
         </>
       )}
+      <div id="modal">
+    <ChatModel/>
+    </div>
     </div>
   );
 };

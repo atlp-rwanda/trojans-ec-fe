@@ -10,7 +10,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { billingSchema, UserDetailSchema } from "../schema/signUpSchema";
+import { billingSchema } from "../schema/signUpSchema";
 import { PropagateLoader } from "react-spinners";
 import BackImage from "../assets/images/back.svg";
 import { registerUser } from "../redux/features/actions/SignUp";

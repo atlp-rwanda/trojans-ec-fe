@@ -35,8 +35,11 @@ export default function LoginInputs() {
       return navigate("/auth");
     }
     if (loading === false && user !== null && !twoFactorAuthToken) {
-      localStorage.setItem("token", user);
+  
       window.location.href = window.location.href.split("/login")[0];
+      localStorage.setItem("token", user.token);
+      localStorage.setItem("name", user.name);
+      return navigate("/");
     }
   }, [loading, user, twoFactorAuthToken]);
 

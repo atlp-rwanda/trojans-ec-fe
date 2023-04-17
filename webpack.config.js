@@ -32,7 +32,8 @@ module.exports = {
     fallback: {
       "fs": false,
       "path": require.resolve("path-browserify"),
-      "os": require.resolve("os-browserify")
+      "os": require.resolve("os-browserify"),
+      "crypto": require.resolve("crypto-browserify") 
     }
   },
 
@@ -41,6 +42,10 @@ module.exports = {
       template: "public/index.html",
     }),
     new webpack.DefinePlugin(envKeys),
+    new webpack.ProvidePlugin({
+      setImmediate: ['setimmediate', 'setImmedate'],
+      clearImmediate: ['setimmediate', 'clearImmedate']
+   }),
   ],
 
   module: {
