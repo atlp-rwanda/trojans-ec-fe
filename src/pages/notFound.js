@@ -2,7 +2,7 @@ import React from 'react'
 
 function NotFound() {
   return (
-    <div>
+    <div data-testid="page-not-found">
       <p>page not found</p>
     </div>
   )

@@ -2,7 +2,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../styles/login.scss";
-import googleIcon from "../images/googleIcon.svg";
+import googleIcon from "../assets/images/googleIcon.svg";
 
 export default function GoogleButton() {
   return (

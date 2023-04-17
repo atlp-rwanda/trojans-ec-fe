@@ -7,6 +7,7 @@ import SignUp from "./pages/signUp";
 import AllProducts from "./pages/dashboard/seller/AllProducts/allProducts";
 import ProductDetail from "./pages/dashboard/seller/ProductDetail.js/ProductDetail";
 import MainProductDetail from "./pages/MainProductDetail";
+import TwoFactorAuth from "./pages/twoFactorAuth";
 
 const AppRoutes = () => {
   return (
@@ -26,6 +27,7 @@ const AppRoutes = () => {
         path="/dashboard/seller/products/:productID"
         element={<ProductDetail />}
       />
+      <Route exact path="/auth" element={<TwoFactorAuth />} />
       <Route path="*" element={<NotFound />}></Route>
     </Routes>
   );

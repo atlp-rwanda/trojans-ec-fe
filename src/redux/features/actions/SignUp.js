@@ -4,6 +4,7 @@ import axios from "axios";
 export const registerUser = createAsyncThunk('user/signup',async(data)=>{
     try {
         const response = await axios.post(
+          // eslint-disable-next-line no-undef
          `${process.env.BACKEND_URL}/users/signup`,
           
          data

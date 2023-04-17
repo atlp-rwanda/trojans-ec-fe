@@ -39,9 +39,9 @@ const Homepage = () => {
           <p>This is Homepage Page</p>
           <div>
             <div className="pt-4 mx-10">
-              <span className="button border py-2 px-4 rounded-xl text-white ">
-                Login
-              </span>
+             <Link to="/login" data-testid="navigate-to-login" className="button border py-2 px-4 rounded-xl text-white ">
+              Login
+             </Link >
               <Link to="/register">
                 <span className="rounded-xl py-2 px-4 signup mx-2 border-2 drop-shadow-xl">
                   Sign Up
@@ -60,3 +60,4 @@ const Homepage = () => {
 };
 
 export default Homepage;
+

@@ -1,10 +1,9 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { getLoginUser } from "../redux/features/slices/user";
-import logo from "../images/LOGO.svg";
-import vector from "../images/Vector.png";
+import { getLoginUser, setGotEmail } from "../redux/features/slices/user";
+import logo from "../assets/images/LOGO.svg";
+import vector from "../assets/images/Vector.png";
 import { loginThunk } from "../redux/features/actions/userLogin";
 import "../styles/login.scss";
 import GoogleButton from "./googleButton";
@@ -23,20 +22,23 @@ export default function LoginInputs() {
   });
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { loading, error, user } = useSelector(getLoginUser);
-  const [userObj, setUserObj] = useState({
-    email: "",
-    password: "",
-  });
+  const { loading,error,user, twoFactorAuthToken } = useSelector(getLoginUser);
   const submitHandler = (data) => {
     dispatch(loginThunk(data));
   };
-  if (loading === false && user !== null) {
-    localStorage.setItem("token", user);
-    navigate("/");
-    window.location.reload();
-  }
-
+  
+  useEffect(() => {
+    if (!loading && twoFactorAuthToken) {
+      localStorage.setItem("userAuth", JSON.stringify(twoFactorAuthToken));
+      dispatch(setGotEmail({ gotEmail: false }));
+      return navigate("/auth");
+    }
+    if (loading === false && user !== null && !twoFactorAuthToken) {
+      localStorage.setItem("token", user);
+      return navigate("/");
+    }
+  }, [loading, user, twoFactorAuthToken])
+   
   return (
     <div className="login-container">
       <img className="logo-image" src={logo} alt="logo" />

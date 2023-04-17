@@ -95,6 +95,7 @@ return () => {};
    dispatch(registerUser(formData))
   };
   return (
+    <div id="signup-container-div">
     <>
       <ToastContainer />
       <div className="bg-signUp  h-full box-border w-full min-h-full">
@@ -194,6 +195,7 @@ return () => {};
 
       </div>
     </>
+    </div>
   );
 };
 

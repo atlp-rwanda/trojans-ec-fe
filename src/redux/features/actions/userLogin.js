@@ -7,8 +7,12 @@ export const loginThunk = createAsyncThunk("user/login", async (user) => {
       email: user.email,
       password: user.password,
     });
+
     return response.data;
   } catch (error) {
-    return error.response.data;
+    if(error.response){
+      return error.response.data;
+    }
+    return { message: error.message };
   }
 });
