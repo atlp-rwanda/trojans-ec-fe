@@ -22,8 +22,14 @@ const ProductDetail = () => {
   const { selectedProduct, loading, error, categories } =
     useSelector(getProduct);
 
-  if (error) {
-    return <div>Error Fetching</div>;
+  if (error.status) {
+    if (error.payload === 401) {
+      navigate("/login");
+    } else if (error.payload === "Network Error") {
+      return <div>Network error</div>;
+    } else {
+      return <div>An error occured in the process</div>;
+    }
   }
   return (
     <div className="product-details">

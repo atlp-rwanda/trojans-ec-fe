@@ -153,7 +153,6 @@ describe("Product", () => {
       files.push(mockFile);
     }
 
-    console.log(mockFile);
     fireEvent.change(expiryDate, { target: { value: "2060-10-01" } });
     fireEvent.input(bonus, { target: { value: "200" } });
     await userEvent.upload(image, files);
