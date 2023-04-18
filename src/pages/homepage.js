@@ -1,7 +1,5 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import chatIcon from "../assets/images/chat.svg";
-
 import { useDispatch, useSelector } from "react-redux";
 import { getProductsThunk } from "../redux/features/actions/products";
 import { getProduct } from "../redux/features/slices/products";
@@ -9,6 +7,14 @@ import MainProductView from "../components/viewProducts/MainProductView";
 import { getCategoriesThunk } from "../redux/features/actions/products";
 import Spinner from "../components/viewProducts/spinner";
 import { useNavigate } from "react-router-dom";
+import CartIcon from "../components/cart/CartIcon";
+import { getCartThunk } from "../redux/features/actions/cart";
+import { getCart } from "../redux/features/slices/cart";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import ErrorHandler from "../components/shared/ErrorHandler";
+import Navbar from "../components/Navbar";
+
 const Homepage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -20,9 +26,11 @@ const Homepage = () => {
   }, []);
   useEffect(() => {
     if (localStorage.getItem("token")) {
-      dispatch(getCategoriesThunk()).then(() => {
-        dispatch(getProductsThunk());
-      });
+      dispatch(getCategoriesThunk())
+        .then(() => {
+          dispatch(getProductsThunk());
+        })
+        .then(() => dispatch(getCartThunk()));
     } else {
       navigate("/login");
     }
@@ -31,28 +39,12 @@ const Homepage = () => {
 
   return (
     <div data-testid="home">
-      {error && <div>Error fetching products</div>}
-      {loading ? (
-        <Spinner />
-      ) : (
+      {loading && <Spinner />}
+      <ErrorHandler loading={loading} error={error} />
+      {!loading && !error.status && (
         <>
-          <p>This is Homepage Page</p>
-          <div>
-            <div className="pt-4 mx-10">
-             <Link to="/login" data-testid="navigate-to-login" className="button border py-2 px-4 rounded-xl text-white ">
-              Login
-             </Link >
-              <Link to="/register">
-                <span className="rounded-xl py-2 px-4 signup mx-2 border-2 drop-shadow-xl">
-                  Sign Up
-                </span>
-              </Link>
-              <Link to="/dashboard/seller/products">
-                <button className="m-2 p-1">Go to seller dashboard</button>
-              </Link>
-              <Link to="/dashboard/seller/product/create">Add Product</Link>
-            </div>
-          </div>
+          <ToastContainer />
+          <Navbar />
           <MainProductView products={products} categories={categories} />
         </>
       )}
@@ -61,4 +53,3 @@ const Homepage = () => {
 };
 
 export default Homepage;
-

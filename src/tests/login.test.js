@@ -51,5 +51,5 @@ test('login as a buyer and navigate home page', async ()=>{
         fireEvent.submit(submitBtnEl);
       });
 
-    await waitFor(() => expect(screen.getByTestId("loader")).toBeInTheDocument());
+    await waitFor(() => expect(screen.getByTestId("loader-2fa")).toBeInTheDocument());
 })

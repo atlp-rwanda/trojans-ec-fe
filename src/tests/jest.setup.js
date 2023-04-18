@@ -1,12 +1,12 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 // eslint-disable-next-line import/no-extraneous-dependencies
-import 'regenerator-runtime/runtime';
-import { render as rtlRender } from '@testing-library/react';
-import { configureStore } from '@reduxjs/toolkit';
-import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
-import {reducers} from '../redux/store';
+import "regenerator-runtime/runtime";
+import { render as rtlRender } from "@testing-library/react";
+import { configureStore } from "@reduxjs/toolkit";
+import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
+import { reducers } from "../redux/store";
 
 jest.mock("../redux/axiosinstance");
 
@@ -40,7 +40,7 @@ beforeAll(() => {
   global.Storage.prototype.getItem = jest.fn((key) => store[key]);
   // const mockDispatch = jest.fn();
 });
-
+jest.mock("../redux/axiosinstance");
 beforeEach(() => {
   store = {};
 });

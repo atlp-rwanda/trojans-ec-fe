@@ -5,8 +5,9 @@ import {
   addProductLoading,
   addProductSuccess,
 } from "./productSlice";
-const token= window.localStorage.getItem("token") ? window.localStorage.getItem("token").replace(/"/g, "") : ""
-console.log(token)
+const token = window.localStorage.getItem("token")
+  ? window.localStorage.getItem("token").replace(/"/g, "")
+  : "";
 export const submitForm = createAsyncThunk(
   "add product",
   async (formData, thunkApi) => {

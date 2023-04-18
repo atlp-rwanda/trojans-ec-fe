@@ -6,14 +6,18 @@ import {
 } from "../redux/features/actions/products";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { getProduct } from "../redux/features/slices/products";
 import { removeSelectedProduct } from "../redux/features/slices/products";
 import Spinner from "../components/viewProducts/spinner";
 import SingleMainView from "../components/viewProducts/SingleMainView";
+import CartIcon from "../components/cart/CartIcon";
+import { getCartThunk } from "../redux/features/actions/cart";
+import ErrorHandler from "../components/shared/ErrorHandler";
 
 const MainProductDetail = () => {
   const { id } = useParams();
-  const { selectedProduct, loading, categories } = useSelector(getProduct);
+  const { selectedProduct, loading, categories, error } = useSelector(
+    (state) => state.product
+  );
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getCategoriesThunk());
@@ -22,15 +26,29 @@ const MainProductDetail = () => {
       dispatch(removeSelectedProduct());
     };
   }, [dispatch, id]);
-  if (loading) {
-    return (
-      <div>
-        <Spinner />
-      </div>
-    );
-  }
+  useEffect(() => {
+    dispatch(getCartThunk());
+  }, [dispatch]);
+
   return (
-    <SingleMainView selectedProduct={selectedProduct} categories={categories} />
+    <>
+      {loading && <Spinner />}
+      <ErrorHandler
+        loading={loading}
+        error={error}
+        message={"You need a buyer's account to perform any cart operations"}
+        to={"home"}
+      />
+      {!loading && !error.status && (
+        <div>
+          <CartIcon />
+          <SingleMainView
+            selectedProduct={selectedProduct}
+            categories={categories}
+          />
+        </div>
+      )}
+    </>
   );
 };
 
