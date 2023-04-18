@@ -1,6 +1,6 @@
 import Error from "../../components/shared/Error";
 import React from "react";
-import { render, fireEvent, screen } from "../jest.setup";
+import { render } from "../jest.setup";
 import "@testing-library/jest-dom";
 
 describe("Testing error component", () => {
