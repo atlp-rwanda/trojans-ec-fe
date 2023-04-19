@@ -1,14 +1,12 @@
+/* eslint-disable no-undef */
 /* eslint-disable react/prop-types */
 import React from "react";
-// eslint-disable-next-line import/no-extraneous-dependencies
 import "regenerator-runtime/runtime";
 import { render as rtlRender } from "@testing-library/react";
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import { reducers } from "../redux/store";
-
-jest.mock("../redux/axiosinstance");
 
 function render(
   ui,
@@ -25,12 +23,12 @@ function render(
           <React.Fragment>{children}</React.Fragment>
         </Provider>
       </BrowserRouter>
-    );
+    )
   }
-  return rtlRender(ui, { wrapper: Wrapper, ...renderOptions });
+  return rtlRender(ui, { wrapper: Wrapper, ...renderOptions })
 }
 
-let store = {};
+let store = {}
 
 beforeAll(() => {
   // Mock local storage
@@ -38,19 +36,20 @@ beforeAll(() => {
     store[key] = value;
   });
   global.Storage.prototype.getItem = jest.fn((key) => store[key]);
-  // const mockDispatch = jest.fn();
+ // const mockDispatch = jest.fn();
+
 });
 jest.mock("../redux/axiosinstance");
 beforeEach(() => {
-  store = {};
-});
+  store = {}
+})
 
 afterAll(() => {
   // global.Storage.prototype.setItem.mockReset();
   // global.Storage.prototype.getItem.mockReset();
-});
+})
 
 // re-export everything
-export * from "@testing-library/react";
+export * from '@testing-library/react';
 // override render method
-export { render };
+export { render }

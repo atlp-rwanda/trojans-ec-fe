@@ -3,6 +3,8 @@ import signUpReducer from "./features/slices/signUp";
 import userReducer from "./features/slices/user";
 import StepperReducer from "./features/slices/stepper";
 import productReducer from "./features/slices/products";
+import passwordReducer from "./features/slices/resetPassword";
+import { sendEmailSlice } from "./features/slices/sendEmail";
 import { productSlice } from "./features/product-redux/productSlice";
 import { categorySlice } from "./features/product-redux/categoriesSlice";
 import cartReducer from "./features/slices/cart"
@@ -14,6 +16,8 @@ export const reducers={
     stepper:StepperReducer,
     product: productReducer,
     prod: productSlice.reducer,
+    resetPass: passwordReducer,
+    sendEmail:sendEmailSlice.reducer,
     cat: categorySlice.reducer,
     cart:cartReducer,
     userProfile: profileReducer
@@ -23,6 +27,6 @@ const store = configureStore({
   reducer: {
     ...reducers,
   },
-});
+})
 
-export default store;
+export default store

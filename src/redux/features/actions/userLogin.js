@@ -1,7 +1,7 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "../../axiosinstance";
+import { createAsyncThunk } from '@reduxjs/toolkit'
+import axios from '../../axiosinstance'
 
-export const loginThunk = createAsyncThunk("user/login", async (user) => {
+export const loginThunk = createAsyncThunk('user/login', async (user) => {
   try {
     const response = await axios.post(
       "/users/login",
@@ -23,4 +23,4 @@ export const loginThunk = createAsyncThunk("user/login", async (user) => {
     }
     return { message: error.message };
   }
-});
+})

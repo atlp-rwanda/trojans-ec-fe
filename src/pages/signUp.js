@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -20,7 +21,7 @@ import GoogleButton from "../components/googleButton";
 import Details from "../components/signUp/Details";
 /* istanbul ignore next */
 const signUp = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   const { loading, response, error, success } = useSelector(
     (state) => state.signUp
@@ -37,7 +38,7 @@ const signUp = () => {
     formState: { errors: billingErros },
   } = useForm({
     resolver: yupResolver(billingSchema),
-  });
+  })
 
   useEffect(() => {
     if (response) {
@@ -204,7 +205,7 @@ const signUp = () => {
         </div>
       </>
     </div>
-  );
-};
+  )
+}
 
-export default signUp;
+export default signUp

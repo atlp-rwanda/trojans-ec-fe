@@ -1,47 +1,56 @@
-
-$primary-color: #5F3E8E;
-.input{
-    border: solid black 1.5px;
-    &:active, &:focus {
-        outline: none; 
-
-      }
-  
+$primary-color: #5f3e8e;
+.input {
+  border: solid black 1.5px;
+  &:active,
+  &:focus {
+    outline: none;
+  }
 }
-.inputPassword{
-    border: solid black 1.5px;
-    border-right: none;
-    border-bottom-right-radius: 0px;
-    border-top-right-radius: 0px;
-   &:focus, &:active{
-        border-bottom-right-radius: none;
-        outline: none; 
-}
-
+.inputPassword {
+  border: solid black 1.5px;
+  border-right: none;
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+  &:focus,
+  &:active {
+    border-bottom-right-radius: none;
+    outline: none;
+  }
 }
 
-
-.btn-signup{
-background-color: $primary-color;
-color: white;
-
-
-
+.btn-signup {
+  background-color: $primary-color;
+  color: white;
 }
-.pass{
-    border: solid black 1.5px;
-border-left: 0;
+.pass {
+  border: solid black 1.5px;
+  border-left: 0;
 }
-.btn-signup:hover{
-    transition-timing-function: ease-out;
-    transition: width 10s linear 7s;
-    background-color: #73559e;
+.btn-signup:hover {
+  transition-timing-function: ease-out;
+  transition: width 10s linear 7s;
+  background-color: #73559e;
 }
-.backBtn{
-    background-color: $primary-color;
+.backBtn {
+  background-color: $primary-color;
+}
+
+form {
+  overflow: scroll;
+}
+.pass {
+  border: solid black 1.5px;
+  border-left: 0;
+}
+.btn-signup:hover {
+  transition-timing-function: ease-out;
+  transition: width 10s linear 7s;
+  background-color: #73559e;
+}
+.backBtn {
+  background-color: $primary-color;
 }
 
 #signup-container-div {
     overflow: scroll;
 }
-

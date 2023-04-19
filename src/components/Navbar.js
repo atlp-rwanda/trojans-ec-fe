@@ -24,6 +24,9 @@ const Navbar = () => {
             <button className="m-2 p-1">Go to seller dashboard</button>
           </Link>
           <Link to="/dashboard/seller/product/create">Add Product</Link>
+          <Link to="/user/profile">
+              <button className="m-2 p-1">Profile Update</button>
+              </Link>
         </div>
       </div>
       <CartIcon />
