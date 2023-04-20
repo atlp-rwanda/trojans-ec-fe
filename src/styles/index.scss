@@ -64,3 +64,24 @@ $dark-primary: #301f47;
     background-size: cover;
   }
 }
+.input-field{
+    @apply w-full border border mt-2 p-2 rounded-lg border-new-color outline-none 
+}
+.submit{
+    background-color: $primary-color;
+    border-color: $primary-color;
+}
+.label, .next{
+    background-color: $primary-color;
+}
+.error{
+    @apply text-right text-red-500 text-sm
+}
+.page{
+    background-color: $primary-color;
+    color: white;
+}
+
+.input-div{
+    @apply my-3
+}

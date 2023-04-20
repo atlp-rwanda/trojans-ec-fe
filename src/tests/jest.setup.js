@@ -1,4 +1,5 @@
-import React from 'react';
+/* eslint-disable react/prop-types */
+import React from "react";
 // eslint-disable-next-line import/no-extraneous-dependencies
 import 'regenerator-runtime/runtime';
 import { render as rtlRender } from '@testing-library/react';
@@ -15,12 +16,14 @@ function render(
     preloadedState,
     store = configureStore({ reducer: { ...reducers }, preloadedState }),
     ...renderOptions
-  } = {},
+  } = {}
 ) {
   function Wrapper({ children }) {
     return (
       <BrowserRouter>
-        <Provider store={store}>{children}</Provider>
+        <Provider store={store}>
+          <React.Fragment>{children}</React.Fragment>
+        </Provider>
       </BrowserRouter>
     );
   }
@@ -30,13 +33,12 @@ function render(
 let store = {};
 
 beforeAll(() => {
- // Mock local storage
+  // Mock local storage
   global.Storage.prototype.setItem = jest.fn((key, value) => {
     store[key] = value;
   });
   global.Storage.prototype.getItem = jest.fn((key) => store[key]);
- // const mockDispatch = jest.fn();
-
+  // const mockDispatch = jest.fn();
 });
 
 beforeEach(() => {
@@ -49,6 +51,6 @@ afterAll(() => {
 });
 
 // re-export everything
-export * from '@testing-library/react';
+export * from "@testing-library/react";
 // override render method
 export { render };

@@ -7,7 +7,7 @@ import {
 } from "../../../../redux/features/actions/products.js";
 import { getProduct } from "../../../../redux/features/slices/products.js";
 import Spinner from "../../../../components/viewProducts/spinner.js";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const AllProducts = () => {
   const dispatch = useDispatch();

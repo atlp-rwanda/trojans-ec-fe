@@ -20,3 +20,8 @@ export const products = [
     updatedAt: "2023-03-26T02:42:30.418Z",
   },
 ];
+export const product={
+    message: {},
+    isLoading: false,
+    error: false,
+}
