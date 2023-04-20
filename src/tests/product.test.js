@@ -7,7 +7,7 @@
 /* eslint-disable no-undef */
 import React from "react";
 import { render, screen, fireEvent, waitFor } from "./jest.setup";
-import Product from "../components/addProduct/addProduct";
+import Product from "../components/products/addProduct/addProduct";
 import "@testing-library/jest-dom/extend-expect";
 import { category } from "./mocks/categories.mock";
 import configureMockStore from "redux-mock-store";

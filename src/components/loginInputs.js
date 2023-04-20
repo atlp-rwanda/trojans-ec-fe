@@ -9,12 +9,12 @@ import { getLoginUser } from "../redux/features/slices/user";
 import logo from "../assets/images/LOGO.svg";
 import vector from "../assets/images/Vector.png";
 import { loginThunk } from "../redux/features/actions/userLogin";
-import "../styles/login.scss"
-import GoogleButton from "./googleButton";
-import loginSchema from "../schema/loginSchema";
+import "../styles/login.scss";
+import GoogleButton from "./shared/GoogleButton";
+import loginSchema from "../validations/loginSchema";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import Loader from "./twoFactorLoader";
+import Loader from "./shared/TwoFactorLoader";
 
 export default function LoginInputs() {
   const {
@@ -26,25 +26,24 @@ export default function LoginInputs() {
   });
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { loading, error, user, twoFactorAuthToken } =
-    useSelector(getLoginUser);
+  const { loading,error,user, twoFactorAuth } = useSelector(getLoginUser);
   const submitHandler = (data) => {
     dispatch(loginThunk(data));
   };
 
   useEffect(() => {
-    if (!loading && twoFactorAuthToken) {
-      localStorage.setItem("userAuth", JSON.stringify(twoFactorAuthToken));
+    if (!loading && twoFactorAuth) {
       dispatch(setGotEmail({ gotEmail: false }));
       return navigate("/auth");
     }
-    if (loading === false && user !== null && !twoFactorAuthToken) {
+    if (loading === false && user !== null && !twoFactorAuth) {
       localStorage.setItem("token", user.token);
       localStorage.setItem("name", user.name);
+      localStorage.setItem("user", JSON.stringify(user));
       window.location.href = window.location.href.split("/login")[0];
     }
-  }, [loading, user, twoFactorAuthToken]);
-
+  }, [loading, user, twoFactorAuth])
+   
   return (
     <div className="login-container overflow-hidden">
       <img className="logo-image" src={logo} alt="logo" />
@@ -89,7 +88,7 @@ export default function LoginInputs() {
             data-testid="loginbtn"
           >
             <span className={`${loading ? "hidden" : ""}`}>Login</span>
-            {loading ? <Loader /> : null}
+            {loading ? <Loader data_testid="loader-2fa" /> : null}
           </button>
           <h6 className="forgot" onClick={() => navigate('/sendEmail')}>
             Forgot Password?

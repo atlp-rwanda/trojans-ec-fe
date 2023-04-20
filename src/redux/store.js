@@ -37,6 +37,6 @@ const store = configureStore({
   reducer: {
     ...reducers,
   },
-})
+});
 
 export default store

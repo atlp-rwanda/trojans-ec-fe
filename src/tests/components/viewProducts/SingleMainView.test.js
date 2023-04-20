@@ -3,7 +3,7 @@ import { render, fireEvent, screen } from "../../jest.setup";
 import "@testing-library/jest-dom";
 import { products } from "../../mocks/product.mock";
 import { categories } from "../../mocks/categories.mock";
-import SingleMainView from "../../../components/viewProducts/SingleMainView";
+import SingleMainView from "../../../components/products/viewProducts/SingleMainView";
 
 const regExp = (str) => new RegExp(str, "i");
 describe("Product main single view component", () => {

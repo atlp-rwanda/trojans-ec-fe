@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "../../jest.setup";
 import "@testing-library/jest-dom";
-import Pagination from "../../../components/viewProducts/Pagination";
+import Pagination from "../../../components/products/viewProducts/Pagination";
 
 const mockFunction = () => {
   return "something";

@@ -1,17 +1,12 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
-/* istanbul ignore next */
+import axios from "../../axiosinstance";
+
 export const registerUser = createAsyncThunk('user/signup',async(data)=>{
     try {
-        const response = await axios.post(
-          // eslint-disable-next-line no-undef
-         `${process.env.BACKEND_URL}/users/signup`,
-          
-         data
-          
-        )
+        const response = await axios.post(`/users/signup`, data)
         return response.data;
       } catch (error) {
+        /* istanbul ignore next */
         return error
       }
 })

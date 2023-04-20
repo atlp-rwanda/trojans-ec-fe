@@ -8,8 +8,7 @@ const initialState = {
   error: null,
   gotEmail: false,
   successAuth: false,
-  userName: null,
-  twoFactorAuthToken: null,
+  twoFactorAuth: false,
   otp: "",
   otpErrors:{
     firstDigitError: null,
@@ -38,8 +37,11 @@ const userSlice = createSlice({
       const { otp } = payload;
       return { ...state, otp };
     },
-    setTwoFactorAuthToken: (state) => {
-      return { ...state, twoFactorAuthToken: null };
+    setTwoFactorAuth: (state) => {
+      return { ...state, twoFactorAuth: false };
+    },
+    setUser: (state) => {
+      return { ...state, user: null };
     },
     setOtpErrors: (state, {payload}) => {
       const { type, firstDigitError, isRequiredError, exactLengthError} = payload;
@@ -59,7 +61,8 @@ const userSlice = createSlice({
   },
   extraReducers: {
     [loginThunk.pending]: (state) => {
-      state.loading = true;
+      
+      return { ...state, loading: true, user: null };
     },
     [loginThunk.rejected]: (state, { payload }) => {
       state.loading = false;
@@ -67,13 +70,15 @@ const userSlice = createSlice({
     },
     [loginThunk.fulfilled]: (state, { payload }) => {
       if(payload.message){
-        return { ...state, loading: false, user: null, error: payload.message };
+        return { ...state, loading: false, error: payload.message };
       }
       if(payload.token){
-        if(payload.randomAuth){
-          return {...state, loading: false, twoFactorAuthToken: payload.token, error: null };
+        const { role, token, name, profilePic, email } = payload;
+        if(role === "seller" || role === "admin"){
+          return {...state, loading: false, twoFactorAuth: true, error: null };
         }
-        return {...state, loading: false, user: payload, error: null };
+        const newUser = { name, role, profilePic, token, email }
+        return {...state, loading: false, user: newUser, error: null };
       }
     },
 
@@ -81,8 +86,8 @@ const userSlice = createSlice({
       state.loading = true;
     },
     [authThunk.rejected]: (state, {payload}) => {
-      if(payload.response){
-        const { status } = payload.response.data;
+      const { status, message } = payload;
+      if(status){
         if (status === 400){
           return {
             ...state,
@@ -97,18 +102,14 @@ const userSlice = createSlice({
         }
 
       }
-      const { message } = payload;
       if(message){
-        return { ...state, loading: false, user: null, error: message, successAuth: false };
+        return { ...state, loading: false, error: message, successAuth: false };
       }
-      
     },
     [authThunk.fulfilled]: (state, { payload }) => {
-      const { token } = payload;
-     
-      if(token){
-        return {...state, loading: false, user: token, twoFactorAuthToken: null, successAuth: true };
-      }
+      const { role, token, name, profilePic, email } = payload;
+      const newUser = { name, role, profilePic, token, email }
+      return {...state, loading: false, user: newUser, twoFactorAuth: false, successAuth: true, error: null };
     },
 
   },
@@ -121,9 +122,10 @@ export const {
   setError,
   setGotEmail,
   setSuccessAuth,
-  setTwoFactorAuthToken,
+  setTwoFactorAuth,
   setOtpErrors,
   setOtp,
+  setUser,
 } = userSlice.actions;
 export const getLoginUser = (state) => state.user;
 export default userSlice.reducer;

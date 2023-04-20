@@ -1,5 +1,5 @@
 import React from "react";
-import check from "../images/icons8-checkmark-512.png";
+import check from "../assets/images/icons8-checkmark-512.png";
 import { Link } from "react-router-dom";
 
 function SendSuccessfull() {

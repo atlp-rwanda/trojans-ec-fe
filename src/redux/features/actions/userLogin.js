@@ -15,7 +15,13 @@ export const loginThunk = createAsyncThunk('user/login', async (user) => {
         },
       }
     );
-    console.log(response.data)
+    localStorage.removeItem("token");
+    const { role, token } = response.data;
+    if(role === "admin" || role === "seller"){
+      localStorage.setItem("userAuth", token);
+    }else{
+      localStorage.setItem("token", token);
+    }
     return response.data;
   } catch (error) {
     if (error.response) {

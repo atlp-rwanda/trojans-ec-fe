@@ -8,6 +8,8 @@ import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import { reducers } from "../redux/store";
 
+jest.mock("../redux/axiosinstance");
+
 function render(
   ui,
   {
@@ -37,7 +39,7 @@ beforeAll(() => {
   global.Storage.prototype.getItem = jest.fn((key) => store[key]);
 
 });
-jest.mock("../redux/axiosinstance");
+
 beforeEach(() => {
   store = {}
 })

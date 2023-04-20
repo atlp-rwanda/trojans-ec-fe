@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getProductsThunk } from "../../redux/features/actions/products";
 import { getProduct } from "../../redux/features/slices/products";
 import { LoadingMainCards } from "../skeleton/loadingMainCards";
-import MainProductCard from "../viewProducts/MainProductCard";
+import MainProductCard from "../products/viewProducts/MainProductCard";
 
 function RecommendProducts({selectedProduct }) {
   const dispatch = useDispatch();

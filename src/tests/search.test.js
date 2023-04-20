@@ -2,7 +2,7 @@
 import React from "react";
 import { render, screen, fireEvent, waitFor } from "./jest.setup";
 import "@testing-library/jest-dom/extend-expect";
-import SearchInput from "../components/searchProduct/searchInput";
+import SearchInput from "../components/products/searchProduct/searchInput";
 import ViewSearch from "../pages/searchView";
 import { noResultMock, searchMock } from "./mocks/search.mock";
 

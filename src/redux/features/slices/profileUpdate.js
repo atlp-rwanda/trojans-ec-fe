@@ -53,7 +53,7 @@ const profileSlice = createSlice({
         }
       },
       [updateProfileThunk.rejected]: (state, {payload}) => {
-        console.log('update rejected')
+        console.log('update rejected with payload', payload)
         return{
           ...state,
           loading: false,

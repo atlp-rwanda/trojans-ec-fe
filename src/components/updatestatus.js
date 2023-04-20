@@ -5,7 +5,7 @@ import { toast } from 'react-toastify'
 import disableThunk from '../redux/features/actions/disable'
 import { getUsers } from '../redux/features/slices/getUsers'
 import css from '../styles/disable.module.scss'
-import Loader from './twoFactorLoader'
+import Loader from './shared/TwoFactorLoader'
 
 const UpdateStatusButton = ({ user }) => {
   const dispatch = useDispatch()

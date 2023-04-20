@@ -3,7 +3,7 @@ import '../../../../styles/users.scss'
 import UserTable from '../../../../components/UserTable';
 import { getUsers } from '../../../../redux/features/slices/getUsers';
 import { useNavigate } from 'react-router';
-import Spinner from '../../../../components/viewProducts/spinner';
+import Spinner from '../../../../components/products/viewProducts/spinner';
 import { useSelector } from 'react-redux';
 import parseJwt from '../../../../helpers/parseJwt';
 import ErrorHandler from '../../../../components/shared/ErrorHandler';

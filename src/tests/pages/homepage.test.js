@@ -1,9 +1,8 @@
-import Homepage from "../../pages/homepage";
 import React from "react";
 import 'setimmediate';
-import { getByTestId, render,screen } from "../jest.setup";
+import { render,screen } from "../jest.setup";
 import "@testing-library/jest-dom";
-
+import Homepage from "../../pages/homepage";
 
 describe("Testing the home page", () => {
   it("should render all text", () => {
