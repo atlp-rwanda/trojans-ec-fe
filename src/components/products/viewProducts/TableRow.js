@@ -11,11 +11,12 @@ import {
   setPages,
 } from "../../../redux/features/slices/products.js";
 import { getCategoriesThunk } from "../../../redux/features/actions/products";
-import Loader from '../../shared/TwoFactorLoader.js';
+import Loader from "../../shared/TwoFactorLoader.js";
 import UpdateDeletePopup from "../updateProduct/UpdateDeletePopup";
 
 const TableRow = ({ products, categories }) => {
-  const { deleting, productNameToDel, productIdToDel } = useSelector(getProduct);
+  const { deleting, productNameToDel, productIdToDel } =
+    useSelector(getProduct);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const onDeleteClick = (event, productId, productName) => {
@@ -29,7 +30,7 @@ const TableRow = ({ products, categories }) => {
     event.stopPropagation();
     dispatch(setProductToUpdate({ productToUpdate: { ...product } }));
     dispatch(getCategoriesThunk());
-    dispatch(setPages({firstPage: true, secondPage: false }));
+    dispatch(setPages({ firstPage: true, secondPage: false }));
     dispatch(setProductIdToDel({ productNameToDel: null }));
     dispatch(setProductIdToDel({ productIdToDel: null }));
     return;
@@ -73,18 +74,20 @@ const TableRow = ({ products, categories }) => {
               onClick={(e) => handleEdit(e, product)}
               className="fa fa-edit fa-lg text-[#1976D2] hover:scale-125 pr-2"
             ></i>
-              {deleting && productIdToDel === product.id ? <Loader className="loader-delete opacity-75"/>
-                  : (
-                    <>
-                    <i
-                      data-testid={`delete-${product.id}`}
-                      onClick={(e) => onDeleteClick(e, product.id, product.name)}
-                      className="fa fa-trash fa-lg text-[#D23D4F] hover:scale-125"
-                      ></i>
-                    {productNameToDel && productIdToDel === product.id && <UpdateDeletePopup/>}
-                      </>
-                  )
-              }
+            {deleting && productIdToDel === product.id ? (
+              <Loader className="loader-delete opacity-75" />
+            ) : (
+              <>
+                <i
+                  data-testid={`delete-${product.id}`}
+                  onClick={(e) => onDeleteClick(e, product.id, product.name)}
+                  className="fa fa-trash fa-lg text-[#D23D4F] hover:scale-125"
+                ></i>
+                {productNameToDel && productIdToDel === product.id && (
+                  <UpdateDeletePopup />
+                )}
+              </>
+            )}
           </td>
         </tr>
       ))}

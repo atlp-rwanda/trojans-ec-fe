@@ -11,10 +11,12 @@ import vector from "../assets/images/Vector.png";
 import { loginThunk } from "../redux/features/actions/userLogin";
 import "../styles/login.scss";
 import GoogleButton from "./shared/GoogleButton";
-import loginSchema from "../validations/loginSchema";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Loader from "./shared/TwoFactorLoader";
+import loginSchema from "../validations/loginSchema";
+import Logo from "./logo";
+import Spinner from "./products/viewProducts/spinner";
 
 export default function LoginInputs() {
   const {
@@ -26,7 +28,7 @@ export default function LoginInputs() {
   });
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { loading,error,user, twoFactorAuth } = useSelector(getLoginUser);
+  const { loading, error, user, twoFactorAuth } = useSelector(getLoginUser);
   const submitHandler = (data) => {
     dispatch(loginThunk(data));
   };
@@ -42,11 +44,13 @@ export default function LoginInputs() {
       localStorage.setItem("user", JSON.stringify(user));
       window.location.href = window.location.href.split("/login")[0];
     }
-  }, [loading, user, twoFactorAuth])
-   
+  }, [loading, user, twoFactorAuth]);
+
   return (
     <div className="login-container overflow-hidden">
-      <img className="logo-image" src={logo} alt="logo" />
+      <div className="m-5 lg:my-6 lg:mx-8 w-[90vw]">
+        <Logo />
+      </div>
       <div className="div-design-one"></div>
       <div className="div-design-two"></div>
       <img className="vector-image" src={vector} alt="vector" />
@@ -58,7 +62,7 @@ export default function LoginInputs() {
             <input
               className="login-input bg-transparent outline-none w-full"
               placeholder="User Email"
-              {...register('email')}
+              {...register("email")}
               name="email"
               type="text"
             />
@@ -71,7 +75,7 @@ export default function LoginInputs() {
           <div className="w-80">
             <input
               className="login-input bg-transparent outline-none w-full"
-              {...register('password')}
+              {...register("password")}
               name="password"
               placeholder="User Password"
               type="password"
@@ -88,14 +92,23 @@ export default function LoginInputs() {
             data-testid="loginbtn"
           >
             <span className={`${loading ? "hidden" : ""}`}>Login</span>
-            {loading ? <Loader data_testid="loader-2fa" /> : null}
+            {loading ? <Spinner withoutText={true} /> : null}
           </button>
-          <h6 className="forgot" onClick={() => navigate('/sendEmail')}>
+          <h6 className="forgot" onClick={() => navigate("/sendEmail")}>
             Forgot Password?
+          </h6>
+          <h6 className="forgot">
+            Don't have an account?{" "}
+            <span
+              onClick={() => navigate("/register")}
+              className="text-primary font-semibold"
+            >
+              Sign up
+            </span>
           </h6>
         </form>
         <GoogleButton />
       </div>
     </div>
-  )
+  );
 }

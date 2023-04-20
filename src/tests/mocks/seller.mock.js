@@ -8,10 +8,10 @@ export const sellers = [
     status: "active",
     isVerified: true,
     gender: "Male",
-    birthdate: "2000-01-01T00:00:00.000Z",
+    birthdate: "01/01/2000",
     preferredLanguage: "English",
     preferredCurrency: "RWF",
-    lastTimePasswordUpdated: "2023-03-17T08:17:27.407Z",
+    lastTimePasswordUpdated: "17/03/2023",
     profilePic:
       "https://res.cloudinary.com/dmjxukx09/image/upload/v1675844692/profiles/Profile-Avatar-PNG-Free-Download_paqfrf.png",
     billingAddress: {
@@ -21,7 +21,7 @@ export const sellers = [
       postalCode: "00000",
       country: "Rwanda",
     },
-    createdAt: "2023-03-17T08:17:27.407Z",
-    updatedAt: "2023-03-17T08:17:27.407Z",
+    // createdAt: "2023-03-17T08:17:27.407Z",
+    // updatedAt: "2023-03-17T08:17:27.407Z",
   },
 ];

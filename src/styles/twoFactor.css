@@ -1,11 +1,12 @@
 .two-factor-container {
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
   position: relative;
   height: 100vh;
   overflow: hidden;
 }
 
-.two-factor-container .two-factor-form-div, .success-fail-popup {
+.two-factor-container .two-factor-form-div,
+.success-fail-popup {
   max-width: 450px;
   width: 100%;
   margin: auto;
@@ -70,13 +71,13 @@
 .otp-input-style {
   width: 40px !important;
   height: 40px !important;
-  border: 2px solid #5F3E8E;
+  border: 2px solid #5f3e8e;
   border-radius: 2px;
 }
 
 .otp-input-style:focus {
   outline: none;
-  border-color: #5F3E8E;
+  border-color: #5f3e8e;
   box-shadow: 0 0 0 2px rgba(95, 62, 142, 0.4235294118);
 }
 
@@ -92,7 +93,7 @@
 .div-design-one {
   width: 350px;
   height: 350px;
-  background-color: #A791CA;
+  background-color: #a791ca;
   opacity: 29%;
   border-radius: 50%;
   margin-left: 100px;
@@ -102,7 +103,7 @@
 .div-design-two {
   width: 450px;
   height: 450px;
-  background-color: #BF9DDA;
+  background-color: #bf9dda;
   opacity: 53%;
   border-radius: 50%;
   position: absolute;
@@ -135,7 +136,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #5F3E8E;
+  /* background-color: #5F3E8E; */
   transition: opacity 1s, visibility 1s;
 }
 
@@ -144,7 +145,7 @@
   width: 25px;
   height: 25px;
   border: 5px solid white;
-  border-top-color: #5F3E8E;
+  border-top-color: #5f3e8e;
   border-radius: 50%;
   animation: twofaloading 40s ease infinite;
 }
@@ -164,7 +165,8 @@
   align-items: center;
 }
 
-.got-email p, .try-loggin-auth {
+.got-email p,
+.try-loggin-auth {
   width: 80%;
   text-align: center;
   padding-bottom: 30px;
@@ -175,7 +177,7 @@
 }
 
 .try-loggin-auth a {
-  color: #5F3E8E;
+  color: #5f3e8e;
 }
 
 .comfirm-popup p {
@@ -216,8 +218,9 @@
   }
 }
 @media screen and (max-width: 712px) {
-  .div-design-one, .div-design-two {
-    background-color: #F5F5F5;
+  .div-design-one,
+  .div-design-two {
+    background-color: #f5f5f5;
   }
   .vector-image {
     height: 100vh;
@@ -285,4 +288,4 @@
     width: 80%;
     margin-bottom: 15px;
   }
-}/*# sourceMappingURL=twoFactor.css.map */
+} /*# sourceMappingURL=twoFactor.css.map */

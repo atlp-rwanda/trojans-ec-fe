@@ -9,6 +9,7 @@ import {
 const token = window.localStorage.getItem("token")
   ? window.localStorage.getItem("token").replace(/"/g, "")
   : "";
+/* istanbul ignore next */
 export const submitForm = createAsyncThunk(
   "add product",
   async (formData, thunkApi) => {

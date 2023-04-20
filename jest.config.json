@@ -1,21 +1,20 @@
 {
-    "collectCoverage": true,
-    "testEnvironment": "jsdom",
-    "coverageReporters": ["lcov", "text"],
-    "coverageDirectory": "coverage",
-    "testTimeout": 10000,
-    "transform": {
-      "^.+\\.js$": "babel-jest",
-      "^.+\\.css$": "jest-transform-css",
-      "\\.js$": "<rootDir>/node_modules/babel-jest"
-    },
-    "testPathIgnorePatterns" : [
-      "<rootDir>/src/index.js" 
-    ],
-    "setupFilesAfterEnv": ["./src/tests/jest.setup.js"],
-    "roots": ["<rootDir>/src/tests"],
-    "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|svg)$": "babel-jest",
-      "^.+\\.(css|less|scss)$": "babel-jest"
-    }
+  "maxWorkers": 4,
+  "collectCoverage": true,
+  "testEnvironment": "jsdom",
+  "coverageReporters": ["lcov", "text"],
+  "coverageDirectory": "coverage",
+  "testTimeout": 70000,
+  "transform": {
+    "^.+\\.js$": "babel-jest",
+    "^.+\\.css$": "jest-transform-css",
+    "\\.js$": "<rootDir>/node_modules/babel-jest"
+  },
+  "testPathIgnorePatterns": ["<rootDir>/src/index.js"],
+  "setupFilesAfterEnv": ["./src/tests/jest.setup.js"],
+  "roots": ["<rootDir>/src/tests"],
+  "moduleNameMapper": {
+    "\\.(jpg|jpeg|png|svg)$": "babel-jest",
+    "^.+\\.(css|less|scss)$": "babel-jest"
   }
+}

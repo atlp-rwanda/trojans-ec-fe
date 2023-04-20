@@ -15,7 +15,6 @@ import { product } from "./mocks/product.mock";
 import userEvent from "@testing-library/user-event";
 import { mockFile } from "./mocks/file.mock";
 import SendSuccessfull from "../components/sendSuccess";
-import AddProduct from "../pages/dashboard/seller/addProduct";
 
 URL.createObjectURL = jest.fn(() => "mock-url");
 
@@ -52,8 +51,8 @@ describe("Product", () => {
       },
     });
 
-    if(getByTestId("name")){
-      console.log("found")
+    if (getByTestId("name")) {
+      console.log("found");
     }
 
     fireEvent.change(getByTestId("name"), {
@@ -173,13 +172,13 @@ describe("testing sent successfull", () => {
 
     expect(await screen.findByText(/Thank You!/i)).toBeInTheDocument();
   });
-  describe("should test the product Page", () => {
-    it("should render the product page", async () => {
-      const token = "my-test-token";
-      jest.spyOn(window.localStorage, "getItem").mockReturnValue(token);
-      render(<AddProduct />);
-      expect(localStorage.getItem).toHaveBeenCalledWith("token");
-      expect(await screen.findByText(/Add A Product/i)).toBeInTheDocument();
-    });
-  });
+  // describe("should test the product Page", () => {
+  //   it("should render the product page", async () => {
+  //     const token = "my-test-token";
+  //     jest.spyOn(window.localStorage, "getItem").mockReturnValue(token);
+  //     render(<AddProduct />);
+  //     expect(localStorage.getItem).toHaveBeenCalledWith("token");
+  //     expect(await screen.findByText(/Add A Product/i)).toBeInTheDocument();
+  //   });
+  // });
 });

@@ -6,6 +6,7 @@ const CartCard = ({
   sellers,
   dispatchDeleteItem,
   dispatchUpdateItem,
+  loading,
 }) => {
   const [requestQuantity, setRequestQuantity] = useState(1);
   const increaseQuantity = () => {
@@ -29,24 +30,24 @@ const CartCard = ({
   const updateCart = (id, quantity) => {
     dispatchUpdateItem(id, quantity);
   };
-  console.log(getSeller(sellers, sellerId));
+
   return (
     <div className="flex justify-center items-center w-full">
-      <div className="mx-7 mb-7 p-5 flex justify-around items-center shadow-sm border-2 rounded-xl w-full">
-        <div>
+      <div className="mr-2 mb-7 p-5 flex flex-col sm:flex-row justify-around items-center shadow-sm border-2 rounded-xl w-[95vw] sm:w-[90%]">
+        <div className="flex justify-center items-center">
           <img
             src={image}
             alt="product-image"
             className="w-24 rounded-2xl sm:w-24"
           />
         </div>
-        <div className="m-3 w-[110px] sm:w-1/2 flex flex-col justify-between ">
+        <div className="m-3 w-[100%] sm:w-1/2 flex flex-col justify-between items-center">
           <h1 className="text-md font-bold mb-3 lg:text-2xl">{name}</h1>
           <div className="text-sm font-light">
             <p>
               Seller:{" "}
               <span className="font-bold">
-                {getSeller(sellers, sellerId).name}
+                {loading ? "..." : getSeller(sellers, sellerId).name}
               </span>
             </p>
             <p>In stock</p>

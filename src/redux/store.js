@@ -8,29 +8,29 @@ import { sendEmailSlice } from "./features/slices/sendEmail";
 import { productSlice } from "./features/product-redux/productSlice";
 import { categorySlice } from "./features/product-redux/categoriesSlice";
 import { searchSlice } from "./features/slices/product";
-import cartReducer from "./features/slices/cart"
-import profileReducer from "./features/slices/profileUpdate"
+import cartReducer from "./features/slices/cart";
+import profileReducer from "./features/slices/profileUpdate";
 import wishlistReducer from "./features/slices/wishlist";
-import getUsersReducer from './features/slices/getUsers.js';
+import getUsersReducer from "./features/slices/getUsers.js";
 import chat from "./features/slices/chat";
 import { sellerSlice } from "./features/slices/seller";
 
-export const reducers={
-    user: userReducer,
-    signUp:signUpReducer,
-    stepper:StepperReducer,
-    product: productReducer,
-    prod: productSlice.reducer,
-    resetPass: passwordReducer,
-    sendEmail:sendEmailSlice.reducer,
-    cat: categorySlice.reducer,
-    cart:cartReducer,
-    userProfile: profileReducer,
-    search: searchSlice.reducer,
-    wishlist:wishlistReducer,
-    chat:chat,
-    users: getUsersReducer,
-    Sellers: sellerSlice.reducer
+export const reducers = {
+  user: userReducer,
+  signUp: signUpReducer,
+  stepper: StepperReducer,
+  product: productReducer,
+  prod: productSlice.reducer,
+  resetPass: passwordReducer,
+  sendEmail: sendEmailSlice.reducer,
+  cat: categorySlice.reducer,
+  cart: cartReducer,
+  userProfile: profileReducer,
+  search: searchSlice.reducer,
+  wishlist: wishlistReducer,
+  chat: chat,
+  getUsers: getUsersReducer,
+  Sellers: sellerSlice.reducer,
 };
 
 const store = configureStore({
@@ -39,4 +39,4 @@ const store = configureStore({
   },
 });
 
-export default store
+export default store;

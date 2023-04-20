@@ -1,6 +1,5 @@
 import React from "react";
-import CartIcon from "./CartIcon";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   clearCartThunk,
   getCartThunk,
@@ -9,8 +8,16 @@ import {
 } from "../../redux/features/actions/cart";
 import CartCard from "./CartCard";
 import CartSummary from "./CartSummary";
-
-const CartView = ({ numberOfItems, cart, total, sellers }) => {
+import { LoadingCart } from "../skeleton/LoadingCart";
+const CartView = ({
+  numberOfItems,
+  cart,
+  total,
+  sellers,
+  loading,
+  sellerLoading,
+  response,
+}) => {
   const dispatch = useDispatch();
   const clearCartHandler = () => {
     dispatch(clearCartThunk()).then(() => dispatch(getCartThunk()));
@@ -25,12 +32,11 @@ const CartView = ({ numberOfItems, cart, total, sellers }) => {
   };
   return (
     <div className="w-full h-full">
-      <CartIcon />
-      <div className="flex flex-col-reverse px-24 lg:flex-row justify-between items-start w-full h-full">
-        <div className="w-full h-full lg:w-[62%]">
-          <div className="m-7 flex justify-between w-full lg:w-full ">
-            <h1 className="ml-4 font-semibold text-2xl">
-              Cart({numberOfItems})
+      <div className="flex flex-col-reverse pl-5 pr-10 lg:px-24 lg:flex-row justify-between items-start w-full h-full">
+        <div className="w-full h-full lg:w-[62%] my-5">
+          <div className="sm:m-7 flex justify-between w-full lg:w-full ">
+            <h1 className="sm:ml-4 font-semibold text-2xl">
+              Cart({loading ? ".." : numberOfItems})
             </h1>
             <button
               onClick={clearCartHandler}
@@ -41,27 +47,38 @@ const CartView = ({ numberOfItems, cart, total, sellers }) => {
               Clear
             </button>
           </div>
-          {cart.length > 0 && sellers.length > 0 ? (
-            <div className="w-full">
-              {cart.map((item) => (
-                <CartCard
-                  sellers={sellers}
-                  item={item}
-                  key={item.id}
-                  dispatchDeleteItem={dispatchDeleteItem}
-                  dispatchUpdateItem={dispatchUpdateItem}
-                />
-              ))}
-            </div>
+          {loading ? (
+            <LoadingCart count={3} />
           ) : (
-            <div className="m-7 lg:w-full h-[60vh] flex flex-col justify-center items-center text-right rounded-xl border border-gray-300">
-              <h1 className="font-bold text-lg text-primary mb-4">
-                No products in the cart yet!
-              </h1>
-              <p className="font-bold text-base opacity-60 w-">
-                You need to add products to your cart first
-              </p>
-            </div>
+            <>
+              {cart.length > 0 && sellers.length > 0 ? (
+                <div className="m-2 w-full flex flex-col justify-center items-center relative">
+                  {cart.map((item) => (
+                    <CartCard
+                      sellers={sellers}
+                      item={item}
+                      key={item.id}
+                      dispatchDeleteItem={dispatchDeleteItem}
+                      dispatchUpdateItem={dispatchUpdateItem}
+                      loading={sellerLoading}
+                    />
+                  ))}
+                </div>
+              ) : (
+                <>
+                  {!loading && !sellerLoading && response && (
+                    <div className="m-7 lg:w-[90%] h-[60vh] flex flex-col justify-center items-center text-right rounded-xl border border-gray-300">
+                      <h1 className="font-bold text-lg text-primary mb-4">
+                        No products in the cart yet!
+                      </h1>
+                      <p className="font-bold text-base opacity-60 w-">
+                        You need to add products to your cart first
+                      </p>
+                    </div>
+                  )}
+                </>
+              )}
+            </>
           )}
         </div>
         <CartSummary total={total} />

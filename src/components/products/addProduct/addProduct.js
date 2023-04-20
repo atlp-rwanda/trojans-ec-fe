@@ -16,7 +16,6 @@ import { handleImageUpload } from "../../../helpers/ImageUpload";
 import { nextPage } from "../../../helpers/nextPage";
 import { submitProductForm } from "../../../helpers/submitForm";
 
-
 function AddProduct() {
   const navigate = useNavigate();
   const {
@@ -142,8 +141,7 @@ function AddProduct() {
                   secondPage ? "page" : ""
                 }`}
               >
-                {" "}
-                2{" "}
+                2
               </p>
             </div>
             <div>
@@ -151,7 +149,6 @@ function AddProduct() {
                 className="text-center next mt-3 px-8 py-1 text-white rounded-lg cursor-pointer"
                 data-testid="submit-first-form"
               >
-                {" "}
                 Next{" "}
               </button>
             </div>
@@ -263,8 +260,7 @@ function AddProduct() {
                 secondPage ? "page" : ""
               }`}
             >
-              {" "}
-              2{" "}
+              2
             </p>
           </div>
         </form>
@@ -274,4 +270,5 @@ function AddProduct() {
     </div>
   );
 }
+
 export default AddProduct;

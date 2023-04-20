@@ -1,11 +1,12 @@
+import NotFound from "../pages/notFound";
 import React from "react";
-import { render, screen } from "@testing-library/react"
-import '@testing-library/jest-dom'
-import 'jest-environment-jsdom'
-import NotFound from "../pages/notFound"
+import { render, screen } from "./jest.setup";
+import "@testing-library/jest-dom";
 
-test('renders not found page', () => {
-  render(<NotFound/>);
-  const notFoundElement = screen.getByText(/page not found/i);
-  expect(notFoundElement).toBeInTheDocument();
+describe("Not Found", () => {
+  it("Should render not found", () => {
+    render(<NotFound />);
+    const notFoundElement = screen.getByText(/404/i);
+    expect(notFoundElement).toBeInTheDocument();
+  });
 });

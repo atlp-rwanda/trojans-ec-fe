@@ -6,6 +6,7 @@ import { getSellersThunk } from "../actions/wishlist";
 const initialState = {
 addedWish:[],
 added:false,
+response:false,
 sellers:[],
 wishlist: [],
 loading: false,
@@ -71,6 +72,7 @@ const wishlistSlice = createSlice({
                 return{
                     ...state,
                     loading:false,
+                    response:true,
                     wishlist:payload.data,
                     addedWish:payload.data.map((wish)=>{
                       return wish.product.id

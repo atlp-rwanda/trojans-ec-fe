@@ -1,11 +1,16 @@
-import React from 'react'
-
+import React from "react";
+import Error from "../components/shared/Error";
 function NotFound() {
   return (
     <div data-testid="page-not-found">
-      <p>page not found</p>
+      <Error
+        code="404"
+        description="Page Not Found"
+        title="Not Found"
+        to="home"
+      />
     </div>
-  )
+  );
 }
 
-export default NotFound
+export default NotFound;

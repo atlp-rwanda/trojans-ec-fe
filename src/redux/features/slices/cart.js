@@ -11,10 +11,12 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   numberOfItems: 0,
   cart: [],
+  response: false,
   total: 0,
   loading: false,
   error: { payload: null, status: false },
   sellers: [],
+  sellerLoading: false,
 };
 /* istanbul ignore next */
 const cartSlice = createSlice({
@@ -40,6 +42,7 @@ const cartSlice = createSlice({
             numberOfItems: payload.cart.items.length,
             cart: payload.cart.items,
             total: payload.cart.total,
+            response: true,
           };
         }
       } else if (payload.status) {
@@ -105,10 +108,12 @@ const cartSlice = createSlice({
       }
     },
     [getSellersThunk.pending]: (state) => {
-      state.loading = true;
+      state.sellerLoading = true;
+      state.loading = false;
     },
     [getSellersThunk.rejected]: (state) => {
       state.error.status = true;
+      state.sellerLoading = false;
       state.loading = false;
     },
     [getSellersThunk.fulfilled]: (state, action) => {
@@ -116,18 +121,21 @@ const cartSlice = createSlice({
         return {
           ...state,
           loading: false,
+          sellerLoading: false,
           sellers: [...action.payload.sellers],
         };
       } else if (action.payload.status) {
         return {
           ...state,
-          error: { payload: action.payload.status, status: true },
           loading: false,
+          error: { payload: action.payload.status, status: true },
+          sellerLoading: false,
         };
       } else {
         return {
           ...state,
           error: { payload: action.payload, status: true },
+          sellerLoading: false,
           loading: false,
         };
       }

@@ -22,6 +22,7 @@ const initialState = {
   updating: false,
   cotegoriesLoading: false,
   deleting: false,
+  response: false,
 };
 /* istanbul ignore next */
 const productSlice = createSlice({
@@ -45,7 +46,7 @@ const productSlice = createSlice({
     },
     setPages: (state, { payload }) => {
       const { firstPage, secondPage } = payload;
-      return { ...state, firstPage, secondPage }
+      return { ...state, firstPage, secondPage };
     },
     setProductToUpdate: (state, { payload }) => {
       state.productToUpdate = payload.productToUpdate;
@@ -65,6 +66,7 @@ const productSlice = createSlice({
           ...state,
           loading: false,
           products: [...payload.products],
+          response: true,
         };
       } else if (payload.status) {
         return {
@@ -139,17 +141,17 @@ const productSlice = createSlice({
     [deleteProductThunk.pending]: (state) => {
       return { ...state, deleting: true };
     },
-    [deleteProductThunk.rejected]: (state, {payload}) => {
-        const { message } = payload;
-        if(message){
-          return {
-            ...state,
-            deleting: false,
-            updateDelError: message,
-            successMsg: null,
-            productIdToDel: null,
-          };
-        }
+    [deleteProductThunk.rejected]: (state, { payload }) => {
+      const { message } = payload;
+      if (message) {
+        return {
+          ...state,
+          deleting: false,
+          updateDelError: message,
+          successMsg: null,
+          productIdToDel: null,
+        };
+      }
       return {
         ...state,
         deleting: false,
@@ -160,7 +162,9 @@ const productSlice = createSlice({
     },
     [deleteProductThunk.fulfilled]: (state, { payload }) => {
       const { message } = payload;
-      const newProducts = state.products.filter(product => product.id !== state.productIdToDel);
+      const newProducts = state.products.filter(
+        (product) => product.id !== state.productIdToDel
+      );
       return {
         ...state,
         products: newProducts,
@@ -173,26 +177,26 @@ const productSlice = createSlice({
     [updateProductThunk.pending]: (state) => {
       state.updating = true;
     },
-    [updateProductThunk.rejected]: (state, {payload}) => {
-        const { message, status } = payload;
-        if(message && status === 400){
-          return {
-            ...state,
-            updating: false,
-            updateDelError: "Sorry!, something went wrong, try again later!",
-            successMsg: null,
-            productToUpdate: null,
-          };
-        }
-        if(message && !status){
-          return {
-            ...state,
-            updating: false,
-            updateDelError: message,
-            successMsg: null,
-            productToUpdate: null,
-          };
-        }
+    [updateProductThunk.rejected]: (state, { payload }) => {
+      const { message, status } = payload;
+      if (message && status === 400) {
+        return {
+          ...state,
+          updating: false,
+          updateDelError: "Sorry!, something went wrong, try again later!",
+          successMsg: null,
+          productToUpdate: null,
+        };
+      }
+      if (message && !status) {
+        return {
+          ...state,
+          updating: false,
+          updateDelError: message,
+          successMsg: null,
+          productToUpdate: null,
+        };
+      }
       return {
         ...state,
         updating: false,
@@ -203,9 +207,9 @@ const productSlice = createSlice({
     },
     [updateProductThunk.fulfilled]: (state, { payload }) => {
       const { message, data } = payload;
-      const updatedProducts = state.products.map(product => {
-        if(product.id === data.id){
-         return data;
+      const updatedProducts = state.products.map((product) => {
+        if (product.id === data.id) {
+          return data;
         }
         return product;
       });
