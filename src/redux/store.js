@@ -23,10 +23,14 @@ export const reducers={
     sendEmail:sendEmailSlice.reducer,
     cat: categorySlice.reducer,
     cart:cartReducer,
+<<<<<<< HEAD
     userProfile: profileReducer,
     search: searchSlice.reducer,
     wishlist:wishlistReducer,
     chat:chat
+=======
+    userProfile: profileReducer
+>>>>>>> af24082 (main commit to profile update (#17))
 };
 
 const store = configureStore({

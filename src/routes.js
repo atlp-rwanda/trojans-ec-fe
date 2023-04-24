@@ -57,6 +57,11 @@ const AppRoutes = () => {
       <Route exact path="/view-search" element={<ViewSearch />} />
       
       <Route path="*" element={<NotFound />}></Route>
+
+      <Route exact path="/success" element={<Success/>} />
+      <Route exact  path="/user/profile" element={<ProfileUpdate />} />
+    
+      <Route path="*" element={<NotFound />} ></Route>
     </Routes>
   )
 }
