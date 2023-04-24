@@ -12,7 +12,7 @@ module.exports = {
       },
       backgroundColor: {
         "primary-color": "#5F3E8E",
-      },
+      }
     },
   },
   variants: {
