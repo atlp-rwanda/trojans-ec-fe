@@ -7,13 +7,25 @@ import {
 } from "../../../../redux/features/actions/products.js";
 import { getProduct } from "../../../../redux/features/slices/products.js";
 import Spinner from "../../../../components/viewProducts/spinner.js";
-import { Link, useNavigate } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
+import parseJwt from "../../../../helpers/parseJwt.js";
+import ErrorHandler from "../../../../components/shared/ErrorHandler.js";
 
 const AllProducts = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
   const { loading, error, products, categories } = useSelector(getProduct);
+  useEffect(() => {
+    if (token) {
+      const { data } = parseJwt(token);
+      if (data.role !== "seller") {
+        navigate("/");
+      }
+    }
+  }, [token]);
   useEffect(() => {
     if (token) {
       dispatch(getCategoriesThunk()).then(() => {
@@ -23,16 +35,12 @@ const AllProducts = () => {
       navigate("/login");
     }
   }, [token]);
-  if (error) {
-    return <div>Error occured in the process</div>;
-  }
   return (
     <div className="all-products">
-      {loading ? (
-        <div>
-          <Spinner />
-        </div>
-      ) : (
+      <ToastContainer />
+      {loading && <Spinner />}
+      <ErrorHandler loading={loading} error={error} />
+      {!loading && !error.status && (
         <ProductsTable products={products} categories={categories} />
       )}
     </div>

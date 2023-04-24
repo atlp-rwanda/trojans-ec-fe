@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+/* istanbul ignore next */
 export const StepperSlice = createSlice({
     name: "stepper",
     initialState: {

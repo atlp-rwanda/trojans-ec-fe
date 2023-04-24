@@ -1,7 +1,9 @@
 import MainProductDetail from "../../../pages/MainProductDetail";
 import React from "react";
-import { render } from "../../jest.setup";
+import { render, waitForElementToBeRemoved } from "../../jest.setup";
 import "@testing-library/jest-dom";
+import { productState } from "../../mocks/product.mock";
+import { cartState } from "../../mocks/cart.mock";
 
 describe("Main product detail view page", () => {
   it("Should render all text", () => {
@@ -9,3 +11,4 @@ describe("Main product detail view page", () => {
     expect(getByText(/Loading.../i)).toBeInTheDocument();
   });
 });
+

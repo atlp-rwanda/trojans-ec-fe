@@ -7,9 +7,7 @@ const Categorize = (props) => {
     const category = categories.find((cat) => {
       return cat.id === id;
     });
-    console.log(category);
     if (category) {
-      //   console.log(Object.keys(category));
       return <span>{formatString(category.name)}</span>;
     }
   } else {

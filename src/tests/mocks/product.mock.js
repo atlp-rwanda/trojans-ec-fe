@@ -1,3 +1,4 @@
+import { categories } from "./categories.mock";
 export const products = [
   {
     id: 2,
@@ -25,3 +26,10 @@ export const product={
     isLoading: false,
     error: false,
 }
+export const productState = {
+  products: products,
+  loading: false,
+  error: { payload: null, status: false },
+  selectedProduct: products[0],
+  categories: categories,
+};

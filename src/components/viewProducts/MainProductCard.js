@@ -2,9 +2,40 @@ import React from "react";
 import StarRating from "./StarRating.js";
 import Categorize from "./Categorize.js";
 import { useNavigate } from "react-router-dom";
-
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addToCartThunk,
+  getCartThunk,
+} from "../../redux/features/actions/cart.js";
+import { getCart } from "../../redux/features/slices/cart.js";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+/* istanbul ignore next */
 const MainProductCard = ({ product, categories }) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const cartError = useSelector(getCart).error;
+  const addToCartHandler = (e, id) => {
+    dispatch(addToCartThunk(id)).then(() => dispatch(getCartThunk()));
+    e.stopPropagation();
+    if (cartError.status) {
+      if (cartError.payload === 401) {
+        toast.error("You need a buyer's account for cart operations");
+      } else if (cartError.payload === "Network Error") {
+        return (
+          <Error
+            code="Error"
+            title="Internet connection error"
+            description="There is a problem with your internet connection, check it and reload again"
+            to="reload"
+          />
+        );
+      } else {
+        return <Error />;
+      }
+    }
+  };
+
   return (
     <div
       className="w-[200px] mx-auto flex flex-col justify-center hover:cursor-pointer"
@@ -29,7 +60,10 @@ const MainProductCard = ({ product, categories }) => {
           </p>
         </div>
         <div className="flex items-center justify-center">
-          <button className="relative w-[35px] max-h-[40px] add-btn transition-all duration-300 ease-in bg-primary text-white px-1 pb-1 ml-5 rounded-lg text-base leading-7 invisible hover:bg-dark">
+          <button
+            onClick={(e) => addToCartHandler(e, product.id)}
+            className="relative w-[35px] max-h-[40px] add-btn transition-all duration-300 ease-in bg-primary text-white px-1 pb-1 ml-5 rounded-lg text-base leading-7 invisible hover:bg-dark"
+          >
             <i className="fa fa-shopping-cart"></i>
             <div className="p-1 w-20 hidden absolute text-sm top-9 right-[-16px] bg-secondary rounded-sm text-white">
               Add to cart

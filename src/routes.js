@@ -10,6 +10,7 @@ import MainProductDetail from "./pages/MainProductDetail";
 import TwoFactorAuth from "./pages/twoFactorAuth";
 import Product from "./pages/dashboard/seller/addProduct";
 import SendSuccessfull from "./components/sendSuccess";
+import Cart from "./pages/cart";
 
 const AppRoutes = () => {
   return (
@@ -31,6 +32,7 @@ const AppRoutes = () => {
       <Route exact path="/auth" element={<TwoFactorAuth />} />
       <Route exact path="/dashboard/seller/product/create" element={<Product />} />
       <Route exact path="/dashboard/product/added" element={<SendSuccessfull />} />
+      <Route exact path="/products/cart" element={<Cart />} />
       <Route path="*" element={<NotFound />}></Route>
     </Routes>
   );

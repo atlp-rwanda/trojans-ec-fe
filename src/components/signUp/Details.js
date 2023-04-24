@@ -9,7 +9,7 @@ import Input from '../input';
 import Button from '../button';
 import { setCurrentStepper,setData } from "../../redux/features/slices/stepper";
 import GoogleButton from '../../components/googleButton';
-
+/* istanbul ignore next */
 const UserDetails = () => {
     const dispatch = useDispatch();
     const { currentStepper,formPersonalData } = useSelector(

@@ -65,7 +65,7 @@ function AddProduct() {
     navigate("/dashboard/product/added");
   }
   return (
-    <div className="m-auto w-4/12 overflow-hidden pt-28 base:w-10/12 lg:w-8/12">
+    <div className="m-auto w-8/12 overflow-hidden pt-28 md:w-10/12 lg:w-4/12">
       <Helmet>
         <title>trojans Store | Add Product</title>
       </Helmet>
@@ -130,12 +130,32 @@ function AddProduct() {
           </div>
           <div className="flex justify-between items-center">
             <div className="flex items-center my-5">
-              <p className={`px-2 border mx-2 cursor-pointer bg-primaryColor ${firstPage ? "page" : "" }`} onClick={prevPage}>1</p>
+              <p
+                className={`px-2 border mx-2 cursor-pointer bg-primaryColor ${
+                  firstPage ? "page" : ""
+                }`}
+                onClick={prevPage}
+              >
+                1
+              </p>
               <p>of</p>
-              <p className={`px-2 border mx-2 cursor-pointer bg-primaryColor ${ secondPage ? "page" : ""}`}> 2 </p>
+              <p
+                className={`px-2 border mx-2 cursor-pointer bg-primaryColor ${
+                  secondPage ? "page" : ""
+                }`}
+              >
+                {" "}
+                2{" "}
+              </p>
             </div>
             <div>
-              <button className="text-center next mt-3 px-8 py-1 text-white rounded-lg cursor-pointer" data-testid="submit-first-form"> Next </button>
+              <button
+                className="text-center next mt-3 px-8 py-1 text-white rounded-lg cursor-pointer"
+                data-testid="submit-first-form"
+              >
+                {" "}
+                Next{" "}
+              </button>
             </div>
           </div>
         </form>
@@ -233,10 +253,24 @@ function AddProduct() {
             {isLoading ? <Spinner /> : "Add Product"}
           </button>
           <div className="flex items-center my-5">
-              <p className={`px-2 border mx-2 cursor-pointer bg-primaryColor ${firstPage ? "page" : "" }`} onClick={prevPage}>1</p>
-              <p>of</p>
-              <p className={`px-2 border mx-2 cursor-pointer bg-primaryColor ${ secondPage ? "page" : ""}`}> 2 </p>
-            </div>
+            <p
+              className={`px-2 border mx-2 cursor-pointer bg-primaryColor ${
+                firstPage ? "page" : ""
+              }`}
+              onClick={prevPage}
+            >
+              1
+            </p>
+            <p>of</p>
+            <p
+              className={`px-2 border mx-2 cursor-pointer bg-primaryColor ${
+                secondPage ? "page" : ""
+              }`}
+            >
+              {" "}
+              2{" "}
+            </p>
+          </div>
         </form>
       )}
 

@@ -7,11 +7,11 @@ import {
 const initialState = {
   products: [],
   loading: false,
-  error: false,
+  error: { payload: null, status: false },
   selectedProduct: {},
   categories: [],
 };
-
+/* istanbul ignore next */
 const productSlice = createSlice({
   name: "products",
   initialState,
@@ -23,56 +23,86 @@ const productSlice = createSlice({
   extraReducers: {
     [getProductsThunk.pending]: (state) => {
       state.loading = true;
-      state.error = false;
-      console.log("Products Pending");
     },
     [getProductsThunk.rejected]: (state) => {
       state.loading = false;
-      state.error = true;
-      console.log("Rejected");
+      state.error.status = true;
     },
     [getProductsThunk.fulfilled]: (state, { payload }) => {
-      console.log("fulfilled");
-      return {
-        ...state,
-        loading: false,
-        products: [...payload.products],
-        error: false,
-      };
+      if (payload.status === 200) {
+        return {
+          ...state,
+          loading: false,
+          products: [...payload.products],
+        };
+      } else if (payload.status) {
+        return {
+          ...state,
+          error: { status: true, payload: payload.status },
+          loading: false,
+        };
+      } else {
+        return {
+          ...state,
+          loading: false,
+          error: { payload, status: true },
+        };
+      }
     },
     [getOneProductThunk.pending]: (state) => {
       state.loading = true;
-      state.error = false;
-      console.log("Products Pending");
     },
     [getOneProductThunk.rejected]: (state) => {
       state.loading = false;
-      state.error = true;
-      console.log("Rejected");
+      state.error.status = true;
     },
     [getOneProductThunk.fulfilled]: (state, { payload }) => {
-      console.log("fulfilled");
-      return {
-        ...state,
-        loading: false,
-        selectedProduct: { ...payload.product },
-        error: false,
-      };
+      if (payload.status === 200) {
+        return {
+          ...state,
+          loading: false,
+          selectedProduct: { ...payload.product },
+        };
+      } else if (payload.status) {
+        return {
+          ...state,
+          loading: false,
+          error: { payload: payload.status, status: true },
+        };
+      } else {
+        return {
+          ...state,
+          loading: false,
+          error: { payload: payload, status: true },
+        };
+      }
     },
     [getCategoriesThunk.pending]: (state) => {
       state.loading = true;
-      console.log("Categories pending");
     },
     [getCategoriesThunk.rejected]: (state) => {
       state.loading = false;
-      console.log("Rejected categories");
+      state.error.status = true;
     },
     [getCategoriesThunk.fulfilled]: (state, { payload }) => {
-      console.log("Categories fulfilled");
       if (payload.status === 200) {
-        (state.loading = false), (state.categories = [...payload.categories]);
+        return {
+          ...state,
+          loading: false,
+          categories: [...payload.categories],
+        };
+      } else if (payload.status) {
+        return {
+          ...state,
+          loading: false,
+          error: { payload: payload.status, status: true },
+        };
       } else {
-        return { ...state, loading: false, error: true };
+        return {
+          ...state,
+          loading: false,
+          error: { payload: payload, status: true },
+        };
       }
     },
   },

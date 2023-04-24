@@ -10,7 +10,7 @@ import GoogleButton from "./googleButton";
 import loginSchema from "../schema/loginSchema";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import SpinnerLoader from "./spinnerLoader";
+import Loader from "./twoFactorLoader";
 
 export default function LoginInputs() {
   const {
@@ -22,11 +22,12 @@ export default function LoginInputs() {
   });
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { loading,error,user, twoFactorAuthToken } = useSelector(getLoginUser);
+  const { loading, error, user, twoFactorAuthToken } =
+    useSelector(getLoginUser);
   const submitHandler = (data) => {
     dispatch(loginThunk(data));
   };
-  
+
   useEffect(() => {
     if (!loading && twoFactorAuthToken) {
       localStorage.setItem("userAuth", JSON.stringify(twoFactorAuthToken));
@@ -35,10 +36,10 @@ export default function LoginInputs() {
     }
     if (loading === false && user !== null && !twoFactorAuthToken) {
       localStorage.setItem("token", user);
-      return navigate("/");
+      window.location.href = window.location.href.split("/login")[0];
     }
-  }, [loading, user, twoFactorAuthToken])
-   
+  }, [loading, user, twoFactorAuthToken]);
+
   return (
     <div className="login-container">
       <img className="logo-image" src={logo} alt="logo" />
@@ -77,9 +78,13 @@ export default function LoginInputs() {
               </p>
             )}
           </div>
-          <button className="button login-btn relative" type="submit">
-            Login
-            <SpinnerLoader loading={loading} />
+          <button
+            className="button login-btn relative"
+            type="submit"
+            data-testid="loginbtn"
+          >
+            <span className={`${loading ? "hidden" : ""}`}>Login</span>
+            {loading ? <Loader /> : null}
           </button>
           <h6 className="forgot">Forgot Password?</h6>
         </form>
