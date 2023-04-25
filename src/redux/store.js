@@ -6,6 +6,7 @@ import productReducer from "./features/slices/products";
 import { productSlice } from "./features/product-redux/productSlice";
 import { categorySlice } from "./features/product-redux/categoriesSlice";
 import cartReducer from "./features/slices/cart"
+import chat from "./features/slices/chat";
 
 export const reducers={
     user: userReducer,
@@ -14,7 +15,8 @@ export const reducers={
     product: productReducer,
     prod: productSlice.reducer,
     cat: categorySlice.reducer,
-    cart:cartReducer
+    cart:cartReducer,
+    chat:chat
 };
 
 const store = configureStore({

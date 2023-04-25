@@ -14,6 +14,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ErrorHandler from "../components/shared/ErrorHandler";
 import Navbar from "../components/Navbar";
+import ChatModel from "../components/chatModel";
 
 const Homepage = () => {
   const dispatch = useDispatch();
@@ -48,6 +49,9 @@ const Homepage = () => {
           <MainProductView products={products} categories={categories} />
         </>
       )}
+        <div id="modal">
+    <ChatModel/>
+    </div>
     </div>
   );
 };
