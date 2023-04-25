@@ -73,7 +73,7 @@ const userSlice = createSlice({
         if(payload.randomAuth){
           return {...state, loading: false, twoFactorAuthToken: payload.token, error: null };
         }
-        return {...state, loading: false, user: payload.token, error: null };
+        return {...state, loading: false, user: payload, error: null };
       }
     },
 

@@ -1,5 +1,6 @@
 import React from "react";
 import { render, screen, fireEvent, waitFor, waitForElementToBeRemoved } from "@testing-library/react"
+import 'setimmediate';
 import '@testing-library/jest-dom'
 import 'jest-environment-jsdom'
 import { BrowserRouter as Router } from "react-router-dom";

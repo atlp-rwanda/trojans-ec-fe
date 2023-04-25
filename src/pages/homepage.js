@@ -12,6 +12,8 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Navbar from "../components/Navbar";
+import ChatModel from "../components/chatModel";
+
 const Homepage = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -44,6 +46,9 @@ const Homepage = () => {
           <MainProductView products={products} categories={categories} />
         </>
       )}
+         <div id="modal">
+    <ChatModel/>
+    </div>
     </div>
   )
 }
