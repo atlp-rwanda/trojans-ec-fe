@@ -1,9 +1,12 @@
 import React from "react";
 import { Skeleton } from "@mui/material";
-import LoadingImages from "@components/skeleton/LoadingImages";
+import LoadingImages from "../skeleton/LoadingImages";
 export const LoadingSingleMain = () => {
   return (
-    <div className="w-full flex justify-center flex-col items-center sm:flex-row sm:justify-center">
+    <div
+      data-testid="skel-singleMain"
+      className="w-full flex justify-center flex-col items-center sm:flex-row sm:justify-center"
+    >
       <div className="sm:mr-10">
         <LoadingImages />
       </div>

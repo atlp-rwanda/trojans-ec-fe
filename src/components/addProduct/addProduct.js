@@ -65,71 +65,203 @@ function AddProduct() {
     navigate("/dashboard/product/added");
   }
   return (
-    <div className="m-auto w-8/12 overflow-hidden pt-28 md:w-10/12 lg:w-4/12">
-      <Helmet>
-        <title>trojans Store | Add Product</title>
-      </Helmet>
-      <h1 className="text-center text-2xl">Add A Product</h1>
-      {firstPage && (
-        <form
-          onSubmit={handleSubmit((data) => {
-            nextPage(data, setFirstPage, setFormData, setSecondPage);
-          })}
-          name="formData"
-        >
-          <div className="input-div">
-            <label htmlFor="name">Name</label>
-            <InputField
-              type="text"
-              className="input-field"
-              placeholder="Name of the product"
-              name="name"
-              data-testid="name"
-              register={register("name")}
+    <div className="flex flex-col justify-center items-center box-border w-[100%] min-h-[90vh] bg-white p-8 rounded-2xl my-8 mx-auto relative lg:w-[70%]">
+      <div className=" lg:w-1/2">
+        <Helmet>
+          <title>Trojans Store | Add Product</title>
+        </Helmet>
+        <h1 className="text-center text-2xl">Add A Product</h1>
+        {firstPage && (
+          <form
+            onSubmit={handleSubmit((data) => {
+              nextPage(data, setFirstPage, setFormData, setSecondPage);
+            })}
+            name="formData"
+          >
+            <div className="input-div">
+              <label htmlFor="name">Name</label>
+              <InputField
+                type="text"
+                className="input-field"
+                placeholder="Name of the product"
+                name="name"
+                data-testid="name"
+                register={register("name")}
+              />
+              {errors.name && <p className="error">{errors.name.message}</p>}
+            </div>
+            <div className="input-div">
+              <label htmlFor="price">Price</label>
+              <InputField
+                type="number"
+                className="input-field"
+                placeholder="Price of the product"
+                name="price"
+                data-testid="price"
+                register={register("price")}
+              />
+              {errors.price && <p className="error">{errors.price.message}</p>}
+            </div>
+            <div>
+              <label htmlFor="categoryId">Category</label>
+              <SelectOption
+                className="input-field"
+                name="categoryId"
+                data-testid="categoryId"
+                default="---select Category"
+                options={categories}
+                register={register("categoryId")}
+              />
+              {errors.categoryId && (
+                <p className="error">{errors.categoryId.message}</p>
+              )}
+            </div>
+            <div className="input-div">
+              <label htmlFor="quantity">Quantity</label>
+              <InputField
+                type="number"
+                className="input-field"
+                placeholder="Number of Quantity"
+                name="quantity"
+                data-testid="quantity"
+                register={register("quantity")}
+              />
+              {errors.quantity && (
+                <p className="error">{errors.quantity.message}</p>
+              )}
+            </div>
+            <div className="flex justify-between items-center">
+              <div className="flex items-center my-5">
+                <p
+                  className={`px-2 border mx-2 cursor-pointer bg-primaryColor ${
+                    firstPage ? "page" : ""
+                  }`}
+                  onClick={prevPage}
+                >
+                  1
+                </p>
+                <p>of</p>
+                <p
+                  className={`px-2 border mx-2 cursor-pointer bg-primaryColor ${
+                    secondPage ? "page" : ""
+                  }`}
+                >
+                  {" "}
+                  2{" "}
+                </p>
+              </div>
+              <div>
+                <button
+                  className="text-center next mt-3 px-8 py-1 text-white rounded-lg cursor-pointer"
+                  data-testid="submit-first-form"
+                >
+                  {" "}
+                  Next{" "}
+                </button>
+              </div>
+            </div>
+          </form>
+        )}
+        {secondPage && (
+          <form
+            onSubmit={handleSubmit2(() => {
+              submitProductForm(formData, dispatch, submitForm);
+            })}
+          >
+            <div className="input-div">
+              <label htmlFor="expiryDate">Expiry Date</label>
+              <InputField
+                type="date"
+                className="input-field"
+                placeholder="Expiry date of the product"
+                name="expiryDate"
+                data-testid="expiryDate"
+                register={register2("expiryDate", {
+                  setValueAs: (value) => {
+                    setFormData((prevState) => {
+                      return {
+                        ...prevState,
+                        expiryDate: value,
+                      };
+                    });
+                    return value;
+                  },
+                })}
+              />
+              {errors2.expiryDate && (
+                <p className="error">{errors2.expiryDate.message}</p>
+              )}
+            </div>
+            <div className="input-div">
+              <label>Bonus</label>
+              <InputField
+                type="number"
+                className="input-field"
+                placeholder="Bonus on the product"
+                name="bonus"
+                data-testid="bonus"
+                register={register2("bonus", {
+                  setValueAs: (value) => {
+                    setFormData((prevState) => {
+                      return {
+                        ...prevState,
+                        bonus: value,
+                      };
+                    });
+                    return value;
+                  },
+                })}
+              />
+              {errors2.bonus && (
+                <p className="error">{errors2.bonus.message}</p>
+              )}
+            </div>
+            <input
+              type="file"
+              onChange={(event) => {
+                handleImageUpload(
+                  event,
+                  setValue,
+                  setFormData,
+                  setImagePreview,
+                  handleFilter
+                );
+              }}
+              multiple
+              id="image"
+              className="hidden"
+              aria-label="image-upload"
             />
-            {errors.name && <p className="error">{errors.name.message}</p>}
-          </div>
-          <div className="input-div">
-            <label htmlFor="price">Price</label>
-            <InputField
-              type="number"
-              className="input-field"
-              placeholder="Price of the product"
-              name="price"
-              data-testid="price"
-              register={register("price")}
-            />
-            {errors.price && <p className="error">{errors.price.message}</p>}
-          </div>
-          <div>
-            <label htmlFor="categoryId">Category</label>
-            <SelectOption
-              className="input-field"
-              name="categoryId"
-              data-testid="categoryId"
-              default="---select Category"
-              options={categories}
-              register={register("categoryId")}
-            />
-            {errors.categoryId && (
-              <p className="error">{errors.categoryId.message}</p>
-            )}
-          </div>
-          <div className="input-div">
-            <label htmlFor="quantity">Quantity</label>
-            <InputField
-              type="number"
-              className="input-field"
-              placeholder="Number of Quantity"
-              name="quantity"
-              data-testid="quantity"
-              register={register("quantity")}
-            />
-            {errors.quantity && (
-              <p className="error">{errors.quantity.message}</p>
-            )}
-          </div>
-          <div className="flex justify-between items-center">
+            <div className="my-4 cursor-pointer">
+              <div className="label w-64 py-4 px-10 text-center rounded-xl">
+                <label
+                  htmlFor="image"
+                  className="flex justify-center items-center "
+                >
+                  <img
+                    src={gallery}
+                    alt=""
+                    className="w-6 h-6 cursor-pointer"
+                  />
+                  <p className="text-white pl-2 cursor-pointer">
+                    Choose Photos
+                  </p>
+                </label>
+              </div>
+              {errors2.image && (
+                <p className="text-red-500 text-sm">{errors2.image.message}</p>
+              )}
+            </div>
+            <div className="flex mb-4 flex-wrap" data-testid="imagePreview">
+              {imagePreview}
+            </div>
+            <button
+              type="submit"
+              className="submit text-white px-4 py-2 w-full rounded-xl"
+              data-testId="submit-second-form"
+            >
+              {isLoading ? <Spinner /> : "Add Product"}
+            </button>
             <div className="flex items-center my-5">
               <p
                 className={`px-2 border mx-2 cursor-pointer bg-primaryColor ${
@@ -149,134 +281,13 @@ function AddProduct() {
                 2{" "}
               </p>
             </div>
-            <div>
-              <button
-                className="text-center next mt-3 px-8 py-1 text-white rounded-lg cursor-pointer"
-                data-testid="submit-first-form"
-              >
-                {" "}
-                Next{" "}
-              </button>
-            </div>
-          </div>
-        </form>
-      )}
-      {secondPage && (
-        <form
-          onSubmit={handleSubmit2(() => {
-            submitProductForm(formData, dispatch, submitForm);
-          })}
-        >
-          <div className="input-div">
-            <label htmlFor="expiryDate">Expiry Date</label>
-            <InputField
-              type="date"
-              className="input-field"
-              placeholder="Expiry date of the product"
-              name="expiryDate"
-              data-testid="expiryDate"
-              register={register2("expiryDate", {
-                setValueAs: (value) => {
-                  setFormData((prevState) => {
-                    return {
-                      ...prevState,
-                      expiryDate: value,
-                    };
-                  });
-                  return value;
-                },
-              })}
-            />
-            {errors2.expiryDate && (
-              <p className="error">{errors2.expiryDate.message}</p>
-            )}
-          </div>
-          <div className="input-div">
-            <label>Bonus</label>
-            <InputField
-              type="number"
-              className="input-field"
-              placeholder="Bonus on the product"
-              name="bonus"
-              data-testid="bonus"
-              register={register2("bonus", {
-                setValueAs: (value) => {
-                  setFormData((prevState) => {
-                    return {
-                      ...prevState,
-                      bonus: value,
-                    };
-                  });
-                  return value;
-                },
-              })}
-            />
-            {errors2.bonus && <p className="error">{errors2.bonus.message}</p>}
-          </div>
-          <input
-            type="file"
-            onChange={(event) => {
-              handleImageUpload(
-                event,
-                setValue,
-                setFormData,
-                setImagePreview,
-                handleFilter
-              );
-            }}
-            multiple
-            id="image"
-            className="hidden"
-            aria-label="image-upload"
-          />
-          <div className="my-4 cursor-pointer">
-            <div className="label w-64 py-4 px-10 text-center rounded-xl">
-              <label
-                htmlFor="image"
-                className="flex justify-center items-center "
-              >
-                <img src={gallery} alt="" className="w-6 h-6 cursor-pointer" />
-                <p className="text-white pl-2 cursor-pointer">Choose Photos</p>
-              </label>
-            </div>
-            {errors2.image && (
-              <p className="text-red-500 text-sm">{errors2.image.message}</p>
-            )}
-          </div>
-          <div className="flex mb-4 flex-wrap" data-testid="imagePreview">
-            {imagePreview}
-          </div>
-          <button
-            type="submit"
-            className="submit text-white px-4 py-2 w-full rounded-xl"
-            data-testId="submit-second-form"
-          >
-            {isLoading ? <Spinner /> : "Add Product"}
-          </button>
-          <div className="flex items-center my-5">
-            <p
-              className={`px-2 border mx-2 cursor-pointer bg-primaryColor ${
-                firstPage ? "page" : ""
-              }`}
-              onClick={prevPage}
-            >
-              1
-            </p>
-            <p>of</p>
-            <p
-              className={`px-2 border mx-2 cursor-pointer bg-primaryColor ${
-                secondPage ? "page" : ""
-              }`}
-            >
-              {" "}
-              2{" "}
-            </p>
-          </div>
-        </form>
-      )}
+          </form>
+        )}
 
-      {error && <p> an error occurred: {error} </p>}
+        {error && <p> an error occurred: {error} </p>}
+      </div>
     </div>
   );
 }
+
 export default AddProduct;

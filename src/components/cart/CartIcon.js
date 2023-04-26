@@ -14,23 +14,22 @@ const CartIcon = () => {
   }
 
   return (
-    <div onClick={() => navigate("/products/cart")} className="relative">
+    <div
+      onClick={() => navigate("/products/cart")}
+      className="relative cart-icon"
+    >
       {loading ? (
-        <div className="absolute bottom-8 ml-5">
+        <div className="absolute bottom-9 left-[-5px] ml-5">
           <Spinner withoutText={true} />
         </div>
       ) : (
-        <div className="w-5 text-center absolute bottom-8 ml-5 rounded-full bg-primary text-white font-semibold">
+        <div className="w-5 text-center absolute bottom-9 left-[-5px] ml-5 rounded-full bg-primary text-white font-semibold">
           <span className="hover:scale-105" data-testid="cartNo">
             {cartNumber}
           </span>
         </div>
       )}
-      <img
-        src={cart}
-        alt="cart-image"
-        className="hover:cursor-pointer hover:scale-105"
-      />
+      <ion-icon name="cart-outline" className="hover:cursor-pointer"></ion-icon>
     </div>
   );
 };

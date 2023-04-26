@@ -49,7 +49,7 @@ export const LoadingMainCards = ({ count }) => {
     );
   }
   return (
-    <div className="m-10 grid justify-items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 ">
+    <div className="mx-10 grid justify-items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 ">
       {cards}
     </div>
   );

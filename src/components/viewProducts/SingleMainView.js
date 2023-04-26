@@ -6,13 +6,14 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
 import UseSingleMainView from "../hooks/useSingleMainView";
 import SingleProductDetail from "./SingleProductDetail";
+import { LoadingSingleMain } from "../skeleton/LoadingSingleMain";
 /* istanbul ignore next */
-const SingleMainView = ({ selectedProduct, categories }) => {
+const SingleMainView = ({ selectedProduct, categories, loading }) => {
   const {
     addToCartHandler,
     addWishlist,
     toggleModal,
-    loading,
+    wishLoading,
     added,
     addedWish,
     wishError,
@@ -27,31 +28,38 @@ const SingleMainView = ({ selectedProduct, categories }) => {
   }
 
   return (
-    <div className="w-full flex justify-center flex-col items-center sm:flex-row sm:justify-center">
-      <ToastContainer />
-      <div className="sm:mr-10">
-        <Images images={selectedProduct.images} />
-      </div>
-      <SingleProductDetail
-        addToCartHandler={addToCartHandler}
-        addWishlist={addWishlist}
-        categories={categories}
-        selectedProduct={selectedProduct}
-        loading={loading}
-        addedWish={addedWish}
-      />
-      {modal && (
-        <div className="modal mt-[10%]">
-          <div onClick={toggleModal} className="overlay"></div>
-          <WishlistPopup
-            success={true}
-            handleClick={toggleModal}
-            statusMessage={"Success"}
-            message={`${added ? "Added to" : "Removed from"} wishlist`}
+    <>
+      {loading ? (
+        <LoadingSingleMain />
+      ) : (
+        <div className="w-full flex justify-center flex-col items-center sm:flex-row sm:justify-center">
+          <ToastContainer />
+          <div className="sm:mr-10">
+            <Images images={selectedProduct.images} />
+          </div>
+          <SingleProductDetail
+            addToCartHandler={addToCartHandler}
+            addWishlist={addWishlist}
+            categories={categories}
+            selectedProduct={selectedProduct}
+            loading={loading}
+            wishLoading={wishLoading}
+            addedWish={addedWish}
           />
+          {modal && (
+            <div className="modal mt-[10%]">
+              <div onClick={toggleModal} className="overlay"></div>
+              <WishlistPopup
+                success={true}
+                handleClick={toggleModal}
+                statusMessage={"Success"}
+                message={`${added ? "Added to" : "Removed from"} wishlist`}
+              />
+            </div>
+          )}
         </div>
       )}
-    </div>
+    </>
   );
 };
 

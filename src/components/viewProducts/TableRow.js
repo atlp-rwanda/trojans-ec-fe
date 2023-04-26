@@ -14,7 +14,7 @@ const TableRow = ({ products, categories }) => {
             products.indexOf(product) % 2 != 0 ? `bg-gray-100` : `bg-white`
           }`}
         >
-          <td className="p-3 text-sm tracking-wide text-center flex ml-3">
+          <td className="p-3 text-base tracking-wide text-center flex ml-3">
             <img
               src={product.images[0]}
               alt=""
@@ -22,22 +22,22 @@ const TableRow = ({ products, categories }) => {
             />{" "}
             <span>{product.name}</span>
           </td>
-          <td className="hidden sm:table-cell p-3 text-sm tracking-wide text-center">
+          <td className="hidden sm:table-cell p-3 text-base tracking-wide text-center">
             {formatString(product.available.toString())}
           </td>
-          <td className="hidden sm:table-cell p-3 text-sm tracking-wide text-center">
+          <td className="hidden sm:table-cell p-3 text-base tracking-wide text-center">
             ${product.price}
           </td>
-          <td className="hidden sm:table-cell p-3 text-sm tracking-wide text-center">
+          <td className="hidden sm:table-cell p-3 text-base tracking-wide text-center">
             {formatDate(product.expiryDate)}
           </td>
-          <td className="hidden sm:table-cell p-3 text-sm tracking-wide text-center">
+          <td className="hidden sm:table-cell p-3 text-base tracking-wide text-center">
             {formatString(product.expired.toString())}
           </td>
-          <td className="p-3 text-sm tracking-wide text-center">
+          <td className="p-3 text-base tracking-wide text-center">
             <Categorize id={product.categoryId} categories={categories} />
           </td>
-          <td className="p-3 text-sm tracking-wide text-center flex justify-evenly">
+          <td className="p-3 text-base tracking-wide text-center flex justify-evenly">
             <i className="fa fa-edit fa-lg text-[#1976D2] hover:scale-125"></i>
             <i className="fa fa-trash fa-lg text-[#D23D4F] hover:scale-125"></i>
           </td>

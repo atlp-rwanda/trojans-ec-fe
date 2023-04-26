@@ -4,7 +4,7 @@ import { getCartThunk, getSellersThunk } from "../redux/features/actions/cart";
 import { getCart } from "../redux/features/slices/cart";
 import CartView from "../components/cart/CartView";
 import ErrorHandler from "../components/shared/ErrorHandler";
-import Navbar from "@components/Navbar";
+import Navbar from "../components/Navbar";
 
 /* istanbul ignore next */
 const Cart = () => {
@@ -27,7 +27,7 @@ const Cart = () => {
     }
   }, [dispatch]);
   return (
-    <>
+    <div className="w-[100vw]">
       <ErrorHandler
         error={error}
         loading={loading}
@@ -48,7 +48,7 @@ const Cart = () => {
           />
         </>
       )}
-    </>
+    </div>
   );
 };
 

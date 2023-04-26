@@ -1,12 +1,10 @@
 import React from "react";
-import Navbar from "@components/Navbar";
-import BuyerSidebar from "@components/dashboard/BuyerSidebar";
+import SellerMain from "../seller/SellerMain";
 
 const MainBuyerDashBoard = () => {
   return (
     <div>
-      <Navbar />
-      <BuyerSidebar />
+      <SellerMain element={"Home"} buyer={true} />
     </div>
   );
 };

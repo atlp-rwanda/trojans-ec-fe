@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { getUserProfile } from "../redux/features/actions/getProfile";
 import ProfileForm from "../components/profileForm";
 import Spinner from "../components/viewProducts/spinner";
-import Navbar from "@components/Navbar";
+import Navbar from "../components/Navbar";
 
 const ProfileUpdate = () => {
   const { userProfile, userStatus, loading, updateStatus } =

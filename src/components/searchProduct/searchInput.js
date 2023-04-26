@@ -31,7 +31,7 @@ function SearchInput() {
         placeholder="search Here"
         name="name"
         register={register("name")}
-        className="bg-transparent px-4 py-2 outline-none col-span-2  w-96"
+        className="bg-white px-4 py-2 outline-none col-span-2  w-96 text-gray-700"
         data-testid="search-input"
       />
       <button

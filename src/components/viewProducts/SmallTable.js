@@ -17,7 +17,7 @@ const SmallTable = (props) => {
           {data.map((datum) => (
             <tr
               key={data.indexOf(datum)}
-              className="bg-[#DBD2EA] text-center border-t-2 border-whiteColor font-semibold"
+              className="bg-[#DBD2EA] text-center border-t-2 border-whiteColor font-regular"
             >
               <td className="py-[6px] rounded-bl-lg">{datum[keys[0]]}</td>
               <td className="py-[6px]">{datum[keys[1]]}</td>

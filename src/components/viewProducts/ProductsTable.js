@@ -1,15 +1,16 @@
 import React from "react";
 import Table from "./Table.js";
-import BackArrow from "./BackArrow.js";
 import emptySet from "../../assets/images/empty.png";
-const ProductsTable = ({ products, categories }) => {
+import { LoadingTable } from "../skeleton/LoadingTable.js";
+const ProductsTable = ({ products, categories, loading, response }) => {
+  console.log(response);
   return (
-    <div className="products-table box-border w-[100%] min-h-[90vh] bg-white p-8 rounded-2xl my-8 mx-auto relative lg:w-[70%]">
-      <BackArrow to="/" />
-
-      {products.length > 0 ? (
+    <div className="products-table box-border w-[100%] min-h-[80vh] bg-white px-8 py-4 rounded-2xl relative lg:w-full">
+      {loading && <LoadingTable />}
+      {products.length > 0 && !loading && response && (
         <Table products={products} categories={categories} />
-      ) : (
+      )}
+      {products.length === 0 && !loading && response && (
         <div className="w-full h-full flex flex-col justify-center items-center">
           <img
             src={emptySet}

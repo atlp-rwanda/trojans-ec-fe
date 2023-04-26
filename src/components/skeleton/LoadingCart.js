@@ -106,5 +106,5 @@ export const LoadingCart = ({ count }) => {
       </div>
     );
   }
-  return <>{cards}</>;
+  return <div data-testid="skel-cart">{cards}</div>;
 };

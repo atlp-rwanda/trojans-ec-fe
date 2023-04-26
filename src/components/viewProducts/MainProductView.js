@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 import MainProductCard from "./MainProductCard";
-import { LoadingMainCards } from "@components/skeleton/loadingMainCards";
+import { LoadingMainCards } from "../skeleton/loadingMainCards";
 
 const MainProductView = ({ products, categories, loading }) => {
   return (

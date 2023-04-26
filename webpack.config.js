@@ -38,7 +38,7 @@ module.exports = {
       "@": path.resolve(__dirname, "src/"),
       "@components": path.resolve(__dirname, "src/components"),
       "@redux": path.resolve(__dirname, "src/redux"),
-      "@helper": path.resolve(__dirname, "src/helpers"),
+      "@helpers": path.resolve(__dirname, "src/helpers"),
       "@pages": path.resolve(__dirname, "src/pages"),
       "@assets": path.resolve(__dirname, "src/assets"),
       "@styles": path.resolve(__dirname, "src/styles"),

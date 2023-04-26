@@ -10,6 +10,7 @@ const initialState = {
   error: { payload: null, status: false },
   selectedProduct: {},
   categories: [],
+  response: false,
 };
 /* istanbul ignore next */
 const productSlice = createSlice({
@@ -34,6 +35,7 @@ const productSlice = createSlice({
           ...state,
           loading: false,
           products: [...payload.products],
+          response: true,
         };
       } else if (payload.status) {
         return {

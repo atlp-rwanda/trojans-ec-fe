@@ -16,21 +16,18 @@ export default function ViewWishlist() {
     dispatch(getWishListThunk()).then(() => dispatch(getSellersThunk()));
   }, [dispatch]);
   return (
-    <>
+    <div className="w-full h-full lg:full">
       <ErrorHandler error={error} loading={loading} />
       {!error.status && (
-        <h1 className="ml-10 font-bold text-xl mt-10">Wish List</h1>
+        <h1 className="ml-10 font-semibold text-xl text-dark">Wish List</h1>
       )}
       {loading ? (
-        <div className="w-full h-full lg:w-[50%]">
-          {" "}
-          <LoadingWishlist count={3} />
-        </div>
+        <LoadingWishlist count={3} />
       ) : (
-        <div className="w-full h-full lg:w-[50%]">
-          {" "}
+        <>
           {!error.status && wishlist.length > 0 && (
-            <div className="w-full">
+            // <div className="grid grid-cols-3">
+            <div className="w-full lg:w-[100%]  lg:grid lg:grid-cols-2 gap-5">
               {wishlist.map((wish) => (
                 <WishCard
                   key={wish.id}
@@ -39,6 +36,7 @@ export default function ViewWishlist() {
                 />
               ))}
             </div>
+            // </div>
           )}
           {!error.status && wishlist.length === 0 && (
             <>
@@ -47,8 +45,8 @@ export default function ViewWishlist() {
               </div>
             </>
           )}
-        </div>
+        </>
       )}
-    </>
+    </div>
   );
 }

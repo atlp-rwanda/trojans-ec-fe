@@ -8,7 +8,7 @@ import {
 } from "../../redux/features/actions/cart";
 import CartCard from "./CartCard";
 import CartSummary from "./CartSummary";
-import { LoadingCart } from "@components/skeleton/LoadingCart";
+import { LoadingCart } from "../skeleton/LoadingCart";
 const CartView = ({
   numberOfItems,
   cart,
@@ -32,8 +32,8 @@ const CartView = ({
   };
   return (
     <div className="w-full h-full">
-      <div className="flex flex-col-reverse px-24 lg:flex-row justify-between items-start w-full h-full">
-        <div className="w-full h-full lg:w-[62%]">
+      <div className="flex flex-col-reverse pl-5 pr-10 lg:px-24 lg:flex-row justify-between items-start w-full h-full">
+        <div className="w-full h-full lg:w-[62%] my-5">
           <div className="sm:m-7 flex justify-between w-full lg:w-full ">
             <h1 className="sm:ml-4 font-semibold text-2xl">
               Cart({loading ? ".." : numberOfItems})
