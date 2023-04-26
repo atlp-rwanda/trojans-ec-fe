@@ -24,18 +24,18 @@ function SearchInput() {
   return (
     <form
       onSubmit={handleSubmit(submitSearch)}
-      className="border border-primary-color rounded-xl flex  items-center overflow-hidden screen-base:hidden"
+      className="relative border border-primary-color rounded-xl flex  items-center overflow-hidden w-[90%] md:w-fit"
     >
       <InputField
         type="text"
         placeholder="search Here"
         name="name"
         register={register("name")}
-        className="bg-transparent px-4 py-2 outline-none col-span-2  w-96 screen-base:w-48"
+        className="bg-transparent px-4 py-2 outline-none col-span-2  w-96"
         data-testid="search-input"
       />
       <button
-        className="bg-primary-color text-white py-2 px-3 rounded-lg h-full screen-base:py-3"
+        className="absolute right-0 bg-primary-color text-white py-2 px-3 rounded-lg h-full"
         data-testid="button-search"
       >
         search

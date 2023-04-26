@@ -32,8 +32,14 @@ const SingleMainView = ({ selectedProduct, categories }) => {
       <div className="sm:mr-10">
         <Images images={selectedProduct.images} />
       </div>
-      <SingleProductDetail  addToCartHandler={addToCartHandler} addWishlist={addWishlist} categories={categories} 
-     selectedProduct={selectedProduct} loading={loading} addedWish={addedWish}/>
+      <SingleProductDetail
+        addToCartHandler={addToCartHandler}
+        addWishlist={addWishlist}
+        categories={categories}
+        selectedProduct={selectedProduct}
+        loading={loading}
+        addedWish={addedWish}
+      />
       {modal && (
         <div className="modal mt-[10%]">
           <div onClick={toggleModal} className="overlay"></div>

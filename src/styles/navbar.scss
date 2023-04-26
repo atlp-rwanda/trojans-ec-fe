@@ -1,0 +1,28 @@
+.navbar {
+  .nav-pop.animate {
+    animation: popAnimation 3s ease-in-out;
+  }
+}
+
+@keyframes popAnimation {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  25% {
+    opacity: 0.4;
+    transform: translateY(-50%);
+  }
+  50% {
+    opacity: 0.3;
+    transform: translateY(-75%);
+  }
+  75% {
+    opacity: 0.1;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-150%);
+  }
+}

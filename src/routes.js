@@ -1,23 +1,24 @@
-import React from 'react'
-import { Route, Routes } from 'react-router-dom'
-import Landing from './pages/homepage'
-import Login from './pages/login'
-import ProfileUpdate from './pages/profileUpdate'
-import NotFound from './pages/notFound'
-import SignUp from './pages/signUp'
-import AllProducts from './pages/dashboard/seller/AllProducts/allProducts'
-import ProductDetail from './pages/dashboard/seller/ProductDetail.js/ProductDetail'
-import MainProductDetail from './pages/MainProductDetail'
-import TwoFactorAuth from './pages/twoFactorAuth'
-import Product from './pages/dashboard/seller/addProduct'
-import ResetPasswd from './pages/password/passwd-reset'
-import SendEmail from './pages/password/sendEmail'
-import SendSuccessfull from './components/sendSuccess'
-import Cart from './pages/cart'
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import Landing from "./pages/homepage";
+import Login from "./pages/login";
+import ProfileUpdate from "./pages/profileUpdate";
+import NotFound from "./pages/notFound";
+import SignUp from "./pages/signUp";
+import AllProducts from "./pages/dashboard/seller/AllProducts/allProducts";
+import ProductDetail from "./pages/dashboard/seller/ProductDetail.js/ProductDetail";
+import MainProductDetail from "./pages/MainProductDetail";
+import TwoFactorAuth from "./pages/twoFactorAuth";
+import Product from "./pages/dashboard/seller/addProduct";
+import ResetPasswd from "./pages/password/passwd-reset";
+import SendEmail from "./pages/password/sendEmail";
+import SendSuccessfull from "./components/sendSuccess";
+import Cart from "./pages/cart";
+import Success from "./components/Success";
 import ViewSearch from "./pages/searchView";
 import ViewWishlist from "./components/wishlist/ViewWishlist";
 import AllUsers from "./pages/dashboard/admin/users/allUsers";
-
+import MainBuyerDashBoard from "@pages/dashboard/buyer/MainBuyerDash";
 const AppRoutes = () => {
   return (
     <Routes>
@@ -54,11 +55,12 @@ const AppRoutes = () => {
       <Route exact path="/user/profile" element={<ProfileUpdate />} />
 
       <Route exact path="/view-search" element={<ViewSearch />} />
-      <Route exact path="/dashboard/users" element={<AllUsers />}/>
-    
-      <Route path="*" element={<NotFound />} ></Route>
-    </Routes>
-  )
-}
+      <Route exact path="/dashboard/users" element={<AllUsers />} />
 
-export default AppRoutes
+      <Route exact path="/dashboard/buyer" element={<MainBuyerDashBoard />} />
+      <Route path="*" element={<NotFound />}></Route>
+    </Routes>
+  );
+};
+
+export default AppRoutes;

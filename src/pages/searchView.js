@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import Filter from "../components/searchProduct/filter";
 import "../styles/search.scss";
 import MainProductCard from "../components/viewProducts/MainProductCard";
-import { LoadingMainCards } from "../components/skeleton/loadingMainCards";
+import { LoadingMainCards } from "@components/skeleton/LoadingMainCards";
 
 function ViewSearch() {
   const { search, cat } = useSelector((state) => state);

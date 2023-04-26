@@ -14,7 +14,7 @@ const CartIcon = () => {
   }
 
   return (
-    <div onClick={() => navigate("/products/cart")} className="relative m-5">
+    <div onClick={() => navigate("/products/cart")} className="relative">
       {loading ? (
         <div className="absolute bottom-8 ml-5">
           <Spinner withoutText={true} />
