@@ -1,7 +1,5 @@
 node_modules
 coverage
-build
-.env
 dist
-
+.env
 .DS_Store

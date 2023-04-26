@@ -15,7 +15,7 @@ import SendEmail from './pages/password/sendEmail'
 import SendSuccessfull from './components/sendSuccess'
 import Cart from './pages/cart'
 import Success from './components/Success'
-
+import ViewSearch from "./pages/searchView";
 const AppRoutes = () => {
   return (
     <Routes>
@@ -52,6 +52,8 @@ const AppRoutes = () => {
       <Route exact path="/success" element={<Success />} />
       <Route exact path="/user/profile" element={<ProfileUpdate />} />
 
+      <Route exact path="/view-search" element={<ViewSearch />} />
+      
       <Route path="*" element={<NotFound />}></Route>
     </Routes>
   )

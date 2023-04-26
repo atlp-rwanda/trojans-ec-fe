@@ -1,13 +1,14 @@
 import React from "react";
 import CartIcon from "./cart/CartIcon";
 import { Link } from "react-router-dom";
+import SearchInput from "./searchProduct/searchInput";
 
 const Navbar = () => {
   return (
     <div>
       <p>This is Homepage Page</p>
       <div>
-        <div className="pt-4 mx-10">
+        <div className="pt-4 mx-10 flex justify-between items-center">
           <Link
             to="/login"
             data-testid="navigate-to-login"
@@ -27,6 +28,7 @@ const Navbar = () => {
           <Link to="/user/profile">
               <button className="m-2 p-1">Profile Update</button>
               </Link>
+        <SearchInput />
         </div>
       </div>
       <CartIcon />
