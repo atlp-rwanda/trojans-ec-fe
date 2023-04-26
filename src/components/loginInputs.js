@@ -54,7 +54,7 @@ export default function LoginInputs() {
             <input
               className="login-input bg-transparent outline-none w-full"
               placeholder="User Email"
-              {...register("email")}
+              {...register('email')}
               name="email"
               type="text"
             />
@@ -67,7 +67,7 @@ export default function LoginInputs() {
           <div className="w-80">
             <input
               className="login-input bg-transparent outline-none w-full"
-              {...register("password")}
+              {...register('password')}
               name="password"
               placeholder="User Password"
               type="password"
@@ -86,10 +86,12 @@ export default function LoginInputs() {
             <span className={`${loading ? "hidden" : ""}`}>Login</span>
             {loading ? <Loader /> : null}
           </button>
-          <h6 className="forgot">Forgot Password?</h6>
+          <h6 className="forgot" onClick={() => navigate('/sendEmail')}>
+            Forgot Password?
+          </h6>
         </form>
         <GoogleButton />
       </div>
     </div>
-  );
+  )
 }

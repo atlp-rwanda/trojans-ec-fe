@@ -1,9 +1,12 @@
 import React from 'react'
 
-const Button = ({text,className,id,onclick,type}) => {
+// eslint-disable-next-line react/prop-types
+const Button = ({ text, className, id, onclick, type }) => {
   return (
     <div>
-      <button  className={className} id={id} onClick={onclick} type={type}>{text}</button>
+      <button className={className} id={id} onClick={onclick} type={type}>
+        {text}
+      </button>
     </div>
   )
 }
