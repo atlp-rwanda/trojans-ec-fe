@@ -29,6 +29,9 @@ const Navbar = () => {
               <button className="m-2 p-1">Profile Update</button>
               </Link>
         <SearchInput />
+           <Link to="/products/wishlist">
+              <button className="m-2 p-1">Wishlist</button>
+           </Link>
         </div>
       </div>
       <CartIcon />

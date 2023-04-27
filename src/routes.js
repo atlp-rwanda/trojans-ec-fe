@@ -16,6 +16,7 @@ import SendSuccessfull from './components/sendSuccess'
 import Cart from './pages/cart'
 import Success from './components/Success'
 import ViewSearch from "./pages/searchView";
+import ViewWishlist from "./components/wishlist/ViewWishlist";
 const AppRoutes = () => {
   return (
     <Routes>
@@ -23,6 +24,7 @@ const AppRoutes = () => {
       <Route exact path="/login" element={<Login />} />
       <Route exact path="/register" element={<SignUp />} />
       <Route exact path="/products/:id" element={<MainProductDetail />} />
+      <Route exact path="/products/wishlist" element={<ViewWishlist />} />
       <Route
         exact
         path="/dashboard/seller/products"

@@ -1,7 +1,6 @@
 import React from "react";
 import { formatString } from "../../helpers/Format";
 import { Link } from "react-router-dom";
-
 const Error = (props) => {
   const { code, title, description, to } = props;
   if (code && title && description && to) {

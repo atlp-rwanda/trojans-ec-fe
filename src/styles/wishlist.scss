@@ -1,0 +1,288 @@
+$primary-color: #5f3e8e;
+$primary-background-color: #f5f5f5;
+
+body.active-modal {
+  overflow-y: hidden;
+}
+.two-factor-container .two-factor-form-div,
+.success-fail-popup {
+  max-width: 450px;
+  width: 100%;
+  margin: auto; 
+  padding-top: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+.modal,
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+}
+
+.overlay {
+  background: rgba(49, 49, 49, 0.6);
+}
+
+.two-factor-container .two-factor-form-div form div {
+  margin-bottom: 15px;
+}
+
+.success-fail-popup {
+  max-width: 350px;
+  background-color: white;
+  height: 300px;
+  padding-top: 0px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.success-fail-popup h1 {
+  font-size: 24px;
+  padding: 20px 0;
+}
+
+.success-fail-popup p {
+  width: 80%;
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.cross-icon {
+  width: 80px;
+  position: absolute;
+  top: -40px;
+}
+
+.logo-image {
+  position: relative;
+  z-index: 10;
+  width: 30vw;
+}
+
+.two-factor-form-div h1 {
+  font-size: 22px;
+  width: 100%;
+  text-align: center;
+}
+.two-factor-form-div h2 {
+  font-size: 20px;
+  width: 100%;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.otp-input-style {
+  width: 40px !important;
+  height: 40px !important;
+  border: 2px solid #5f3e8e;
+  border-radius: 2px;
+}
+
+.otp-input-style:focus {
+  outline: none;
+  border-color: #5f3e8e;
+  box-shadow: 0 0 0 2px #5f3e8e6c;
+}
+
+.two-fact-btn {
+  max-width: 250px;
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+  color: white;
+  font-size: 20px;
+}
+
+.div-design-one {
+  width: 350px;
+  height: 350px;
+  background-color: #a791ca;
+  opacity: 29%;
+  border-radius: 50%;
+  margin-left: 100px;
+  position: absolute;
+}
+
+.div-design-two {
+  width: 450px;
+  height: 450px;
+  background-color: #bf9dda;
+  opacity: 53%;
+  border-radius: 50%;
+  position: absolute;
+  bottom: -100px;
+  left: -100px;
+}
+
+.vector-image {
+  position: absolute;
+  top: 0;
+  right: -70px;
+  height: 85vh;
+}
+
+.loading {
+  padding: 20px;
+}
+
+.is-error {
+  color: red;
+  font-size: 14px;
+  width: 100%;
+  margin-left: 8px;
+}
+
+.loader-2fa {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 0 !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $primary-color;
+  transition: opacity 1s, visibility 1s;
+}
+
+.loader-2fa::after {
+  content: "";
+  width: 25px;
+  height: 25px;
+  border: 5px solid white;
+  border-top-color: $primary-color;
+  border-radius: 50%;
+  animation: twofaloading 40s ease infinite;
+}
+@keyframes twofaloading {
+  from {
+    transform: rotate(0turn);
+  }
+  to {
+    transform: rotate(80turn);
+  }
+}
+
+.got-email {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.got-email p,
+.try-loggin-auth {
+  width: 80%;
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.try-loggin-auth {
+  padding-top: 50px;
+}
+
+.try-loggin-auth a {
+  color: #5f3e8e;
+}
+
+.comfirm-popup p {
+  font-size: 18px;
+}
+
+.comfirm-btn {
+  width: 70px;
+  height: 30px;
+  border-radius: 2px;
+  margin: 0 20px;
+  color: white;
+}
+
+@media screen and (max-width: 912px) {
+  .two-factor-container .two-factor-form-div {
+    max-width: 350px;
+  }
+  .div-design-one {
+    width: 300px;
+    height: 300px;
+    top: 30%;
+  }
+
+  .div-design-two {
+    width: 350px;
+    height: 350px;
+    bottom: -50px;
+    left: -50px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .two-factor-container {
+    overflow: scroll;
+  }
+  .two-factor-container .two-factor-form-div {
+    padding-top: 20px;
+    padding-bottom: 50px;
+  }
+}
+
+@media screen and (max-width: 712px) {
+  .div-design-one,
+  .div-design-two {
+    background-color: $primary-background-color;
+  }
+
+  .vector-image {
+    height: 100vh;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .two-factor-container .two-factor-form-div {
+    width: 80%;
+  }
+  .logo-image {
+    width: 40vw;
+  }
+  .two-factor-form-div h1 {
+    font-size: 6vw;
+  }
+  .otp-input-style {
+    width: 35px !important;
+    height: 35px !important;
+  }
+  .two-fact-btn {
+    height: 35px;
+    font-size: 18px;
+  }
+  .loader-2fa {
+    height: 30px;
+  }
+}
+
+@media screen and (max-width: 250px) {
+  .logo-image {
+    width: 60vw;
+  }
+  .two-factor-form-div h1 {
+    font-size: 7vw;
+  }
+  .two-factor-form-div h2 {
+    font-size: 14px;
+  }
+  .otp-input-style {
+    width: 25px !important;
+    height: 30px !important;
+  }
+  .two-fact-btn {
+    height: 30px;
+  }
+  .loader-2fa {
+    height: 25px;
+  }
+}

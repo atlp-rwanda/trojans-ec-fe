@@ -12,6 +12,7 @@ import SingleMainView from "../components/viewProducts/SingleMainView";
 import CartIcon from "../components/cart/CartIcon";
 import { getCartThunk } from "../redux/features/actions/cart";
 import ErrorHandler from "../components/shared/ErrorHandler";
+import { getWishListThunk } from "../redux/features/actions/wishlist";
 
 const MainProductDetail = () => {
   const { id } = useParams();
@@ -20,6 +21,7 @@ const MainProductDetail = () => {
   );
   const dispatch = useDispatch();
   useEffect(() => {
+    dispatch(getWishListThunk())
     dispatch(getCategoriesThunk());
     dispatch(getOneProductThunk(id));
     return () => {
