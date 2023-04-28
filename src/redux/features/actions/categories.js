@@ -8,7 +8,7 @@ export const getCategories= createAsyncThunk(
         thunkApi.dispatch(setIsLoading(true));
         thunkApi.dispatch(setError(null))
         try {
-            const categories= await axios.get("http://localhost:4000/api/v1/categories");
+            const categories= await axios.get(`${process.env.BACKEND_URL}/categories`);
             thunkApi.dispatch(setIsLoading(false))
             thunkApi.dispatch(setCategories(categories.data.categories))
             return categories.data.categories

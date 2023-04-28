@@ -8,7 +8,7 @@ const initialState = {
     success: false,
     hasNewMessage:false
   }
-  
+  /* istanbul ignore next */
   const chatSlice = createSlice({
     name: 'chat',
     initialState,

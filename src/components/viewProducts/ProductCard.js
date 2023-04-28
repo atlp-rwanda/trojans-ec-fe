@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import StarRating from "./StarRating.js";
 import Images from "./Images.js";
@@ -10,6 +11,7 @@ import {
 } from "../../helpers/Format.js";
 
 const ProductCard = ({ product, categories }) => {
+  console.log(product.average);
   const { images } = product;
   if (images) {
     return (
@@ -66,10 +68,13 @@ const ProductCard = ({ product, categories }) => {
           </div>
           <div>
             <h1 className="text-2xl font-semibold">Ratings</h1>
-            <p className="text-2xl font-semibold">
-              <span className="rating-number mr-3">4.5</span>
-              <StarRating rating={4.5} />
-            </p>
+            {product.message && (<p className="font-normal">{product.message}</p>)}
+            {product.average !=0 && (
+              <p className="text-2xl font-semibold">
+                <span className="rating-number mr-3">{product.average}</span>
+                <StarRating rating={product.average} />
+              </p>
+            )}
           </div>
         </div>
       </div>

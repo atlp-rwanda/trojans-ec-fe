@@ -19,6 +19,7 @@ describe("should view the product view", () => {
     expect(getByTestId("price")).toBeInTheDocument();
     expect(getByTestId("category-search")).toBeInTheDocument();
     expect(getByTestId("expiryDate")).toBeInTheDocument();
+    expect(getByTestId("sellerId")).toBeInTheDocument();
 
   });
 

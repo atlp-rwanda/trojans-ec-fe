@@ -13,6 +13,7 @@ import CartIcon from "../components/cart/CartIcon";
 import { getCartThunk } from "../redux/features/actions/cart";
 import ErrorHandler from "../components/shared/ErrorHandler";
 import { getWishListThunk } from "../redux/features/actions/wishlist";
+import RecommendProducts from "../components/recommend/recommend.products";
 
 const MainProductDetail = () => {
   const { id } = useParams();
@@ -50,6 +51,7 @@ const MainProductDetail = () => {
           />
         </div>
       )}
+      <RecommendProducts id={id} selectedProduct={selectedProduct} categories={categories} />
     </>
   );
 };
