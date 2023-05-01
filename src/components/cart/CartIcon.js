@@ -1,19 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getCartThunk } from "../../redux/features/actions/cart";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { getCart } from "../../redux/features/slices/cart";
 import { useNavigate } from "react-router-dom";
 import cart from "../../assets/images/cart.png";
 import Spinner from "../viewProducts/spinner";
 
 const CartIcon = () => {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
   const { loading, numberOfItems } = useSelector(getCart);
-  // useEffect(() => {
-  //   dispatch(getCartThunk());
-  // }, []);
-
   const [cartNumber, setCartNumber] = useState(numberOfItems);
   if (numberOfItems !== cartNumber) {
     setCartNumber(numberOfItems);

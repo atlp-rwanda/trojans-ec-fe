@@ -32,6 +32,7 @@ const Navbar = () => {
            <Link to="/products/wishlist">
               <button className="m-2 p-1">Wishlist</button>
            </Link>
+          <Link to="/dashboard/admin/users">Disable Account</Link>
         </div>
       </div>
       <CartIcon />

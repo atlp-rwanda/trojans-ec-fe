@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 module.exports = {
   purge: ["./src/**/*.js", "./src/**/*.jsx"],
   darkMode: false,

@@ -6,10 +6,10 @@ import Login from "../pages/login";
 import mockAxios from "../redux/axiosinstance";
 import { act } from "react-dom/test-utils";
 
-test('sample test for home page', ()=>{
-    render(<Login/>);
-    const homeElement = screen.getByTestId('login');
-    expect(homeElement).toBeInTheDocument();
+test('sample test for home page', () => {
+  render(<Login />)
+  const homeElement = screen.getByTestId('login')
+  expect(homeElement).toBeInTheDocument()
 })
 
 test('login as a buyer and navigate home page', async ()=>{

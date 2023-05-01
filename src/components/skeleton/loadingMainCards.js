@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+
 import { Skeleton } from "@mui/material";
 import React from "react";
 

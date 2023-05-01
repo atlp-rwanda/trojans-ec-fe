@@ -1,11 +1,15 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+/* eslint-disable no-undef */
+import React from "react";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { setGotEmail } from "../redux/features/slices/user";
 import { useNavigate } from "react-router-dom";
-import { getLoginUser, setGotEmail } from "../redux/features/slices/user";
+import { useSelector } from "react-redux";
+import { getLoginUser } from "../redux/features/slices/user";
 import logo from "../assets/images/LOGO.svg";
 import vector from "../assets/images/Vector.png";
 import { loginThunk } from "../redux/features/actions/userLogin";
-import "../styles/login.scss";
+import "../styles/login.scss"
 import GoogleButton from "./googleButton";
 import loginSchema from "../schema/loginSchema";
 import { useForm } from "react-hook-form";
