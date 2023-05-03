@@ -8,15 +8,17 @@ import { useEffect } from "react";
 import { getCategories } from "../../redux/features/product-redux/categoriesAction";
 import { searchThunk } from "../../redux/features/actions/product";
 import { updateSearchForm } from "../../redux/features/slices/product";
+import { getSellersThunk } from "../../redux/features/actions/seller";
 
 function Filter() {
   const dispatch = useDispatch();
   const { categories } = useSelector((state) => state.cat);
   useEffect(() => {
     dispatch(getCategories());
+    dispatch(getSellersThunk());
   }, [dispatch]);
 
-  const { search } = useSelector((state) => state);
+  const { search, Sellers } = useSelector((state) => state);
   const { searchForm } = search;
   const handlePriceChange = (event) => {
     const { name, value } = event.target;
@@ -27,6 +29,10 @@ function Filter() {
     dispatch(updateSearchForm({ [name]: value }));
   };
   const handleDateChange = (event) => {
+    const { name, value } = event.target;
+    dispatch(updateSearchForm({ [name]: value }));
+  };
+  const handleSeller = (event) => {
     const { name, value } = event.target;
     dispatch(updateSearchForm({ [name]: value }));
   };
@@ -57,7 +63,15 @@ function Filter() {
           default="All Categories"
           data-testid="category-search"
         />
-         <OnChangeInputField
+        <OnChangeSelectOption
+          name="seller"
+          options={Sellers.response}
+          className="filter-inputs"
+          default="seller"
+          onChange={handleSeller}
+          data-testid="sellerId"
+        />
+        <OnChangeInputField
           type="date"
           name="expiryDate"
           className="filter-inputs"

@@ -18,7 +18,9 @@ export const searchThunk = createAsyncThunk(
     if (data.expiryDate) {
       params.expiryDate = data.expiryDate;
     }
-    console.log(params);
+    if(data.seller){
+      params.sellerId= data.seller
+    }
     if (Object.keys(params).length > 0) {
       thunkAPI.dispatch(searchLoading());
       try {

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import StarRating from "./StarRating.js";
 import Categorize from "./Categorize.js";
@@ -51,13 +52,22 @@ const MainProductCard = ({ product, categories }) => {
       <div className="flex justify-around my-1">
         <div className=" ">
           <span className="font-light">
-            {/* Shoes */}
             <Categorize id={product.categoryId} categories={categories} />
           </span>
-          <p>
-            <span className="font-bold mr-1">4.5</span>
-            <StarRating rating={4} />
-          </p>
+          <div>
+            {product.message && (
+              <span className={`font-bold text-sm mr-1`}>
+                {product.message}
+              </span>
+            )}
+
+            {product.average != 0 && (
+              <div>
+                <span className={`font-bold" mr-1`}>{product.average}</span>
+                <StarRating rating={product.average} />
+              </div>
+            )}
+          </div>
         </div>
         <div className="flex items-center justify-center">
           <button

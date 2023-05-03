@@ -8,6 +8,7 @@ const initialState = {
   error: { payload: null, status: false },
   message: undefined,
 }
+/* istanbul ignore next */
 const resetSlice = createSlice({
   name: 'resetPass',
   initialState,

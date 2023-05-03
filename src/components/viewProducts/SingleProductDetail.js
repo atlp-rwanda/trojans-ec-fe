@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react'
 import StarRating from "./StarRating";
 import Categorize from "./Categorize";
@@ -23,8 +24,8 @@ export default function SingleProductDetail({addToCartHandler,loading, addedWish
             {selectedProduct.price}
           </p>
           <p className="text-lg">
-            <span className="font-semibold">Ratings: </span>4.5{" "}
-            <StarRating rating={4.5} />
+            <span className="font-semibold">Ratings: </span>{selectedProduct.average != 0 ? selectedProduct.average : selectedProduct.message}
+            {selectedProduct.average !=0 && <StarRating rating={selectedProduct.average} />}
           </p>
         </div>
         <button className="bg-primary flex justify-around items-center border-none w-60 h-10 sm:w-72 sm:h-12  hover:bg-dark ">

@@ -13,6 +13,7 @@ import profileReducer from "./features/slices/profileUpdate"
 import wishlistReducer from "./features/slices/wishlist";
 import getUsersReducer from './features/slices/getUsers.js';
 import chat from "./features/slices/chat";
+import { sellerSlice } from "./features/slices/seller";
 
 export const reducers={
     user: userReducer,
@@ -28,7 +29,8 @@ export const reducers={
     search: searchSlice.reducer,
     wishlist:wishlistReducer,
     chat:chat,
-    users: getUsersReducer
+    users: getUsersReducer,
+    Sellers: sellerSlice.reducer
 };
 
 const store = configureStore({

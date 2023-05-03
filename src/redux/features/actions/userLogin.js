@@ -15,7 +15,7 @@ export const loginThunk = createAsyncThunk('user/login', async (user) => {
         },
       }
     );
-
+    console.log(response.data)
     return response.data;
   } catch (error) {
     if (error.response) {

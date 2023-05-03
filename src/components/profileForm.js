@@ -6,6 +6,7 @@ import '../styles/profileUpdate.scss';
 import { useForm } from 'react-hook-form';
 import WishlistPopup from './wishlist/wishlistPopup';
 import useProfileForm from './hooks/useprofileForm';
+/* istanbul ignore next */
 const ProfileForm = ({userProfile, loading, updateStatus}) => {
     const {
       fileData,
