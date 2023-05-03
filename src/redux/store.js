@@ -15,6 +15,7 @@ import getUsersReducer from "./features/slices/getUsers.js";
 import chat from "./features/slices/chat";
 import { sellerSlice } from "./features/slices/seller";
 import { logOutSlice } from "./features/slices/logout";
+import statistic from "./features/slices/statistic";
 
 export const reducers = {
   user: userReducer,
@@ -32,7 +33,9 @@ export const reducers = {
   chat: chat,
   getUsers: getUsersReducer,
   Sellers: sellerSlice.reducer,
-  logout: logOutSlice.reducer
+  logout: logOutSlice.reducer,
+  statistic:statistic
+
 };
 
 const store = configureStore({

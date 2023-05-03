@@ -47,11 +47,11 @@ const UserDetails = () => {
   return (
     <form
       key={1}
-      className="flex flex-col h-full md:h-4/6  justify-around"
+      className="flex flex-col h-full md:h-4/6 "
       onSubmit={handleSubmit(onSubmitFirst)}
     >
       <div className="md:px-40 px-4 mt-10 flex flex-col md:flex-row h-1/2 justify-center ">
-        <div className="md:w-5/12 w-full form-hide ">
+        <div className="md:w-1/4 w-full form-hide ">
           <div className=" flex flex-col justify-between h-full w-full">
             <Input
               type="text"
@@ -85,12 +85,12 @@ const UserDetails = () => {
           </div>
         </div>
 
-        <div className="h-auto bg-black form-hide rounded-xl w-0.5 mx-12"></div>
+        <div className="h-auto bg-black form-hide rounded-xl w-0.5 mx-10"></div>
 
-        <div className="md:w-5/12 w-full form-hide">
+        <div className="md:w-1/4 w-full form-hide">
           <div className=" flex flex-col justify-between w-full h-full">
             <select
-              className="input p-3 bg-black bg-opacity-0 border border-black-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400 md:mt-0 mt-5"
+              className="signup-input bg-transparent outline-none w-full text-gray-600"
               {...register('gender')}
               data-testid="gender"
             >
@@ -109,7 +109,7 @@ const UserDetails = () => {
               testId="date-input"
             />
             <select
-              className="input p-3 bg-black bg-opacity-0 border border-black-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400 md:mt-0 mt-5"
+              className="signup-input bg-transparent outline-none w-full text-gray-600"
               {...register('languange')}
               data-testid="language"
             >
@@ -122,7 +122,7 @@ const UserDetails = () => {
             </select>
             <span className="text-red-800">{errors.languange?.message}</span>
             <select
-              className=" input p-3 bg-black bg-opacity-0 border border-black-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400 md:mt-0 mt-5"
+              className="signup-input bg-transparent outline-none w-full text-gray-600"
               {...register('currency')}
               data-testid="currency"
             >
@@ -137,13 +137,14 @@ const UserDetails = () => {
           </div>
         </div>
       </div>
-      <div className="w-100 flex flex-col  justify-center items-center mt-5">
-        <Button
-          className="btn-signup text-white px-36 md:px-48 py-2 md:py-4  text-xl rounded "
-          id="next"
-          type="submit"
-          text="NEXT"
-        />
+      <div className="flex flex-col  justify-center items-center mt-5 ">
+      <button
+            className="button login-btn relative"
+            type="submit"
+            data-testid="loginbtn"
+          >
+            NEXT
+            </button>
         <GoogleButton />
         <div className="w-1/2 flex flex-col justify-center items-center">
           <p className="p-4 text-lg">

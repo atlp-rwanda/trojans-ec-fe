@@ -1,5 +1,5 @@
 .input {
-  border: solid black 1.5px;
+  border: 1px solid #bf9dda;
 }
 .input:active, .input:focus {
   outline: none;

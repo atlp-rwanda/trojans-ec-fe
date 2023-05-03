@@ -23,7 +23,11 @@ import BuyerNotifications from "./pages/dashboard/buyer/BuyerNotifications";
 import AdminNotifications from "./pages/dashboard/admin/AdminNotifications";
 import BuyerOrders from "./pages/dashboard/buyer/Order";
 import ProtectedRoutes from "./components/auth/ProtectedRoutes";
+import Product from "./pages/dashboard/seller/addProduct";
+import AdminDashboard from "./pages/dashboard/admin/AdminDashboard";
+import VerifyEmail from './pages/verifyEmail'
 
+import SellerStatisticPage from './pages/statistic'
 const AppRoutes = () => {
   return (
     <Routes>
@@ -87,7 +91,14 @@ const AppRoutes = () => {
       <Route exact path="/password-reset/" element={<ResetPasswd />} />
       <Route exact path="/sendEmail" element={<SendEmail />} />
       <Route exact path="/user/profile" element={<ProfileUpdate />} />
-      <Route path="*" element={<NotFound />}></Route>
+  
+      <Route exact path="/view-search" element={<ViewSearch />} />
+      <Route exact path="/dashboard/users" element={<AllUsers />}/>
+    
+      <Route path="*" element={<NotFound />} ></Route>
+      <Route exact path='/statistic' element={<SellerStatisticPage/>} />
+      <Route exact path='/users/verify-email' element={<VerifyEmail/>} />
+      
     </Routes>
   );
 };

@@ -17,8 +17,12 @@ import BackImage from "../assets/images/back.svg";
 import { registerUser } from "../redux/features/actions/SignUp";
 import { setCurrentStepper } from "../redux/features/slices/stepper";
 import GoogleButton from '../components/shared/GoogleButton';
+// import GoogleButton from "../components/googleButton";
+import Loader from "../components/shared/TwoFactorLoader";
 
 import Details from "../components/signUp/Details";
+import Logo from "../components/logo";
+import Spinner from "../components/products/viewProducts/spinner";
 const signUp = () => {
   const dispatch = useDispatch()
 
@@ -96,12 +100,12 @@ return () => {};
       <>
         <ToastContainer />
         <div className="bg-signUp  h-full box-border w-full min-h-full">
-          <img className="p-10" src={logo1} alt="" />
+        <div className="flex items-center mx-5  mt-5 md:mt-0  md:h-1/6 w-[90vw]">
+        <Logo />
+      </div>
 
-          <div className="w-full flex justify-center mb-3 pb-5 ">
-            <p className="text-purple-950 text-4xl font-bold">
-              Personal Details
-            </p>
+          <div className="w-full flex mt-12 justify-center">
+            <h2 className="text-purple-900"> {currentStepper==1?"Personal Details ":"Billing Address"} </h2>
           </div>
 
         {currentStepper == 1 ? (
@@ -159,39 +163,49 @@ return () => {};
                 "w-100 flex flex-col  justify-center items-center mt-3"
               }
             >
-                    <div
-          id="loader"
-          className={
-            !loading
-              ? "hidden"
-              : " w-100 flex flex-col  justify-center  md:py-4   items-center "
-          }
-        >
-          <PropagateLoader color="#5F3E8E" />
-        </div>
-              <Button 
-                className={
-                  loading
-                    ? "hidden":"btn-signup text-white px-36 md:px-48 py-2 md:py-4  text-xl rounded "}
-                id="signUpBtn"
-                type="submit"
-                text="SIGN UP"
-              />
-              <GoogleButton/>
-                  <div className="w-1/2 flex flex-col justify-center items-center">
-          <p className="p-4 text-lg">
-            Already have an account? <Link to="/login"><a href="/login" className="text-purple-800">sign in.</a></Link>
-          </p>
-          <div data-testid="back-first-page" className=" px-5 py-2 md:px-2 " onClick={() => dispatch(setCurrentStepper(1))}>
-            <img data-testid="back-first-image" src={BackImage} alt="" onClick={() => dispatch(setCurrentStepper(1))}  id="back" />
-          </div>
-        </div>
-              
-            </div>
+  
+         
       
-          </form>
-        )}
+         
+               <button
+            className="button login-btn relative"
+            type="submit"
+            data-testid="loginbtn"
+          >
+           <span className={`${loading ? "hidden" : ""}`}> SIGN UP</span>
+            {loading ? <Spinner withoutText={true} /> : null}
+          </button>
+        
 
+            
+                <GoogleButton />
+                <div className="w-1/2 flex flex-col justify-center items-center">
+                  <p className="p-4 text-lg">
+                    Already have an account?{" "}
+                    <Link to="/login">
+                      <a href="/login" className="text-purple-800">
+                        sign in.
+                      </a>
+                    </Link>
+                  </p>
+                  <div
+                  data-testid="back-first-page" 
+                    className=" px-5 py-2 md:px-2 "
+                    onClick={() => dispatch(setCurrentStepper(1))}
+                  >
+                    <img
+                      src={BackImage}
+                      alt=""
+                      onClick={() => dispatch(setCurrentStepper(1))}
+                      id="back"
+                      data-testid="back-first-image" 
+                    />
+                  </div>
+                </div>
+              </div>
+            </form>
+         )}  
+  
       </div>
     </>
     </div>
