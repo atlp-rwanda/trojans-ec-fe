@@ -9,6 +9,7 @@ import { getUserProfile } from "../redux/features/actions/getProfile";
 import whiteTrojan from "../assets/images/whiteTrojan.png";
 import Logo from "./logo";
 import jwtDecode from "jwt-decode";
+import Notification from "./notification/notification";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -48,7 +49,7 @@ const Navbar = () => {
             <ion-icon name="albums-outline"></ion-icon>
           </span>
         </div>
-        <ion-icon name="notifications-outline"></ion-icon>
+        <Notification/>
         {/* </div> */}
 
         <div className="flex flex-col justify-around items-center">
@@ -108,7 +109,8 @@ const Navbar = () => {
             </div>
             <div className="flex justify-between items-center w-[30vw]  sm:w-[15vw] mr-[3vw]">
               <CartIcon />
-              <ion-icon name="notifications-outline"></ion-icon>
+              {/* <ion-icon name="notifications-outline"></ion-icon> */}
+              <Notification/>
             </div>
           </div>
           <div

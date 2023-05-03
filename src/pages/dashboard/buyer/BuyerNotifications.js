@@ -1,9 +1,10 @@
 import React from "react";
 import BuyerMain from "./BuyerMain";
+import AllNotification from "../../../components/notification/allNotification";
 const BuyerNotifications = () => {
   return (
     <div>
-      <BuyerMain element={<span>Notifications</span>} />
+      <BuyerMain element={<AllNotification/>} />
     </div>
   );
 };

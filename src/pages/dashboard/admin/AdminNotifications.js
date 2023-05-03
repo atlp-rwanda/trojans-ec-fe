@@ -1,9 +1,11 @@
 import React from "react";
 import AdminMain from "./AdminMain";
+import AllNotification from "../../../components/notification/allNotification";
 const AdminNotifications = () => {
   return (
     <div>
-      <AdminMain element={<span>Notifications</span>} />
+      <AdminMain element={ <AllNotification/> } />
+     
     </div>
   );
 };

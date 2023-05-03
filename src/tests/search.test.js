@@ -5,6 +5,7 @@ import "@testing-library/jest-dom/extend-expect";
 import SearchInput from "../components/products/searchProduct/searchInput";
 import ViewSearch from "../pages/searchView";
 import { noResultMock, searchMock } from "./mocks/search.mock";
+import 'setimmediate';
 
 describe("testing the search input component", () => {
   it("should view the search input", () => {

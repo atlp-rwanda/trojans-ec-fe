@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import MainNavbar from "../../../components/dashboard/MainNavbar";
 import AdminLinks from "../../../components/dashboard/AdminLinks";
 import AdminSidebar from "../../../components/dashboard/AdminSidebar";
+import Notification from "../../../components/notification/notification";
 const AdminMain = ({ element }) => {
   const [active, setActive] = useState(false);
   const toggle = () => {
@@ -31,7 +32,6 @@ const AdminMain = ({ element }) => {
               <ion-icon name="menu-outline"></ion-icon>
             </div>
             <span className="mt-5 mr-14">
-              <ion-icon name="notifications-outline"></ion-icon>
             </span>
           </div>
           {element}

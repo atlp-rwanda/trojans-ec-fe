@@ -14,6 +14,7 @@ module.exports = {
       },
       backgroundColor: {
         "primary-color": "#5F3E8E",
+        "secondary-color": "#a791ca"
       },
       screens: {
         "screen-lg": { max: "914px" },

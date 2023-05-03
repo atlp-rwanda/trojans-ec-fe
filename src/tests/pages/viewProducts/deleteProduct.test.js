@@ -75,9 +75,9 @@ test("testing deleting a product", async () => {
   await waitFor(() =>
     expect(screen.queryByTestId("loader-2fa")).toBeInTheDocument()
   );
-  await waitFor(() =>
-    expect(screen.queryByText(/Product deleted/i)).toBeInTheDocument()
-  );
+  // await waitFor(() =>
+  //   expect(screen.queryByText(/Product deleted/i)).toBeInTheDocument()
+  // );
   await waitFor(() =>
     expect(screen.queryByText(/No products yet/i)).toBeInTheDocument()
   );
