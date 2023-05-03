@@ -1,0 +1,41 @@
+.input {
+  border: solid black 1.5px;
+}
+.input:active, .input:focus {
+  outline: none;
+}
+
+.inputPassword {
+  border: solid black 1.5px;
+  border-right: none;
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+}
+.inputPassword:focus, .inputPassword:active {
+  border-bottom-right-radius: none;
+  outline: none;
+}
+
+.btn-signup {
+  background-color: #5F3E8E;
+  color: white;
+}
+
+.pass {
+  border: solid black 1.5px;
+  border-left: 0;
+}
+
+.btn-signup:hover {
+  transition-timing-function: ease-out;
+  transition: width 10s linear 7s;
+  background-color: #73559e;
+}
+
+.backBtn {
+  background-color: #5F3E8E;
+}
+
+#signup-container-div {
+  overflow: scroll;
+}/*# sourceMappingURL=signUp.css.map */

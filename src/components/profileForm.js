@@ -1,33 +1,26 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
 import { yupResolver } from "@hookform/resolvers/yup"
-import Select from 'react-select';
 import profileSchema from '../schema/profileUpdate';
 import '../styles/profileUpdate.scss';
-import { updateProfileThunk } from '../redux/features/actions/updateProfile';
 import { useForm } from 'react-hook-form';
-import SelectOption from './addProduct/selectOption';
-
+import WishlistPopup from './wishlist/wishlistPopup';
+import useProfileForm from './hooks/useprofileForm';
 const ProfileForm = ({userProfile, loading, updateStatus}) => {
-  
-  const navigate = useNavigate();
-  const dispatch = useDispatch();    
-  
-  const [fileData, setFileData] = useState(null);
-  
+    const {
+      fileData,
+      success,
+      toggleModal, 
+      onUpdate, 
+      handleImage
+  } = useProfileForm();
+ 
     let billingAddress = "";
     if(typeof userProfile?.billingAddress === "string"){
         billingAddress = JSON.parse(userProfile?.billingAddress);
     }else{
         billingAddress =  userProfile?.billingAddress;
     }
-    
-    const currencyOpt = [ "rw", 'usd' ]
-
-   const [picture, setPicture] = useState(null);
-    
     const {
         register,
         handleSubmit,
@@ -45,36 +38,22 @@ const ProfileForm = ({userProfile, loading, updateStatus}) => {
         preferredLanguage: userProfile?.preferredLanguage
       }
     });
-    
-    const handleImage = (e)=>{
-      const file = e.target.files[0];
-      const reader = new FileReader();
-      reader.onload = ()=>{
-        setFileData(reader.result);
-      }
-      reader.readAsDataURL(file);
-      setPicture(file)
-  }
-    
-    const formData = new FormData();
-    const onUpdate = (data)=>{
-      picture ? formData.append('profilePic', picture) : formData.append('profilePic', data.profilePic);
-      
-      formData.append('country', data?.country);
-      formData.append('city', data?.city);
-      formData.append('province', data?.province);
-      formData.append('street', data?.street);
-      formData.append('postalCode', data?.postalCode);
-      formData.append('preferredCurrency', data?.preferredCurrency);
-      formData.append('preferredLanguage', data?.preferredLanguage);
-        dispatch(updateProfileThunk(formData))
-      }
-      if(updateStatus === 'Updated successfully'){
-        navigate('/success')
-      }
-      
+
   return (
     <div data-testid='test-form'>
+      {success &&
+        (
+          <div className="modal mt-[10%]">
+          <div onClick={toggleModal} className="overlay"></div>
+          <WishlistPopup
+            success={true}
+            handleClick={toggleModal}
+            statusMessage={"Success"}
+            message={updateStatus}
+          />
+        </div>
+        )
+      }
         <div className='profile_upd_form '>
         <h1>UPDATE PROFILE</h1>
         <form  className='container mx-auto' onSubmit={(event)=>handleSubmit(onUpdate)(event)}>
@@ -134,7 +113,6 @@ const ProfileForm = ({userProfile, loading, updateStatus}) => {
               />
               {errors.postalCode &&<span className='errorMsg text-red-600 text-sm'>{errors.postalCode?.message}</span>}
 
-              
                <select {...register("preferredCurrency")} data-testid="currency">
                 <option value="RWF">RWF</option>
                 <option value="USD">USD</option>

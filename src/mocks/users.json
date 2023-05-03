@@ -1,0 +1,20 @@
+[
+    {
+        "name": "JohnDoe",
+        "role": "admin",
+        "isVerified": "true",
+        "gender": "Male",
+        "birthDay": "12/01/2000",
+        "status": "active",
+        "empty": "empty"
+    },
+    {
+        "name": "JohnDoe",
+        "role": "admin",
+        "isVerified": "true",
+        "gender": "Male",
+        "birthDay": "12/01/2000",
+        "status": "active",
+        "empty": "empty"
+    }
+]

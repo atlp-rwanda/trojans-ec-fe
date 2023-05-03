@@ -1,11 +1,12 @@
 /* eslint-disable jest/expect-expect */
 import React from 'react';
-import { render, screen, waitForElementToBeRemoved } from './jest.setup.js';
+import { fireEvent, render, screen, waitForElementToBeRemoved } from '../jest.setup';
 import '@testing-library/jest-dom'
 import 'jest-environment-jsdom'
 import instance from '../../redux/axiosinstance.js';
 import { User } from '../mocks/user.mock.js';
 import ProfileUpdate from '../../pages/profileUpdate.js';
+import { act } from "react-dom/test-utils";
 
 instance.get.mockResolvedValue({
     data:{
@@ -22,7 +23,7 @@ instance.patch.mockResolvedValue({
 
 describe('testing update form', ()=>{
   test('should render the form with input fields', async() => {
-    render(<ProfileUpdate />);
+    render(<ProfileUpdate/>);
     await waitForElementToBeRemoved(()=> screen.queryByText('Loading...'))
 
     const countryInput = screen.getByPlaceholderText('Country');
@@ -44,7 +45,8 @@ describe('testing update form', ()=>{
     expect(languageInput).toBeInTheDocument();
     expect(button).toBeInTheDocument();
 
+    act(()=>{
+        fireEvent.click(button)
+    }) 
 });
-
-
 })
