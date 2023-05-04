@@ -31,12 +31,10 @@ function render(
 let store = {}
 
 beforeAll(() => {
-  // Mock local storage
   global.Storage.prototype.setItem = jest.fn((key, value) => {
     store[key] = value;
   });
   global.Storage.prototype.getItem = jest.fn((key) => store[key]);
- // const mockDispatch = jest.fn();
 
 });
 jest.mock("../redux/axiosinstance");
@@ -45,11 +43,6 @@ beforeEach(() => {
 })
 
 afterAll(() => {
-  // global.Storage.prototype.setItem.mockReset();
-  // global.Storage.prototype.getItem.mockReset();
 })
-
-// re-export everything
 export * from '@testing-library/react';
-// override render method
 export { render }

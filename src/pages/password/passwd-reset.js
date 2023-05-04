@@ -7,12 +7,10 @@ import resetPasswordSchema from '../../schema/resetPasswordSchema'
 import { useForm } from 'react-hook-form'
 import Input from '../../components/input'
 import { yupResolver } from '@hookform/resolvers/yup'
-// import { data } from 'autoprefixer'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { PropagateLoader } from 'react-spinners'
 import swal from 'sweetalert2'
-// import { useParams } from 'react-router-dom'
 
 const ResetPasswd = () => {
 
@@ -70,8 +68,6 @@ const ResetPasswd = () => {
       <form
         onSubmit={
           handleSubmit(submit)
-
-          // e.preventDefault()
         }
       >
         <div className={style.container}>

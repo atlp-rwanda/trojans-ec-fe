@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import close from "../images/icons8-multiply-64.png";
 import template from "../images/iphone14 pro 3.jpeg"

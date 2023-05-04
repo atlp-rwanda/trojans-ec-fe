@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/no-unknown-property */
 import React from 'react';
 import classNames from 'classnames';
 import Moment from 'react-moment';

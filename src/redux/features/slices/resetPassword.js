@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit'
-// import ResetPasswd from '../../../pages/password/passwd-reset'
 import { resetPasswdThunk } from '../actions/resetPassword'
 
 const initialState = {
@@ -26,12 +25,10 @@ const resetSlice = createSlice({
         state.loading = false
         state.message = 'Password updated'
       } else if (payload.status) {
-        console.log({ payload1: payload })
         state.loading = false
         state.error = { payload: payload.status, status: true }
       } else {
         state.message='Session Has Expired!'
-        console.log({ payload2: payload })
         state.loading = false
         state.error = { payload: payload, status: true }
       }

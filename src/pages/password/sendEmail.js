@@ -63,7 +63,7 @@ const SendEmail = () => {
   return (
     <div className={style.form}>
       <ToastContainer />
-      <div className={style.container}>
+      <div className={style.container} data-testid='emailSent'>
         <h1>
           <b>Reset Your Password</b>
         </h1>

@@ -340,7 +340,6 @@ describe('testing TwoFactorAuth component', ()=>{
     })
     
     test('render fail message if no two factor token', async ()=>{
-        // mockAxios.post.mockRejectedValue( { message: "Network error!" });
         localStorage.removeItem("userAuth");
         const okBtn = screen.getByRole("button", { name: "ok" });
         act(() => {

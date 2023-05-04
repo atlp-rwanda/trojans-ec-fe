@@ -1,11 +1,8 @@
 import React from 'react'
-// import { render, screen } from '../jest.setup'
 import {
   render,
   fireEvent,
   waitFor,
-  // eslint-disable-next-line no-unused-vars
-  getByPlaceholderText,
   screen,
 } from '../jest.setup'
 import '@testing-library/jest-dom'

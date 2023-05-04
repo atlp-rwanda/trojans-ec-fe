@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import { yupResolver } from "@hookform/resolvers/yup"
@@ -22,6 +23,10 @@ const ProfileForm = ({userProfile, loading, updateStatus}) => {
     }else{
         billingAddress =  userProfile?.billingAddress;
     }
+    
+
+   const [picture, setPicture] = useState(null);
+    
     const {
         register,
         handleSubmit,

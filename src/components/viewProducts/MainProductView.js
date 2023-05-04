@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import MainProductCard from "./MainProductCard";
 
@@ -15,5 +16,4 @@ const MainProductView = ({ products, categories }) => {
     </div>
   );
 };
-// }
 export default MainProductView;

@@ -1,11 +1,13 @@
+/* eslint-disable react/jsx-key */
+/* eslint-disable no-unused-vars */
 import React from "react";
 
 import { useEffect, useState,useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { socket } from "../config/socket";
 import chatIcon from "../assets/images/chat.svg";
-import { ToastContainer, toast } from "react-toastify";
-import { setLoading, setData,setSingle,setHasNewMessages } from "../redux/features/slices/chat";
+import { ToastContainer } from "react-toastify";
+import { setData,setSingle,setHasNewMessages } from "../redux/features/slices/chat";
 import ChatMessage from "./chatMessage";
 
 const chatModel = () => {
@@ -46,7 +48,6 @@ const chatModel = () => {
   useEffect(() => {
     setCurrentUser(currentUserLocal);
     socket.on("chat-message", (messageData) => {
-    //  toast.warning("you have new message")
     dispatch(setHasNewMessages(true))
      const msg={
       User: {
