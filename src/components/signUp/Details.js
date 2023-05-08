@@ -5,12 +5,12 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { UserDetailSchema } from "../../schema/signUpSchema";
-import Input from '../input';
-import Button from '../button';
+import { UserDetailSchema } from "../../validations/signUpSchema";
+import Input from '../shared/Input';
+import Button from '../shared/Button';
 import { setCurrentStepper,setData } from "../../redux/features/slices/stepper";
-import GoogleButton from '../../components/googleButton';
-/* istanbul ignore next */
+import GoogleButton from '../shared/GoogleButton';
+
 const UserDetails = () => {
   const dispatch = useDispatch()
   const { currentStepper, formPersonalData } = useSelector(
@@ -25,7 +25,7 @@ const UserDetails = () => {
   } = useForm({
     resolver: yupResolver(UserDetailSchema),
   })
-
+  /* istanbul ignore next */
   useEffect(() => {
     if (Object.keys(formPersonalData).length > 0) {
       setValue('names', formPersonalData?.names)
@@ -106,6 +106,7 @@ const UserDetails = () => {
               type="date"
               register={{ ...register('dob') }}
               errorText={errors.dob?.message}
+              testId="date-input"
             />
             <select
               className="input p-3 bg-black bg-opacity-0 border border-black-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400 md:mt-0 mt-5"

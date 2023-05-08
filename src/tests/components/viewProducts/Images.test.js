@@ -2,7 +2,7 @@ import React from "react";
 import { render } from "../../jest.setup";
 import "@testing-library/jest-dom";
 import { products } from "../../mocks/product.mock";
-import Images from "../../../components/viewProducts/Images";
+import Images from "../../../components/products/viewProducts/Images";
 
 describe("Product Images component", () => {
   it("Should render all images", async () => {

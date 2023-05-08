@@ -2,7 +2,7 @@
 import React from 'react'
 import { AiOutlineMore } from 'react-icons/ai'
 import useTbBody from './hooks/useTbBody'
-import Spinner from './viewProducts/spinner'
+import Spinner from './products/viewProducts/spinner'
 import UpdateStatusButton from './updatestatus'
 
 const TbBody = ({ currentUsers }) => {

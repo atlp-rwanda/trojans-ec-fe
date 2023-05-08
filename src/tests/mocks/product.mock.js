@@ -33,3 +33,24 @@ export const productState = {
   selectedProduct: products[0],
   categories: categories,
 };
+
+export const updatedProduct = {
+    id: 2,
+    name: "Snikers",
+    price: "27",
+    quantity: 79,
+    available: true,
+    categoryId: 1,
+    sellerId: 7,
+    bonus: 2,
+    images: [
+      "https://res.cloudinary.com/dqk2wjyyz/image/upload/v1676491920/TrojansEcommerce/pqlvnsvkskzx4zo1trpb.jpg",
+      "https://res.cloudinary.com/dqk2wjyyz/image/upload/v1676491927/TrojansEcommerce/usun3ke7wyjeoqmoi2fa.jpg",
+      "https://res.cloudinary.com/dqk2wjyyz/image/upload/v1676491943/TrojansEcommerce/tcc47q8zbqhpqnt3k37e.jpg",
+      "https://res.cloudinary.com/dqk2wjyyz/image/upload/v1676491948/TrojansEcommerce/d61xpner8co9uommuoy6.jpg",
+    ],
+    expiryDate: new Date("2026-12-31"),
+    expired: true,
+    createdAt: "2023-03-26T02:42:09.697Z",
+    updatedAt: new Date(),
+  };

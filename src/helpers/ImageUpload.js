@@ -1,5 +1,5 @@
 import React from "react";
-import ImageCard from "../components/imageCard";
+import ImageCard from "../components/shared/ImageCard";
 import { v4 as uuidV4 } from "uuid";
 export const handleImageUpload = (
   event,
@@ -26,6 +26,7 @@ export const handleImageUpload = (
           id={id}
           src={URL.createObjectURL(image)}
           click={() => handleFilter(id)}
+          uploaded={true}
         />
       );
     });

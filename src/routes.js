@@ -6,7 +6,7 @@ import ProfileUpdate from './pages/profileUpdate'
 import NotFound from './pages/notFound'
 import SignUp from './pages/signUp'
 import AllProducts from './pages/dashboard/seller/AllProducts/allProducts'
-import ProductDetail from './pages/dashboard/seller/ProductDetail.js/ProductDetail'
+import ProductDetail from './pages/dashboard/seller/ProductDetail/ProductDetail'
 import MainProductDetail from './pages/MainProductDetail'
 import TwoFactorAuth from './pages/twoFactorAuth'
 import Product from './pages/dashboard/seller/addProduct'
@@ -17,6 +17,7 @@ import Cart from './pages/cart'
 import ViewSearch from "./pages/searchView";
 import ViewWishlist from "./components/wishlist/ViewWishlist";
 import AllUsers from "./pages/dashboard/admin/users/allUsers";
+import AdminDashboard from "./pages/dashboard/admin/AdminDashboard";
 
 const AppRoutes = () => {
   return (
@@ -24,6 +25,7 @@ const AppRoutes = () => {
       <Route path="" element={<Landing />}></Route>
       <Route exact path="/login" element={<Login />} />
       <Route exact path="/register" element={<SignUp />} />
+      <Route exact path="/admin-dashboard" element={<AdminDashboard />} />
       <Route exact path="/products/:id" element={<MainProductDetail />} />
       <Route exact path="/products/wishlist" element={<ViewWishlist />} />
       <Route
@@ -50,7 +52,6 @@ const AppRoutes = () => {
       <Route exact path="/products/cart" element={<Cart />} />
       <Route exact path="/password-reset/" element={<ResetPasswd />} />
       <Route exact path="/sendEmail" element={<SendEmail />} />
-      <Route path="*" element={<NotFound />}></Route>
       <Route exact path="/user/profile" element={<ProfileUpdate />} />
 
       <Route exact path="/view-search" element={<ViewSearch />} />

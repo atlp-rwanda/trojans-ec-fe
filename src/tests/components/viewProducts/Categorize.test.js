@@ -1,4 +1,4 @@
-import Categorize from "../../../components/viewProducts/Categorize";
+import Categorize from "../../../components/products/viewProducts/Categorize";
 import React from "react";
 import { render } from "../../jest.setup";
 import "@testing-library/jest-dom";

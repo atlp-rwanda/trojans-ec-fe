@@ -2,12 +2,12 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import { yupResolver } from "@hookform/resolvers/yup"
-import profileSchema from '../schema/profileUpdate';
+import profileSchema from '../validations/profileUpdate';
 import '../styles/profileUpdate.scss';
 import { useForm } from 'react-hook-form';
 import WishlistPopup from './wishlist/wishlistPopup';
 import useProfileForm from './hooks/useprofileForm';
-/* istanbul ignore next */
+
 const ProfileForm = ({userProfile, loading, updateStatus}) => {
     const {
       fileData,
@@ -44,7 +44,6 @@ const ProfileForm = ({userProfile, loading, updateStatus}) => {
         preferredLanguage: userProfile?.preferredLanguage
       }
     });
-
   return (
     <div data-testid='test-form'>
       {success &&
@@ -67,10 +66,10 @@ const ProfileForm = ({userProfile, loading, updateStatus}) => {
 
             <div className='sm:w-1/2 px-3'>
                 <div>
-                  <div className='changeImg '>
+                  <div className='changeImg'>
                       {fileData &&  <img src={fileData} alt=""  className='w-[70px] h-[70px] rounded-full'/>}
                   </div>
-                  <input type="file" onChange={handleImage}/>
+                  <input data-testid="change-picture" type="file" onChange={handleImage}/>
                 </div>
 
               <input 
@@ -154,4 +153,4 @@ const ProfileForm = ({userProfile, loading, updateStatus}) => {
   )
 }
 
-export default ProfileForm
+export default ProfileForm;

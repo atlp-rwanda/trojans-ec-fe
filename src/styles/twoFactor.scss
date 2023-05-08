@@ -31,6 +31,7 @@ $primary-background-color: #F5F5F5;
     background-color: white;
     height: 300px;
     padding-top: 0px;
+    margin-top: 15%;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
@@ -132,7 +133,7 @@ $primary-background-color: #F5F5F5;
 
 .loader-2fa {
     width: 100%;
-    height: 25px;
+    height: 100%;
     margin-bottom: 0 !important;
     display: flex;
     justify-content: center;
@@ -143,19 +144,19 @@ $primary-background-color: #F5F5F5;
   
   .loader-2fa::after {
     content: "";
-    width: 25px;
-    height: 25px;
-    border: 5px solid white;
+    width: 16px;
+    height: 16px;
+    border: 2px solid white;
     border-top-color: $primary-color;
     border-radius: 50%;
-    animation: twofaloading 40s ease infinite;
+    animation: twofaloading 1s linear infinite;;
   }
   @keyframes twofaloading {
     from {
       transform: rotate(0turn);
     }
     to {
-      transform: rotate(80turn);
+      transform: rotate(1turn);
     }
   }
 
@@ -187,7 +188,7 @@ $primary-background-color: #F5F5F5;
 .comfirm-btn{
     width: 70px;
     height: 30px;
-    border-radius: 2px;
+    border-radius: 4px;
     margin: 0 20px;
     color: white;
 }
@@ -248,9 +249,10 @@ $primary-background-color: #F5F5F5;
         height: 35px;
         font-size: 18px;
     }
-    .loader-2fa{
-        height: 30px;
-    }
+    .cross-icon{
+        width: 60px;
+        top: -30px;
+     }
 }
 
 @media screen and (max-width: 250px) {
@@ -270,7 +272,49 @@ $primary-background-color: #F5F5F5;
      .two-fact-btn{
          height: 30px;
      }
-     .loader-2fa{
-         height: 25px;
+     .success-fail-popup{
+        height: fit-content;
+     }
+     .comfirm-btn{
+        width: 60px;
+        margin: 0 10px 15px 10px;
+     }
+     .cross-icon{
+        width: 50px;
+        top: -25px;
+     }
+     .two-fact-btn{
+        width: 80%;
+        margin-bottom: 15px;
+     }
+     .success-fail-popup{
+        height: fit-content;
+     }
+     .comfirm-btn{
+        width: 60px;
+        margin: 0 10px 15px 10px;
+     }
+     .cross-icon{
+        width: 50px;
+        top: -25px;
+     }
+     .two-fact-btn{
+        width: 80%;
+        margin-bottom: 15px;
+     }
+     .success-fail-popup{
+        height: fit-content;
+     }
+     .comfirm-btn{
+        width: 60px;
+        margin: 0 10px 15px 10px;
+     }
+     .cross-icon{
+        width: 50px;
+        top: -25px;
+     }
+     .two-fact-btn{
+        width: 80%;
+        margin-bottom: 15px;
      }
 }

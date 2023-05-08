@@ -5,7 +5,7 @@ import { userProfileUpdate } from '../redux/features/slices/profileUpdate';
 import { useDispatch} from 'react-redux';
 import { getUserProfile } from '../redux/features/actions/getProfile';
 import ProfileForm from '../components/profileForm';
-import Spinner from "../components/viewProducts/spinner";
+import Spinner from "../components/products/viewProducts/spinner";
 
 const ProfileUpdate = () => {
   const {userProfile, userStatus, loading, updateStatus} = useSelector(userProfileUpdate);

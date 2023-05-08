@@ -56,3 +56,44 @@ export const getCategoriesThunk = createAsyncThunk(
     }
   }
 );
+
+export const deleteProductThunk = createAsyncThunk(
+  "DELETE_PRODUCT",
+  async (productId, { rejectWithValue }) => {
+    try{
+    const resp = await axios.delete(`/products/${productId}`);
+    return resp.data;
+    }catch (err) {
+      if(err.response){
+        return rejectWithValue(err.response.data);
+      }
+      return rejectWithValue({message: err.message});
+    }
+  }
+);
+
+export const updateProductThunk = createAsyncThunk(
+  "UPDATE_PRODUCT",
+  async (productData, { rejectWithValue }) => {
+    try{
+      const {productId, updatedProductData } = productData;
+      const formData = new FormData();
+      updatedProductData.image.forEach((image) => {
+        formData.append("image", image);
+      });
+      formData.append("name", updatedProductData.name);
+      formData.append("price", parseInt(updatedProductData.price));
+      formData.append("bonus", parseInt(updatedProductData.bonus));
+      formData.append("categoryId", parseInt(updatedProductData.categoryId));
+      formData.append("expiryDate", updatedProductData.expiryDate);
+      formData.append("quantity", parseInt(updatedProductData.quantity));
+    const backendResponse = await axios.put(`/products/${productId}`, formData);
+    return backendResponse.data;
+    }catch (errors) {
+      if(errors.response){
+        return rejectWithValue(errors.response.data);
+      }
+      return rejectWithValue({message: errors.message});
+    }
+  }
+);

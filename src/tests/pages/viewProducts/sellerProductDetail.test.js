@@ -1,4 +1,4 @@
-import ProductDetail from "../../../pages/dashboard/seller/ProductDetail.js/ProductDetail";
+import ProductDetail from "../../../pages/dashboard/seller/ProductDetail/ProductDetail";
 import React from "react";
 import "@testing-library/jest-dom";
 import { render } from "../../jest.setup";

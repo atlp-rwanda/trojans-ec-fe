@@ -1,9 +1,9 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import { useSelector } from "react-redux";
-import Filter from "../components/searchProduct/filter";
+import Filter from "../components/products/searchProduct/filter";
 import "../styles/search.scss";
-import MainProductCard from "../components/viewProducts/MainProductCard";
+import MainProductCard from "../components/products/viewProducts/MainProductCard";
 import { LoadingMainCards } from "../components/skeleton/loadingMainCards";
 
 function ViewSearch() {

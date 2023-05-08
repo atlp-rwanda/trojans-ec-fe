@@ -1,7 +1,7 @@
 import React from "react";
 import CartIcon from "./cart/CartIcon";
 import { Link } from "react-router-dom";
-import SearchInput from "./searchProduct/searchInput";
+import SearchInput from "./products/searchProduct/searchInput";
 
 const Navbar = () => {
   return (
@@ -27,6 +27,9 @@ const Navbar = () => {
           <Link to="/dashboard/seller/product/create">Add Product</Link>
           <Link to="/user/profile">
               <button className="m-2 p-1">Profile Update</button>
+              </Link>
+              <Link to="/dashboard/users">
+              <button className="m-2 p-1">Users</button>
               </Link>
         <SearchInput />
            <Link to="/products/wishlist">

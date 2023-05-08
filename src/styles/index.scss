@@ -8,8 +8,9 @@ $primary-background-color: #f5f5f5;
 @import 'signUp';
 @import 'twoFactor';
 @import 'users';
-$primary-background-color: #f5f5f5;
-$sub-main-color: #a791ca;
+$primary-background-color: #F5F5F5;
+$sub-main-color: #A791CA;
+@import 'updateProduct';
 
 .button {
   background-color: $primary-color;

@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "../../jest.setup";
 import "@testing-library/jest-dom";
-import MainProductCard from "../../../components/viewProducts/MainProductCard";
+import MainProductCard from "../../../components/products/viewProducts/MainProductCard";
 import { products } from "../../mocks/product.mock";
 import { categories } from "../../mocks/categories.mock";
 

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getCartThunk, getSellersThunk } from "../redux/features/actions/cart";
 import { getCart } from "../redux/features/slices/cart";
-import Spinner from "../components/viewProducts/spinner";
+import Spinner from "../components/products/viewProducts/spinner";
 import CartView from "../components/cart/CartView";
 import ErrorHandler from "../components/shared/ErrorHandler";
 

@@ -35,9 +35,10 @@ $primary-color: #5f3e8e;
   background-color: $primary-color;
 }
 
-form {
-  overflow: scroll;
-}
+// Please use other selectors not tags, this ruins other designs!!!
+// form {
+//   overflow: scroll;
+// }
 .pass {
   border: solid black 1.5px;
   border-left: 0;

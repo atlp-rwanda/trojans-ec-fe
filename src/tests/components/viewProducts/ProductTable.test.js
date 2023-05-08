@@ -3,7 +3,7 @@ import { render } from "../../jest.setup";
 import "@testing-library/jest-dom";
 import { products } from "../../mocks/product.mock";
 import { categories } from "../../mocks/categories.mock";
-import ProductsTable from "../../../components/viewProducts/ProductsTable";
+import ProductsTable from "../../../components/products/viewProducts/ProductsTable";
 
 const regExp = (str) => new RegExp(str, "i");
 describe("Product table component", () => {

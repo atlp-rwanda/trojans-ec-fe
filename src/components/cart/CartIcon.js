@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { getCart } from "../../redux/features/slices/cart";
 import { useNavigate } from "react-router-dom";
 import cart from "../../assets/images/cart.png";
-import Spinner from "../viewProducts/spinner";
+import Spinner from "../products/viewProducts/spinner";
 
 const CartIcon = () => {
   const navigate = useNavigate();
