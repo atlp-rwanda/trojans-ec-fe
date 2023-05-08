@@ -1,0 +1,9 @@
+.disableButton {
+  width: 50%;
+  min-width: fit-content;
+
+  &.inactive {
+    background-color: #d1d5db;
+    color: #000;
+  }
+}

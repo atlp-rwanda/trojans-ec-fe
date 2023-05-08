@@ -1,0 +1,18 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
+.search-input{
+    @apply w-32 mx-2 px-4 py-1 rounded-lg border border-black bg-transparent outline-none
+}
+.search-button{
+    @apply bg-primary-color text-white px-4 py-1 rounded-xl cursor-pointer
+}
+.search-error{
+    @apply text-red-500 text-sm mx-2
+}
+
+.filter-inputs{
+    @apply bg-transparent mx-5 p-3  rounded-xl border border-primary-color outline-none screen-base:mx-2 screen-base:my-3
+}

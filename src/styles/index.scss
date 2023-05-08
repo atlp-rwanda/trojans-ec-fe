@@ -1,0 +1,151 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+
+$primary-color: #5f3e8e;
+$primary-background-color: #f5f5f5;
+
+@import "signUp";
+@import "twoFactor";
+@import "users";
+$primary-background-color: #f5f5f5;
+$sub-main-color: #a791ca;
+@import "updateProduct";
+@import "dashboard";
+@import "navbar";
+
+.button {
+  background-color: $primary-color;
+  border-color: $primary-color;
+}
+
+.signup {
+  border-color: $primary-color;
+}
+
+$secondary-color: #a791ca;
+$white-color: #f5f5f5;
+$dark-primary: #301f47;
+
+.p-container {
+  transition: all 0.3s ease-in;
+  &:hover {
+    .add-btn {
+      visibility: visible;
+    }
+    transform: scale(1.02);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+  }
+
+  .add-btn:hover {
+    div {
+      display: block;
+    }
+  }
+}
+
+.pagination {
+  .active {
+    background-color: $secondary-color;
+  }
+}
+.bg-signUp {
+  background-image: url("../assets/images/SignUp.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+}
+
+.showImg {
+  cursor: pointer;
+  position: relative;
+  width: 20px;
+}
+
+@media screen and (max-width: 480px) {
+  .bg-signUp {
+    height: auto;
+    background-size: cover;
+  }
+}
+.input-field {
+  @apply w-full border border mt-2 p-2 rounded-lg border-new-color outline-none;
+}
+.submit {
+  background-color: $primary-color;
+  border-color: $primary-color;
+}
+.label,
+.next {
+  background-color: $primary-color;
+}
+.error {
+  @apply text-right text-red-500 text-sm;
+}
+.page {
+  background-color: $primary-color;
+  color: white;
+}
+.dropdown {
+  .drop-content {
+    z-index: 1;
+  }
+}
+.input-div {
+  @apply my-3;
+}
+.disable-list {
+  max-width: 90vw;
+  margin: 2em auto;
+  border: 1px solid black;
+  border-radius: 1rem;
+  width: 700px;
+
+  h1 {
+    font-size: 2em;
+    font-weight: bold;
+    padding: 1rem 2rem;
+  }
+  .sect {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-block: 0.5rem;
+    padding-inline: 2rem;
+    border-bottom: 1px solid black;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .sect:last-of-type {
+    border-bottom: transparent;
+  }
+  .image {
+    height: 3rem;
+    width: 3rem;
+    img {
+      border-radius: 100vw;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+  .address {
+    flex: 0.7;
+  }
+  .btn {
+    background-color: #5f3e8e;
+    border: 2px solid #5f3e8e;
+    border-radius: 5px;
+    padding: 1rem;
+    color: white;
+    margin-inline: auto;
+
+    &.active {
+      background-color: whitesmoke;
+      color: #5f3e8e;
+    }
+  }
+}
