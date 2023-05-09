@@ -1,21 +1,21 @@
-export const User = 
-    {
-        id: 1,
-        name: "Admin Trojan",
-        email: "admin123@gmail.com",
-        password: "admin123",
-        role: "admin",
-        status: "active",
-        isVerified: true,
-        gender: "Male",
-        preferredLanguage: "English",
-        preferredCurrency: "RWF",
-        birthdate: "01/01/2000",
-        lastTimePasswordUpdated: new Date(),
-        profilePic:
-          "https://res.cloudinary.com/dmjxukx09/image/upload/v1675844692/profiles/Profile-Avatar-PNG-Free-Download_paqfrf.png",
-        billingAddress:'{"street":"KN 05 ST","city":"Kigali","province":"Kigali","postalCode":"00000","country":"Rwanda"}',
-      }
+export const User = {
+  id: 1,
+  name: "Admin Trojan",
+  email: "admin123@gmail.com",
+  password: "admin123",
+  role: "admin",
+  status: "active",
+  isVerified: true,
+  gender: "Male",
+  preferredLanguage: "English",
+  preferredCurrency: "RWF",
+  birthdate: "01/01/2000",
+  lastTimePasswordUpdated: "01/01/2023",
+  profilePic:
+    "https://res.cloudinary.com/dmjxukx09/image/upload/v1675844692/profiles/Profile-Avatar-PNG-Free-Download_paqfrf.png",
+  billingAddress:
+    '{"street":"KN 05 ST","city":"Kigali","province":"Kigali","postalCode":"00000","country":"Rwanda"}',
+};
 
 export const Users = [
   {
@@ -30,16 +30,18 @@ export const Users = [
     preferredLanguage: "English",
     preferredCurrency: "RWF",
     birthdate: "01/01/2000",
-    lastTimePasswordUpdated: new Date(),
+    lastTimePasswordUpdated: "01/01/2023",
     profilePic:
       "https://res.cloudinary.com/dmjxukx09/image/upload/v1675844692/profiles/Profile-Avatar-PNG-Free-Download_paqfrf.png",
-    billingAddress:'{"street":"KN 05 ST","city":"Kigali","province":"Kigali","postalCode":"00000","country":"Rwanda"}',
-  }
-]
+    billingAddress:
+      '{"street":"KN 05 ST","city":"Kigali","province":"Kigali","postalCode":"00000","country":"Rwanda"}',
+  },
+];
 
-export const userToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im5hbWUiOiJKb2huIERvZSIsImVtYWlsIjoiZXhhbXBsZUBleGFtcGxlLmNvbSIsInJvbGUiOiJzZWxsZXIiLCJzdGF0dXMiOiJhY3RpdmUiLCJpZCI6MiwicHJvZmlsZVBpYyI6Imh0dHBzOi8vcmVzLmNsb3VkaW5hcnkuY29tL2Rtanh1a3gwOS9pbWFnZS91cGxvYWQvdjE2NzU4NDQ2OTIvcHJvZmlsZXMvUHJvZmlsZS1BdmF0YXItUE5HLUZyZWUtRG93bmxvYWRfcGFxZnJmLnBuZyIsInJhbmRvbUF1dGgiOiI0NDE3OCIsImxhc3RUaW1lUGFzc3dvcmRVcGRhdGVkIjoiMjAyMy0wNC0yOFQxMDoyNToyMC4zMDNaIn0sImlhdCI6MTY4MjY5MDUxMiwiZXhwIjoxNjgyNjkwODEyfQ.rAKfYMmCYipT5pVLhBMmDQaNRfo5z7zfKPpChpDMduI"
+export const userToken =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im5hbWUiOiJKb2huIERvZSIsImVtYWlsIjoiZXhhbXBsZUBleGFtcGxlLmNvbSIsInJvbGUiOiJzZWxsZXIiLCJzdGF0dXMiOiJhY3RpdmUiLCJpZCI6MiwicHJvZmlsZVBpYyI6Imh0dHBzOi8vcmVzLmNsb3VkaW5hcnkuY29tL2Rtanh1a3gwOS9pbWFnZS91cGxvYWQvdjE2NzU4NDQ2OTIvcHJvZmlsZXMvUHJvZmlsZS1BdmF0YXItUE5HLUZyZWUtRG93bmxvYWRfcGFxZnJmLnBuZyIsInJhbmRvbUF1dGgiOiI0NDE3OCIsImxhc3RUaW1lUGFzc3dvcmRVcGRhdGVkIjoiMjAyMy0wNC0yOFQxMDoyNToyMC4zMDNaIn0sImlhdCI6MTY4MjY5MDUxMiwiZXhwIjoxNjgyNjkwODEyfQ.rAKfYMmCYipT5pVLhBMmDQaNRfo5z7zfKPpChpDMduI";
 
-export const userState ={
+export const userState = {
   user: null,
   loading: false,
   error: null,
@@ -47,11 +49,11 @@ export const userState ={
   successAuth: false,
   twoFactorAuth: false,
   otp: "",
-  otpErrors:{
+  otpErrors: {
     firstDigitError: null,
     exactLengthError: null,
     isRequiredError: null,
-  }
+  },
 };
 
 export const signUpState = {
@@ -60,4 +62,12 @@ export const signUpState = {
   response: null,
   error: null,
   success: false,
+};
+
+export const userProfileState = {
+  userProfile: [User],
+  userStatus: null,
+  loading: false,
+  updateStatus: null,
+  error: null,
 };

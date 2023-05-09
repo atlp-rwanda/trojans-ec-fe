@@ -23,7 +23,6 @@ const Images = ({ images }) => {
             <img src={images[3]} alt="product-image" className="w-24" />
           </div>
         </div>
-        {/* </div> */}
       </div>
     );
   }

@@ -1,22 +1,21 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 import { render, screen, fireEvent } from "./jest.setup";
-import 'setimmediate';
+import "setimmediate";
 import { Provider } from "react-redux";
 import configureStore from "redux-mock-store";
 import Chat from "../components/chatModel";
 import { setData } from "../redux/features/slices/chat";
-import '@testing-library/jest-dom'
-import 'jest-environment-jsdom'
+import "@testing-library/jest-dom";
+import "jest-environment-jsdom";
 import { act } from "react-dom/test-utils";
 import { waitFor } from "@testing-library/react";
 
 const mockStore = configureStore([]);
 
-
 describe("Chat", () => {
   let store;
-  
+
   beforeEach(async () => {
     store = mockStore({
       chat: {
@@ -35,20 +34,19 @@ describe("Chat", () => {
           },
         ],
         error: null,
-        success:  null,
+        success: null,
       },
-
-  })
+    });
     jest.useFakeTimers();
   });
-  afterEach(async() => {
+  afterEach(async () => {
     jest.useRealTimers();
   });
 
   it("renders chat messages", async () => {
     const mockScrollIntoView = jest.fn();
-  const messagesEndRef = { current: { scrollIntoView: mockScrollIntoView } };
-   render(
+    const messagesEndRef = { current: { scrollIntoView: mockScrollIntoView } };
+    render(
       <Provider store={store}>
         <Chat messageEndRef={messagesEndRef} />
       </Provider>
@@ -63,7 +61,7 @@ describe("Chat", () => {
 
   it("allows sending new chat messages", () => {
     const mockScrollIntoView = jest.fn();
- const messagesEndRef = { current: { scrollIntoView: mockScrollIntoView } };
+    const messagesEndRef = { current: { scrollIntoView: mockScrollIntoView } };
     render(
       <Provider store={store}>
         <Chat messageEndRef={messagesEndRef} />

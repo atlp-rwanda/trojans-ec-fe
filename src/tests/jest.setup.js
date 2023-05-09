@@ -9,7 +9,6 @@ import { BrowserRouter } from "react-router-dom";
 import { reducers } from "../redux/store";
 
 jest.mock("../redux/axiosinstance");
-
 function render(
   ui,
   {
@@ -25,26 +24,24 @@ function render(
           <React.Fragment>{children}</React.Fragment>
         </Provider>
       </BrowserRouter>
-    )
+    );
   }
-  return rtlRender(ui, { wrapper: Wrapper, ...renderOptions })
+  return rtlRender(ui, { wrapper: Wrapper, ...renderOptions });
 }
 
-let store = {}
+let store = {};
 
 beforeAll(() => {
   global.Storage.prototype.setItem = jest.fn((key, value) => {
     store[key] = value;
   });
   global.Storage.prototype.getItem = jest.fn((key) => store[key]);
-
 });
 
 beforeEach(() => {
-  store = {}
-})
+  store = {};
+});
 
-afterAll(() => {
-})
-export * from '@testing-library/react';
-export { render }
+afterAll(() => {});
+export * from "@testing-library/react";
+export { render };

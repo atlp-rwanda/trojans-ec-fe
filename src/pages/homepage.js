@@ -7,52 +7,56 @@ import { getProductsThunk } from "../redux/features/actions/products";
 import { getProduct } from "../redux/features/slices/products";
 import MainProductView from "../components/products/viewProducts/MainProductView";
 import { getCategoriesThunk } from "../redux/features/actions/products";
-import Spinner from "../components/products/viewProducts/spinner";
-import { useNavigate } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Navbar from "../components/Navbar";
 import ChatModel from "../components/chatModel";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { getCartThunk } from "../redux/features/actions/cart";
+import jwtDecode from "jwt-decode";
 
 const Homepage = () => {
-  const { products, loading, error, categories } = useSelector(getProduct);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   useEffect(() => {
     if (window.location.href.includes("token")) {
       const token = window.location.href.split("token=")[1];
       localStorage.setItem("token", token);
-      window.location.href = window.location.href.split("?token=")[0]
+      window.location.href = window.location.href.split("?token=")[0];
     }
-  }, [])
+  }, []);
+  const { products, loading, error, categories } = useSelector(getProduct);
   useEffect(() => {
     if (localStorage.getItem("token")) {
-      dispatch(getCategoriesThunk()).then(() => {
-        dispatch(getProductsThunk());
-      });
+      if (products.length === 0) {
+        dispatch(getCategoriesThunk()).then(() => dispatch(getProductsThunk()));
+        dispatch(getCartThunk());
+      }
     } else {
-      navigate('/login')
+      navigate("/login");
     }
   }, [dispatch]);
 
   return (
     <div data-testid="home">
-      {loading && <Spinner />}
       <ErrorHandler loading={loading} error={error} />
-      {!loading && !error.status && (
+      {!error.status && (
         <>
           <ToastContainer />
           <Navbar />
-          <MainProductView products={products} categories={categories} />
+          <MainProductView
+            products={products}
+            categories={categories}
+            loading={loading}
+          />
         </>
       )}
-         <div id="modal">
-    <ChatModel/>
+      <div id="modal">
+        <ChatModel />
+      </div>
     </div>
-    </div>
-  )
-}
+  );
+};
 
 export default Homepage;
-

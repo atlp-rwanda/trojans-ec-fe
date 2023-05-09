@@ -21,7 +21,6 @@ describe("should view the product view", () => {
     expect(getByTestId("category-search")).toBeInTheDocument();
     expect(getByTestId("expiryDate")).toBeInTheDocument();
     expect(getByTestId("sellerId")).toBeInTheDocument();
-
   });
 
   it("for successfull search of the product", async () => {
@@ -39,16 +38,15 @@ describe("should view the product view", () => {
   });
 
   it("should mock the post search API", async () => {
-
     const { getByTestId } = render(<ViewSearch />);
     fireEvent.change(getByTestId("price"), { target: { value: "0-2000" } });
-   expect(await screen.findByText(/Results/i)).toBeInTheDocument();
+    expect(await screen.findByText(/Results/i)).toBeInTheDocument();
   });
 
-  it("should search by expiry date", async ()=>{
+  it("should search by expiry date", async () => {
     const { getByTestId } = render(<ViewSearch />);
     const expiryDate = getByTestId("expiryDate");
     fireEvent.change(expiryDate, { target: { value: "2060-10-01" } });
     expect(await screen.findByText(/Results/i)).toBeInTheDocument();
-  })
+  });
 });

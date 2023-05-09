@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import AddProduct from "../../../components/products/addProduct/addProduct";
+import SellerMain from "./SellerMain";
 
 function Product() {
   const navigate = useNavigate();
@@ -10,7 +11,7 @@ function Product() {
       navigate("/login");
     }
   }, [token]);
-  return <AddProduct />;
+  return <SellerMain element={<AddProduct />} />;
 }
 
 export default Product;

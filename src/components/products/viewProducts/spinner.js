@@ -17,7 +17,7 @@ function Spinner(props) {
           cy="12"
           r="10"
           stroke="#5f3e8e"
-          fill="white"
+          fill="transparent"
           strokeWidth="4"
         ></circle>
         <path

@@ -9,7 +9,12 @@ const regExp = (str) => new RegExp(str, "i");
 describe("Product table component", () => {
   it("Should render all text", async () => {
     const { getByText } = render(
-      <ProductsTable products={products} categories={categories} />
+      <ProductsTable
+        products={products}
+        categories={categories}
+        loading={false}
+        response={true}
+      />
     );
     expect(getByText(regExp(products[0].name))).toBeInTheDocument();
     expect(getByText(regExp(products[0].price))).toBeInTheDocument();

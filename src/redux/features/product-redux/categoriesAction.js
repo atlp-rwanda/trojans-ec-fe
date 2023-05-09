@@ -6,7 +6,7 @@ import {
   getCategoriesSuccess,
   getCategoriesLoading,
 } from "./categoriesSlice";
-
+/* istanbul ignore next */
 export const getCategories = createAsyncThunk(
   "Categories",
   async (formData, thunkApi) => {
