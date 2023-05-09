@@ -27,6 +27,7 @@ const Homepage = () => {
     }
   }, []);
   const { products, loading, error, categories } = useSelector(getProduct);
+  console.log(error)
   useEffect(() => {
     if (localStorage.getItem("token")) {
       if (products.length === 0) {

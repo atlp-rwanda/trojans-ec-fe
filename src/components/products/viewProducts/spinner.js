@@ -1,7 +1,7 @@
 import React from "react";
 
 function Spinner(props) {
-  const { withoutText } = props;
+  const { withoutText, black } = props;
   return (
     <span
       type="button"
@@ -12,11 +12,11 @@ function Spinner(props) {
     >
       <svg className="animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24">
         <circle
-          className="opacity-30"
+          className={`${black? "opacity-75":"opacity-30" }`}
           cx="12"
           cy="12"
           r="10"
-          stroke="#5f3e8e"
+          stroke={`${black? "#000":"#5f3e8e"}`}
           fill="transparent"
           strokeWidth="4"
         ></circle>

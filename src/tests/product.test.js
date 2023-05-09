@@ -172,13 +172,4 @@ describe("testing sent successfull", () => {
 
     expect(await screen.findByText(/Thank You!/i)).toBeInTheDocument();
   });
-  // describe("should test the product Page", () => {
-  //   it("should render the product page", async () => {
-  //     const token = "my-test-token";
-  //     jest.spyOn(window.localStorage, "getItem").mockReturnValue(token);
-  //     render(<AddProduct />);
-  //     expect(localStorage.getItem).toHaveBeenCalledWith("token");
-  //     expect(await screen.findByText(/Add A Product/i)).toBeInTheDocument();
-  //   });
-  // });
 });
