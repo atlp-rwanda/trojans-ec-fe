@@ -15,6 +15,8 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { getCartThunk } from "../redux/features/actions/cart";
 import jwtDecode from "jwt-decode";
+import Footer from "../components/footer";
+
 
 const Homepage = () => {
   const dispatch = useDispatch();
@@ -40,7 +42,9 @@ const Homepage = () => {
   }, [dispatch]);
 
   return (
-    <div data-testid="home">
+    <div data-testid="home" className="md:h-screen h-auto">
+      <div className="h-full">
+      {/* {loading && <Spinner />} */}
       <ErrorHandler loading={loading} error={error} />
       {!error.status && (
         <>
@@ -56,7 +60,14 @@ const Homepage = () => {
       <div id="modal">
         <ChatModel />
       </div>
+      <div id="modal">
+    <ChatModel/>
     </div>
+
+    </div>
+    <Footer/>
+</div>
+     
   );
 };
 

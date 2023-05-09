@@ -1,13 +1,24 @@
 $primary-color: #5f3e8e;
 .input {
-  border: solid black 1.5px;
+  border: 1px solid #bf9dda;
   &:active,
   &:focus {
     outline: none;
   }
 }
+.signup-input {
+  max-width: auto;
+  width: 100%;
+  padding: 7px;
+  border: 1px solid #bf9dda;
+  border-radius: 5px;
+  margin-top: 13px;
+  
+  justify-content: center;
+  align-items: center;
+}
 .inputPassword {
-  border: solid black 1.5px;
+  border: 1px solid #bf9dda;
   border-right: none;
   border-bottom-right-radius: 0px;
   border-top-right-radius: 0px;
@@ -23,7 +34,7 @@ $primary-color: #5f3e8e;
   color: white;
 }
 .pass {
-  border: solid black 1.5px;
+  border:  1px solid #bf9dda;
   border-left: 0;
 }
 .btn-signup:hover {
@@ -43,6 +54,10 @@ $primary-color: #5f3e8e;
   border: solid black 1.5px;
   border-left: 0;
 }
+form {
+  overflow: scroll;
+}
+
 .btn-signup:hover {
   transition-timing-function: ease-out;
   transition: width 10s linear 7s;

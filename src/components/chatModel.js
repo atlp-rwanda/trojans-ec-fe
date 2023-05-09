@@ -20,6 +20,9 @@ const chatModel = () => {
 
   const { loading, data, hasNewMessage, error, success } = useSelector(
     (state) => state.chat
+  );  
+  const { userProfile } = useSelector(
+    (state) => state.userProfile
   );
 
   const [username, setUsername] = useState("");
@@ -113,7 +116,7 @@ const chatModel = () => {
               email: "testBuyer@example.com",
               name: username,
               profilePic:
-                "https://res.cloudinary.com/dmjxukx09/image/upload/v1675844692/profiles/Profile-Avatar-PNG-Free-Download_paqfrf.png",
+              userProfile?.profilePic,
               role: "buyer",
             },
             createdAt: new Date(),

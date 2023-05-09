@@ -36,6 +36,12 @@ describe("Chat", () => {
         error: null,
         success: null,
       },
+      userProfile:{
+        userProfile:{
+        profilePic:
+        "https://res.cloudinary.com/dmjxukx09/image/upload/v1675844692/profiles/Profile-Avatar-PNG-Free-Download_paqfrf.png",
+
+      }}
     });
     jest.useFakeTimers();
   });

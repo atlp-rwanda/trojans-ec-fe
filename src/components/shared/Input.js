@@ -16,14 +16,13 @@ const Input = ({
   const [show, setShow] = useState(false)
   return (
     <div className="flex flex-col">
-      <div className="flex justify-between">
+      <div className="relative">
         <input
           type={show ? 'text' : type}
           className={
             type == 'password'
-              ? ' inputPassword text-sm rounded-lg block w-full p-3 bg-black bg-opacity-0 placeholder-black md:mt-0 mt-5 '
-              : ' input ' +
-                'text-sm rounded-lg block w-full p-3 bg-black bg-opacity-0 placeholder-black md:mt-0 mt-5 '
+              ? ' signup-input  w-full bg-transparent outline-none w-full'
+              : ' signup-input  bg-transparent outline-none w-full'
           }
           placeholder={placeHolder}
           onChange={onChange}
@@ -32,20 +31,21 @@ const Input = ({
           value={value}
           data-testid={testId || ""}
         />
-        <div
-          className={
-            type != 'password'
-              ? ''
-              : ' pass border-black  md:h-auto md:mt-auto md:px-5 md:p-4 rounded-xl rounded-ss-none rounded-bl-none border-l-0 border-2 mt-5 p-4 h-full px-5'
-          }
+ 
+                <button
+          type="button"
+          onClick={() => setShow((show) => !show)}
+          className="absolute inset-y-0 right-2 top-3 pr-0 flex items-center text-sm leading-5"
         >
           <img
-            className={type == 'password' ? 'showImg left-2' : 'hidden'}
+            className={type == 'password' ? 'showImg' : 'hidden'}
             src={!show ? hidePwdImg : showPwdImg}
-            onClick={() => setShow((show) => !show)}
+        
           />
-        </div>
+          </button>
+      
       </div>
+  
 
       <div>
         <p className="text-red-800 text-sm">{errorText}</p>
