@@ -23,7 +23,6 @@ import BuyerNotifications from "./pages/dashboard/buyer/BuyerNotifications";
 import AdminNotifications from "./pages/dashboard/admin/AdminNotifications";
 import BuyerOrders from "./pages/dashboard/buyer/Order";
 import ProtectedRoutes from "./components/auth/ProtectedRoutes";
-import Product from "./pages/dashboard/seller/addProduct";
 
 const AppRoutes = () => {
   return (
@@ -42,11 +41,6 @@ const AppRoutes = () => {
           exact
           path="/dashboard/product/added"
           element={<SendSuccessfull />}
-        />
-        <Route
-          exact
-          path="/dashboard/seller/products/add"
-          element={<Product />}
         />
         <Route
           exact

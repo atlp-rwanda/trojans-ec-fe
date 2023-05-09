@@ -1,5 +1,6 @@
 import React from "react";
 import { useLocation, NavLink } from "react-router-dom";
+import Logout from "../logOut";
 const BuyerLinks = () => {
   const location = useLocation();
   const paths = location.pathname.split("/");
@@ -54,14 +55,7 @@ const BuyerLinks = () => {
         </NavLink>
       </li>
       <li className="dash-nav-link">
-        <NavLink to={"/login"}>
-          <a href="#">
-            <span className="icon">
-              <ion-icon name="log-out-outline"></ion-icon>
-            </span>
-            <span className="title">Logout</span>
-          </a>
-        </NavLink>
+        <Logout />
       </li>
     </>
   );

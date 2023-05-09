@@ -5,11 +5,11 @@ import Header from "../../shared/Header.js";
 import { getProduct } from "../../../redux/features/slices/products.js";
 import UpdateProductForm from "../updateProduct/UpdateProduct.js";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import AddProduct from "../addProduct/addProduct.js";
 
 const Table = ({ products, categories }) => {
+  const [addProduct, setAddProduct]= useState(false)
   const { productToUpdate } = useSelector(getProduct);
-  const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 7;
   const indexOfLastItem = currentPage * itemsPerPage;
@@ -36,7 +36,7 @@ const Table = ({ products, categories }) => {
           className="p-title mt-4 font-semibold text-3xl text-primary"
         />
         <button
-          onClick={() => navigate("/dashboard/seller/products/add")}
+          onClick={() => setAddProduct(true)}
           className="bg-primary px-3 py-1 text-white flex justify-center items-center rounded-md mr-3"
         >
           <ion-icon name="add-outline"></ion-icon>
@@ -78,6 +78,7 @@ const Table = ({ products, categories }) => {
         currentPage={currentPage}
       />
       {productToUpdate && <UpdateProductForm />}
+      {addProduct && <AddProduct handleCancel={()=> setAddProduct(false)} />}
     </div>
   );
 };

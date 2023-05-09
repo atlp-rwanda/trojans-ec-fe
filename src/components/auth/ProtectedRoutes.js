@@ -8,10 +8,15 @@ const ProtectedRoutes = ({ role }) => {
   const navigate = useNavigate();
   const auth = () => {
     const token = localStorage.getItem("token");
-    const { data } = jwtDecode(token);
-    if (data.role === role) {
-      setIsAuth(true);
+    if(token){
+      const { data } = jwtDecode(token);
+      if (data.role === role) {
+        setIsAuth(true);
+      }
+    }else{
+      setIsAuth(false)
     }
+   
   };
   useEffect(() => {
     auth();

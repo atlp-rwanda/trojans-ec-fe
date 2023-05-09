@@ -22,8 +22,16 @@ const ErrorHandler = ({ loading, error, message, to }) => {
       )}
       {!loading &&
         error.status &&
-        error.payload !== 401 &&
+        error.payload !== 401 && error.payload !== 403 &&
         error.payload !== "Network Error" && <Error />}
+      {!loading && error.status && error.payload === 403 && (
+        <Error
+          code="403"
+          title="Access Denied"
+          description={message ? message : "You need to sign in"}
+          to={to ? to : "login"}
+        />
+      )}
     </div>
   );
 };
