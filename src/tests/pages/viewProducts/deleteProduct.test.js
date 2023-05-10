@@ -5,15 +5,14 @@ import "@testing-library/jest-dom";
 import "jest-environment-jsdom";
 import mockAxios from "../../../redux/axiosinstance";
 import {
-  render,
-  screen,
-  fireEvent,
-  waitFor,
-  waitForElementToBeRemoved,
-} from "../../jest.setup";
-import { products } from "../../mocks/product.mock";
-import { categories } from "../../mocks/categories.mock";
-import { userToken } from "../../mocks/user.mock";
+    render,
+    screen,
+    fireEvent,
+    waitFor,
+} from '../../jest.setup';
+import { products } from "../../mocks/product.mock"
+import { categories } from "../../mocks/categories.mock"
+import { userToken } from "../../mocks/user.mock"
 import { productState } from "../../mocks/product.mock";
 import SellerProducts from "../../../pages/dashboard/seller/SellerProducts";
 

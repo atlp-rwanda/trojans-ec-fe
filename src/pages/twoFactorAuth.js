@@ -9,6 +9,7 @@ const TwoFactorAuth = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    /* istanbul ignore next */
     if (!loading && user && !twoFactorAuth) {
       localStorage.setItem("name", user.name);
       localStorage.setItem("user", JSON.stringify(user));

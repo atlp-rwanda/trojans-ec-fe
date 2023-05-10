@@ -69,6 +69,7 @@ const userSlice = createSlice({
       state.error = {...payload};
     },
     [loginThunk.fulfilled]: (state, { payload }) => {
+      console.log(payload);
       if(payload.message){
         return { ...state, loading: false, error: payload.message };
       }

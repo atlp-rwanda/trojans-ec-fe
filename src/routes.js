@@ -24,6 +24,8 @@ import AdminNotifications from "./pages/dashboard/admin/AdminNotifications";
 import BuyerOrders from "./pages/dashboard/buyer/Order";
 import ProtectedRoutes from "./components/auth/ProtectedRoutes";
 import VerifyEmail from './pages/verifyEmail'
+import PaymentComfirmation from "./pages/PaymentComfirmation";
+
 import SellerStatisticPage from './pages/statistic'
 const AppRoutes = () => {
   return (
@@ -88,15 +90,10 @@ const AppRoutes = () => {
       <Route exact path="/password-reset/" element={<ResetPasswd />} />
       <Route exact path="/sendEmail" element={<SendEmail />} />
       <Route exact path="/user/profile" element={<ProfileUpdate />} />
-  
-      <Route exact path="/view-search" element={<ViewSearch />} />
-      <Route exact path="/dashboard/users" element={<AllUsers />}/>
-    
-      <Route path="*" element={<NotFound />} ></Route>
       <Route exact path='/statistic' element={<SellerStatisticPage/>} />
       <Route exact path='/users/verify-email' element={<VerifyEmail/>} />
-    
-      <Route path="*" element={<NotFound />} ></Route>
+      <Route exact path="/payment/status" element={<PaymentComfirmation />}/>
+      <Route path="*" element={<NotFound />}></Route>
     </Routes>
   );
 };

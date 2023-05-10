@@ -14,9 +14,6 @@ import instance from "../../redux/axiosinstance.js";
 import { User, userProfileState } from "../mocks/user.mock.js";
 import ProfileUpdate from "../../pages/profileUpdate.js";
 import { act } from "react-dom/test-utils";
-import AppRoutes from "../../routes";
-import { products } from "../mocks/product.mock";
-import { categories } from "../mocks/categories.mock";
 import 'setimmediate';
 
 instance.get.mockResolvedValue({ data: { user: User } });
