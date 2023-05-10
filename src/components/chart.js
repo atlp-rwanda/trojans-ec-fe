@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Chart from "chart.js/auto";
 import "chartjs-adapter-moment";
-import { getOrders } from "../redux/features/actions/statistic";
+// import { getOrders } from "../redux/features/actions/statistic";
 
 const OrdersChart = ({ data }) => {
   console.log(data);

@@ -32,7 +32,7 @@ const BuyerMain = ({ element }) => {
               <ion-icon name="menu-outline"></ion-icon>
             </div>
             <span className="mt-5 mr-14">
-              <ion-icon name="notifications-outline"></ion-icon>
+              {/* <ion-icon name="notifications-outline"></ion-icon> */}
             </span>
           </div>
           <div className="flex justify-center items-center">{element}</div>

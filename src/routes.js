@@ -23,10 +23,7 @@ import BuyerNotifications from "./pages/dashboard/buyer/BuyerNotifications";
 import AdminNotifications from "./pages/dashboard/admin/AdminNotifications";
 import BuyerOrders from "./pages/dashboard/buyer/Order";
 import ProtectedRoutes from "./components/auth/ProtectedRoutes";
-import Product from "./pages/dashboard/seller/addProduct";
-import AdminDashboard from "./pages/dashboard/admin/AdminDashboard";
 import VerifyEmail from './pages/verifyEmail'
-
 import SellerStatisticPage from './pages/statistic'
 const AppRoutes = () => {
   return (
@@ -98,7 +95,8 @@ const AppRoutes = () => {
       <Route path="*" element={<NotFound />} ></Route>
       <Route exact path='/statistic' element={<SellerStatisticPage/>} />
       <Route exact path='/users/verify-email' element={<VerifyEmail/>} />
-      
+    
+      <Route path="*" element={<NotFound />} ></Route>
     </Routes>
   );
 };

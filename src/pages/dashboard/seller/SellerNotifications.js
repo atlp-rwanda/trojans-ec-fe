@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import SellerHome from "../../../components/dashboard/SellerHome";
 import SellerMain from "./SellerMain";
+import AllNotification from "../../../components/notification/allNotification";
 
 const SellerNotifications = () => {
   return (
     <div className="">
-      <SellerMain element={<span>Notifications</span>} />
+      <SellerMain element={ <AllNotification /> } />
     </div>
   );
 };
