@@ -1,7 +1,8 @@
 import React from 'react'
+import Spinner from '../products/viewProducts/spinner'
 
 // eslint-disable-next-line react/prop-types
-const Button = ({ text, className, id, onclick, type, disable }) => {
+const Button = ({ text, className, id, onclick,loading, type, disable }) => {
   return (
     <div>
       <button
@@ -10,7 +11,9 @@ const Button = ({ text, className, id, onclick, type, disable }) => {
       onClick={onclick}
       disabled={disable? disable: false}
       >
-        {text}
+        {loading?(
+          <Spinner withoutText={true}/>
+        ):(<span>{text}</span>)}
       </button>
     </div>
   )
