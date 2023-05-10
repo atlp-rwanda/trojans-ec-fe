@@ -7,7 +7,7 @@ import { getUserProfile } from "../redux/features/actions/getProfile";
 import ProfileForm from "../components/profileForm";
 import Spinner from "../components/products/viewProducts/spinner";
 import Navbar from "../components/Navbar";
-
+import Header from "../components/shared/Header";
 const ProfileUpdate = () => {
   const { userProfile, userStatus, loading, updateStatus } =
     useSelector(userProfileUpdate);
@@ -23,7 +23,7 @@ const ProfileUpdate = () => {
         </div>
       ) : (
         <div>
-          <Navbar />
+          {/* <Navbar />
           <div className="header flex flex-col">
             <div className="flex h-44 brand ">
               <div className="flex justify-center items-center w-1/4">
@@ -55,8 +55,13 @@ const ProfileUpdate = () => {
               </div>
               <div className="w-[100%]   h-32 py-2 flex justify-center md:w-3/5 items-end"></div>
             </div>
-          </div>
-          <div>
+          </div> */}
+          <div className="box-border w-[100%] min-h-[80vh] bg-white px-8 py-4 rounded-2xl flex flex-col justify-center items-center">
+            <Header
+              textContent="Update Profile"
+              headerClassName="header mt-2 mb-4 ml-8"
+              className="p-title mt-4 font-semibold text-3xl text-primary"
+            />
             <ProfileForm
               userProfile={userProfile}
               updateStatus={updateStatus}

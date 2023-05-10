@@ -6,7 +6,7 @@ import { getProduct } from "../../redux/features/slices/products";
 import { LoadingMainCards } from "../skeleton/loadingMainCards";
 import MainProductCard from "../products/viewProducts/MainProductCard";
 
-function RecommendProducts({selectedProduct }) {
+function RecommendProducts({ selectedProduct }) {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getProductsThunk());
@@ -23,28 +23,27 @@ function RecommendProducts({selectedProduct }) {
     });
   }
   let viewRecommend;
-  let sortedArray=[]
-  if(recommend.length>0){
-    sortedArray= recommend.sort((a,b)=> b.average - a.average)
+  let sortedArray = [];
+  if (recommend.length > 0) {
+    sortedArray = recommend.sort((a, b) => b.average - a.average);
   }
   if (sortedArray.length > 0) {
-    viewRecommend = sortedArray.map((rec) => {
+    viewRecommend = sortedArray.slice(0, 4).map((rec) => {
       return (
-        <div
-          key={rec.id}
-          className="p-container shadow-sm m-5 py-5 px-3 flex justify-center border-2 rounded-3xl relative"
-        >
-          <MainProductCard product={rec} categories={categories} />
-        </div>
+        <MainProductCard product={rec} categories={categories} key={rec.id} />
       );
     });
   } else {
-    viewRecommend = <LoadingMainCards count={5} /> ;
+    viewRecommend = <LoadingMainCards count={4} />;
   }
   return (
-    <div className="mt-[5%]">
-      <h1 className="text-xl font-bold ml-[5%]">You may also like</h1>
-      <div className="flex items-center">{viewRecommend}</div>
+    <div className="mt-[5%] flex flex-col justify-center items-start">
+      <h1 className="text-xl ml-[5%] font-bold">You may also like</h1>
+      <div className="flex justify-center items-center w-[100vw]">
+        <div className="flex justify-start items-center w-[95%]">
+          {viewRecommend}
+        </div>
+      </div>
     </div>
   );
 }

@@ -7,6 +7,7 @@ import ErrorHandler from "../components/shared/ErrorHandler";
 import Navbar from "../components/Navbar";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Footer from "../components/footer";
 
 /* istanbul ignore next */
 const Cart = () => {
@@ -30,7 +31,7 @@ const Cart = () => {
   }, [dispatch]);
   return (
     <div className="w-[100vw]">
-      <ToastContainer/>
+      <ToastContainer />
       <ErrorHandler
         error={error}
         loading={loading}
@@ -49,6 +50,7 @@ const Cart = () => {
             sellerLoading={sellerLoading}
             response={response}
           />
+          <Footer />
         </>
       )}
     </div>

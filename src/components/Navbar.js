@@ -10,7 +10,7 @@ import whiteTrojan from "../assets/images/whiteTrojan.png";
 import Logo from "./logo";
 import jwtDecode from "jwt-decode";
 import Notification from "./notification/notification";
-
+/* istanbul ignore next */
 const Navbar = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -26,7 +26,7 @@ const Navbar = () => {
   };
   const handleDashboard = () => {
     const { data } = jwtDecode(localStorage.getItem("token"));
-    if (data.role === "seller") navigate("/dashboard/seller");
+    if (data.role === "seller") navigate("/dashboard/seller/");
     if (data.role === "buyer") navigate("/products/wishlist");
     if (data.role === "admin") navigate("/dashboard/admin/users");
   };
@@ -49,12 +49,12 @@ const Navbar = () => {
             <ion-icon name="albums-outline"></ion-icon>
           </span>
         </div>
-        <Notification/>
+        <Notification />
         {/* </div> */}
 
         <div className="flex flex-col justify-around items-center">
           <div
-            onClick={() => navigate("/user/profile")}
+            onClick={handleDashboard}
             className="rounded-full overflow-hidden w-10 h-10 flex justify-center items-center"
           >
             <img
@@ -73,7 +73,7 @@ const Navbar = () => {
           <div className="mx-3 mt-3 w-[90vw] flex justify-between items-center">
             <div className="flex flex-col justify-around items-center">
               <div
-                onClick={() => navigate("/user/profile")}
+                onClick={handleDashboard}
                 className="rounded-full overflow-hidden w-10 h-10 flex justify-center items-center"
               >
                 <img
@@ -110,7 +110,7 @@ const Navbar = () => {
             <div className="flex justify-between items-center w-[30vw]  sm:w-[15vw] mr-[3vw]">
               <CartIcon />
               {/* <ion-icon name="notifications-outline"></ion-icon> */}
-              <Notification/>
+              <Notification />
             </div>
           </div>
           <div
@@ -140,14 +140,20 @@ const Navbar = () => {
                       <span className="ml-3 text-lg">Home</span>
                     </a>
                   </li>
-                  <li onClick={() => navigate("/products/wishlist")}>
-                    <a href="#" className="flex items-center justify-start">
+                  <li>
+                    <a
+                      onClick={handleDashboard}
+                      className="flex items-center justify-start"
+                    >
                       <ion-icon name="albums-outline"></ion-icon>
                       <span className="ml-3 text-lg">Dashboard</span>
                     </a>
                   </li>
-                  <li onClick={() => navigate("/user/profile")}>
-                    <a href="#" className="flex items-center justify-start">
+                  <li>
+                    <a
+                      onClick={handleDashboard}
+                      className="flex items-center justify-start"
+                    >
                       <ion-icon name="person-outline"></ion-icon>
                       <span className="ml-3 text-lg">Profile</span>
                     </a>

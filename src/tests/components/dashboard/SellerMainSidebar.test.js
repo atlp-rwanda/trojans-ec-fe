@@ -4,12 +4,19 @@ import React from "react";
 import { render, screen, fireEvent } from "../../jest.setup";
 import "@testing-library/jest-dom";
 import { act } from "react-dom/test-utils";
+import jwtDecode from "jwt-decode";
+
+jest.mock("jwt-decode");
 let active = false;
 const setActive = (value) => {
   active = value;
 };
 describe("Testing seller sidebar", () => {
   it("Should render sidebar", () => {
+    const mockDecode = jest
+      .fn()
+      .mockReturnValue({ data: { data: { role: "seller" } } });
+    jwtDecode.mockImplementation(mockDecode);
     render(
       <MainNavbar
         active={active}

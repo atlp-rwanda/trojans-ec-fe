@@ -47,11 +47,11 @@ const CartView = ({
               Clear
             </button>
           </div>
-          {loading ? (
-            <LoadingCart count={3} />
+          {loading || !response ? (
+            <LoadingCart count={numberOfItems === 0 ? 1 : numberOfItems} />
           ) : (
             <>
-              {cart.length > 0 && sellers.length > 0 ? (
+              {cart.length > 0 ? (
                 <div className="m-2 w-full flex flex-col justify-center items-center relative">
                   {cart.map((item) => (
                     <CartCard
@@ -66,8 +66,8 @@ const CartView = ({
                 </div>
               ) : (
                 <>
-                  {!loading && !sellerLoading && response && (
-                    <div className="m-7 lg:w-[90%] h-[60vh] flex flex-col justify-center items-center text-right rounded-xl border border-gray-300">
+                  {response && (
+                    <div className="m-7 lg:w-[90%] p-3 h-[60vh] flex flex-col justify-center items-center text-center rounded-xl border border-gray-300">
                       <h1 className="font-bold text-lg text-primary mb-4">
                         No products in the cart yet!
                       </h1>
