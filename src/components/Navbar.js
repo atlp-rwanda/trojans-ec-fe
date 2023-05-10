@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import CartIcon from "./cart/CartIcon";
-import logo from "../assets/images/logo-image.png";
+// import logo from "../assets/images/logo-image.png";
 import SearchInput from "./products/searchProduct/searchInput";
 import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
@@ -12,28 +12,28 @@ import jwtDecode from "jwt-decode";
 import Notification from "./notification/notification";
 
 const Navbar = () => {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const { userProfile } = useSelector(userProfileUpdate);
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const { userProfile } = useSelector(userProfileUpdate)
   useEffect(() => {
     if (userProfile.length === 0) {
-      dispatch(getUserProfile());
+      dispatch(getUserProfile())
     }
-  }, [dispatch]);
-  const [open, setOpen] = useState(true);
+  }, [dispatch])
+  const [open, setOpen] = useState(true)
   const toggleMenu = () => {
-    setOpen(!open);
-  };
+    setOpen(!open)
+  }
   const handleDashboard = () => {
-    const { data } = jwtDecode(localStorage.getItem("token"));
-    if (data.role === "seller") navigate("/dashboard/seller");
-    if (data.role === "buyer") navigate("/products/wishlist");
-    if (data.role === "admin") navigate("/dashboard/admin/users");
-  };
+    const { data } = jwtDecode(localStorage.getItem('token'))
+    if (data.role === 'seller') navigate('/dashboard/seller')
+    if (data.role === 'buyer') navigate('/products/wishlist')
+    if (data.role === 'admin') navigate('/dashboard/admin/users')
+  }
   return (
     <div className="navbar">
       <nav className="shadow-sm mb-8 px-10 pb-3 pt-4 bg-whiteColor hidden lg:flex lg:justify-between lg:items-center mt-[-6px]">
-        <div onClick={() => navigate("/")}>
+        <div onClick={() => navigate('/')}>
           <Logo />
         </div>
         <SearchInput />
@@ -54,7 +54,7 @@ const Navbar = () => {
 
         <div className="flex flex-col justify-around items-center">
           <div
-            onClick={() => navigate("/user/profile")}
+            onClick={() => navigate('/user/profile')}
             className="rounded-full overflow-hidden w-10 h-10 flex justify-center items-center"
           >
             <img
@@ -73,7 +73,7 @@ const Navbar = () => {
           <div className="mx-3 mt-3 w-[90vw] flex justify-between items-center">
             <div className="flex flex-col justify-around items-center">
               <div
-                onClick={() => navigate("/user/profile")}
+                onClick={() => navigate('/user/profile')}
                 className="rounded-full overflow-hidden w-10 h-10 flex justify-center items-center"
               >
                 <img
@@ -116,8 +116,8 @@ const Navbar = () => {
           <div
             className={`nav-pop text-white py-5 bg-dark flex flex-col items-start z-10 ${
               open
-                ? "invisible translate-x-[100vw] z-0 animate"
-                : "visible translate-x-[0vw]"
+                ? 'invisible translate-x-[100vw] z-0 animate'
+                : 'visible translate-x-[0vw]'
             }`}
           >
             <div className="top-bar absolute top-0 w-full h-[70px] shadow-sm shadow-black">
@@ -134,19 +134,19 @@ const Navbar = () => {
             <div className="absolute top-[60px] w-full">
               <div className="h-[200px] mt-10 nav-links">
                 <ul className="h-full flex flex-col justify-around items-center">
-                  <li onClick={() => navigate("/")}>
+                  <li onClick={() => navigate('/')}>
                     <a href="#" className="flex items-center justify-start">
                       <ion-icon name="home-outline"></ion-icon>
                       <span className="ml-3 text-lg">Home</span>
                     </a>
                   </li>
-                  <li onClick={() => navigate("/products/wishlist")}>
+                  <li onClick={() => navigate('/products/wishlist')}>
                     <a href="#" className="flex items-center justify-start">
                       <ion-icon name="albums-outline"></ion-icon>
                       <span className="ml-3 text-lg">Dashboard</span>
                     </a>
                   </li>
-                  <li onClick={() => navigate("/user/profile")}>
+                  <li onClick={() => navigate('/user/profile')}>
                     <a href="#" className="flex items-center justify-start">
                       <ion-icon name="person-outline"></ion-icon>
                       <span className="ml-3 text-lg">Profile</span>
@@ -159,7 +159,7 @@ const Navbar = () => {
         </div>
       </nav>
     </div>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar

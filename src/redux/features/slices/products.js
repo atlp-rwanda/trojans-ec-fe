@@ -1,16 +1,19 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit'
+import { addReview } from '../actions/addreview'
 import {
   getProductsThunk,
   getCategoriesThunk,
   getOneProductThunk,
   deleteProductThunk,
   updateProductThunk,
-} from "../actions/products";
+} from '../actions/products'
 const initialState = {
   products: [],
   loading: false,
   error: { payload: null, status: false },
   selectedProduct: {},
+  addingReviewLoading: false,
+  addingReviewError: false,
   categories: [],
   productNameToDel: null,
   productIdToDel: null,
@@ -23,42 +26,42 @@ const initialState = {
   cotegoriesLoading: false,
   deleting: false,
   response: false,
-};
+}
 /* istanbul ignore next */
 const productSlice = createSlice({
-  name: "products",
+  name: 'products',
   initialState,
   reducers: {
     removeSelectedProduct: (state) => {
-      state.selectedProduct = {};
+      state.selectedProduct = {}
     },
     setProductNameToDel: (state, { payload }) => {
-      state.productNameToDel = payload.productNameToDel;
+      state.productNameToDel = payload.productNameToDel
     },
     setProductIdToDel: (state, { payload }) => {
-      state.productIdToDel = payload.productIdToDel;
+      state.productIdToDel = payload.productIdToDel
     },
     setUpdateDelError: (state, { payload }) => {
-      state.updateDelError = payload.updateDelError;
+      state.updateDelError = payload.updateDelError
     },
     setSuccessMsg: (state, { payload }) => {
-      state.successMsg = payload.successMsg;
+      state.successMsg = payload.successMsg
     },
     setPages: (state, { payload }) => {
-      const { firstPage, secondPage } = payload;
-      return { ...state, firstPage, secondPage };
+      const { firstPage, secondPage } = payload
+      return { ...state, firstPage, secondPage }
     },
     setProductToUpdate: (state, { payload }) => {
-      state.productToUpdate = payload.productToUpdate;
+      state.productToUpdate = payload.productToUpdate
     },
   },
   extraReducers: {
     [getProductsThunk.pending]: (state) => {
-      state.loading = true;
+      state.loading = true
     },
     [getProductsThunk.rejected]: (state) => {
-      state.loading = false;
-      state.error.status = true;
+      state.loading = false
+      state.error.status = true
     },
     [getProductsThunk.fulfilled]: (state, { payload }) => {
       if (payload.status === 200) {
@@ -67,27 +70,27 @@ const productSlice = createSlice({
           loading: false,
           products: [...payload.products],
           response: true,
-        };
+        }
       } else if (payload.status) {
         return {
           ...state,
           error: { status: true, payload: payload.status },
           loading: false,
-        };
+        }
       } else {
         return {
           ...state,
           loading: false,
           error: { payload, status: true },
-        };
+        }
       }
     },
     [getOneProductThunk.pending]: (state) => {
-      state.loading = true;
+      state.loading = true
     },
     [getOneProductThunk.rejected]: (state) => {
-      state.loading = false;
-      state.error.status = true;
+      state.loading = false
+      state.error.status = true
     },
     [getOneProductThunk.fulfilled]: (state, { payload }) => {
       if (payload.status === 200) {
@@ -95,27 +98,27 @@ const productSlice = createSlice({
           ...state,
           loading: false,
           selectedProduct: { ...payload.product },
-        };
+        }
       } else if (payload.status) {
         return {
           ...state,
           loading: false,
           error: { payload: payload.status, status: true },
-        };
+        }
       } else {
         return {
           ...state,
           loading: false,
           error: { payload: payload, status: true },
-        };
+        }
       }
     },
     [getCategoriesThunk.pending]: (state) => {
-      state.cotegoriesLoading = true;
+      state.loading = true
     },
     [getCategoriesThunk.rejected]: (state) => {
-      state.cotegoriesLoading = false;
-      state.error.status = true;
+      state.loading = false
+      state.error.status = true
     },
     [getCategoriesThunk.fulfilled]: (state, { payload }) => {
       if (payload.status === 200) {
@@ -123,26 +126,42 @@ const productSlice = createSlice({
           ...state,
           cotegoriesLoading: false,
           categories: [...payload.categories],
-        };
+        }
       } else if (payload.status) {
         return {
           ...state,
           cotegoriesLoading: false,
           error: { payload: payload.status, status: true },
-        };
+        }
       } else {
         return {
           ...state,
           cotegoriesLoading: false,
           error: { payload: payload, status: true },
-        };
+        }
+      }
+    },
+    [addReview.pending]: (state) => {
+      state.addingReviewLoading = true
+      state.addingReviewError = false
+    },
+    [addReview.fulfilled]: (state, { payload }) => {
+      state.addingReviewLoading = false
+      if (payload.error) {
+        state.addingReviewError = true
+      } else {
+        state.addingReviewError = false
+        state.selectedProduct.ratings = [
+          payload.review,
+          ...state.selectedProduct.ratings,
+        ]
       }
     },
     [deleteProductThunk.pending]: (state) => {
-      return { ...state, deleting: true };
+      return { ...state, deleting: true }
     },
     [deleteProductThunk.rejected]: (state, { payload }) => {
-      const { message } = payload;
+      const { message } = payload
       if (message) {
         return {
           ...state,
@@ -150,21 +169,21 @@ const productSlice = createSlice({
           updateDelError: message,
           successMsg: null,
           productIdToDel: null,
-        };
+        }
       }
       return {
         ...state,
         deleting: false,
-        updateDelError: "Sorry!, something went wrong, try again later!",
+        updateDelError: 'Sorry!, something went wrong, try again later!',
         successMsg: null,
         productIdToDel: null,
-      };
+      }
     },
     [deleteProductThunk.fulfilled]: (state, { payload }) => {
-      const { message } = payload;
+      const { message } = payload
       const newProducts = state.products.filter(
-        (product) => product.id !== state.productIdToDel
-      );
+        (product) => product.id !== state.productIdToDel,
+      )
       return {
         ...state,
         products: newProducts,
@@ -172,21 +191,21 @@ const productSlice = createSlice({
         updateDelError: null,
         successMsg: message,
         productIdToDel: null,
-      };
+      }
     },
     [updateProductThunk.pending]: (state) => {
-      state.updating = true;
+      state.updating = true
     },
     [updateProductThunk.rejected]: (state, { payload }) => {
-      const { message, status } = payload;
+      const { message, status } = payload
       if (message && status === 400) {
         return {
           ...state,
           updating: false,
-          updateDelError: "Sorry!, something went wrong, try again later!",
+          updateDelError: 'Sorry!, something went wrong, try again later!',
           successMsg: null,
           productToUpdate: null,
-        };
+        }
       }
       if (message && !status) {
         return {
@@ -195,24 +214,24 @@ const productSlice = createSlice({
           updateDelError: message,
           successMsg: null,
           productToUpdate: null,
-        };
+        }
       }
       return {
         ...state,
         updating: false,
-        updateDelError: "Sorry!, something went wrong, try again later!",
+        updateDelError: 'Sorry!, something went wrong, try again later!',
         successMsg: null,
         productToUpdate: null,
-      };
+      }
     },
     [updateProductThunk.fulfilled]: (state, { payload }) => {
-      const { message, data } = payload;
+      const { message, data } = payload
       const updatedProducts = state.products.map((product) => {
         if (product.id === data.id) {
-          return data;
+          return data
         }
-        return product;
-      });
+        return product
+      })
       return {
         ...state,
         products: updatedProducts,
@@ -220,18 +239,18 @@ const productSlice = createSlice({
         updateDelError: null,
         successMsg: message,
         productToUpdate: null,
-      };
+      }
     },
   },
-});
-export const getProduct = (state) => state.product;
+})
+export const getProduct = (state) => state.product
 export const {
   removeSelectedProduct,
-  setProductIdToDel,
   setProductNameToDel,
+  setProductIdToDel,
   setUpdateDelError,
   setSuccessMsg,
   setPages,
   setProductToUpdate,
-} = productSlice.actions;
-export default productSlice.reducer;
+} = productSlice.actions
+export default productSlice.reducer

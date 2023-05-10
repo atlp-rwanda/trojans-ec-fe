@@ -1,10 +1,10 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import React from "react";
-import StarRating from "./StarRating";
-import Categorize from "./Categorize";
-import emptyHeart from "../../../assets/images/heart-empty.png";
-import Spinner from "./spinner";
-import { LoadingSingleMain } from "../../skeleton/LoadingSingleMain";
+import React from 'react'
+import StarRating from './StarRating'
+import Categorize from './Categorize'
+import emptyHeart from '../../../assets/images/heart-empty.png'
+import Spinner from './spinner'
 
 export default function SingleProductDetail({
   addToCartHandler,
@@ -63,7 +63,7 @@ export default function SingleProductDetail({
             )}
             <span className="text-primary font-semibold text-xl m-10">
               {`${
-                addedWish.includes(selectedProduct.id) ? "REMOVE" : "ADD"
+                addedWish.includes(selectedProduct.id) ? 'REMOVE' : 'ADD'
               } WISH`}
             </span>
           </span>
@@ -100,5 +100,5 @@ export default function SingleProductDetail({
     //     </span>
     //   )}
     // </button>
-  );
+  )
 }

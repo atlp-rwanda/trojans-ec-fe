@@ -1,6 +1,5 @@
 import instance from "../../axiosinstance";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-
 export const getNotifThunk = createAsyncThunk("user/notifications", async()=>{
     try {
       const response = await instance.get(

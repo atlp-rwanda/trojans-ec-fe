@@ -1,37 +1,36 @@
-import React, { useEffect, useState } from "react";
-import Pagination from "./Pagination";
-import BackButton from "./BackButton";
-import TbBody from "./TbBody";
-import { useDispatch, useSelector } from "react-redux";
-import { getUsersThunk } from "../redux/features/actions/user";
-import { getUsers } from "../redux/features/slices/getUsers";
-import { LoadingTable } from "./skeleton/LoadingTable";
-import TbHeader from "./TbHeader";
-import { ToastContainer } from "react-toastify";
+import React, { useEffect, useState } from 'react'
+import Pagination from './Pagination'
+import TbBody from './TbBody'
+import { useDispatch, useSelector } from 'react-redux'
+import { getUsersThunk } from '../redux/features/actions/user'
+import { getUsers } from '../redux/features/slices/getUsers'
+import { LoadingTable } from './skeleton/LoadingTable'
+import TbHeader from './TbHeader'
+import { ToastContainer } from 'react-toastify'
 
 const UserTable = () => {
-  const dispatch = useDispatch();
-  const { users, getLoading, error } = useSelector(getUsers);
-  const [currentPage, setCurrentPage] = useState(1);
-  const usersPerPage = 5;
-  const lastUsersIndex = currentPage * usersPerPage;
-  const firstUsersIndex = lastUsersIndex - usersPerPage;
-  const currentUsers = users.slice(firstUsersIndex, lastUsersIndex);
+  const dispatch = useDispatch()
+  const { users, getLoading, error } = useSelector(getUsers)
+  const [currentPage, setCurrentPage] = useState(1)
+  const usersPerPage = 5
+  const lastUsersIndex = currentPage * usersPerPage
+  const firstUsersIndex = lastUsersIndex - usersPerPage
+  const currentUsers = users.slice(firstUsersIndex, lastUsersIndex)
   useEffect(() => {
-    dispatch(getUsersThunk());
-  }, [dispatch]);
+    dispatch(getUsersThunk())
+  }, [dispatch])
   const prevPage = () => {
     if (currentPage !== 1) {
-      setCurrentPage(currentPage - 1);
+      setCurrentPage(currentPage - 1)
     }
-  };
-  const totalUsers = Math.ceil(users.length / usersPerPage);
+  }
+  const totalUsers = Math.ceil(users.length / usersPerPage)
 
   const nextPage = () => {
     if (currentPage !== totalUsers) {
-      setCurrentPage(currentPage + 1);
+      setCurrentPage(currentPage + 1)
     }
-  };
+  }
 
   return (
     <div>
@@ -79,7 +78,7 @@ const UserTable = () => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default UserTable;
+export default UserTable

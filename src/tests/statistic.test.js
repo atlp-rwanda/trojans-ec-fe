@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import { render, waitFor,screen } from "./jest.setup";
 import '@testing-library/jest-dom'

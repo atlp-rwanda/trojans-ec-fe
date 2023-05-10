@@ -1,5 +1,7 @@
+/* eslint-disable no-unused-vars */
 import Navbar from "../../components/Navbar";
 import React from "react";
+import "setimmediate";
 import { render, fireEvent, screen } from "../jest.setup";
 import "@testing-library/jest-dom";
 

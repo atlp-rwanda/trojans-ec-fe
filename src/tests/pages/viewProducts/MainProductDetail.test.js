@@ -1,5 +1,7 @@
+/* eslint-disable no-unused-vars */
 import MainProductDetail from "../../../pages/MainProductDetail";
 import React from "react";
+import "setimmediate";
 import { render, waitForElementToBeRemoved, screen } from "../../jest.setup";
 import "@testing-library/jest-dom";
 import { productState } from "../../mocks/product.mock";

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import Categorize from "./Categorize.js";
 import { formatDate, formatString } from "../../../helpers/Format.js";

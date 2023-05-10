@@ -1,6 +1,8 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Chart from "chart.js/auto";
+import { Chart } from 'chart.js';
 import "chartjs-adapter-moment";
 // import { getOrders } from "../redux/features/actions/statistic";
 

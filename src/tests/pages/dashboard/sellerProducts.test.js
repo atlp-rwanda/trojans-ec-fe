@@ -1,6 +1,8 @@
+/* eslint-disable no-unused-vars */
 import SellerProductDetail from "../../../pages/dashboard/seller/SellerProductDetail";
 import React from "react";
 import "@testing-library/jest-dom";
+import "setimmediate";
 import { render } from "../../jest.setup";
 import { productState } from "../../mocks/product.mock";
 import SellerProducts from "../../../pages/dashboard/seller/SellerProducts";

@@ -1,22 +1,20 @@
 /* eslint-disable no-undef */
-import React from "react";
-import { useDispatch } from "react-redux";
-import { useEffect } from "react";
-import { setGotEmail } from "../redux/features/slices/user";
-import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { getLoginUser } from "../redux/features/slices/user";
-import logo from "../assets/images/LOGO.svg";
-import vector from "../assets/images/Vector.png";
-import { loginThunk } from "../redux/features/actions/userLogin";
-import "../styles/login.scss";
-import GoogleButton from "./shared/GoogleButton";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import Loader from "./shared/TwoFactorLoader";
-import loginSchema from "../validations/loginSchema";
-import Logo from "./logo";
-import Spinner from "./products/viewProducts/spinner";
+import React from 'react'
+import { useDispatch } from 'react-redux'
+import { useEffect } from 'react'
+import { setGotEmail } from '../redux/features/slices/user'
+import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { getLoginUser } from '../redux/features/slices/user'
+import vector from '../assets/images/Vector.png'
+import { loginThunk } from '../redux/features/actions/userLogin'
+import '../styles/login.scss'
+import GoogleButton from './shared/GoogleButton'
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
+import loginSchema from '../validations/loginSchema'
+import Logo from './logo'
+import Spinner from './products/viewProducts/spinner'
 
 export default function LoginInputs() {
   const {
@@ -25,26 +23,26 @@ export default function LoginInputs() {
     formState: { errors },
   } = useForm({
     resolver: yupResolver(loginSchema),
-  });
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const { loading, error, user, twoFactorAuth } = useSelector(getLoginUser);
+  })
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const { loading, error, user, twoFactorAuth } = useSelector(getLoginUser)
   const submitHandler = (data) => {
-    dispatch(loginThunk(data));
-  };
+    dispatch(loginThunk(data))
+  }
 
   useEffect(() => {
     if (!loading && twoFactorAuth) {
-      dispatch(setGotEmail({ gotEmail: false }));
-      return navigate("/auth");
+      dispatch(setGotEmail({ gotEmail: false }))
+      return navigate('/auth')
     }
     if (loading === false && user !== null && !twoFactorAuth) {
-      localStorage.setItem("token", user.token);
-      localStorage.setItem("name", user.name);
-      localStorage.setItem("user", JSON.stringify(user));
-      window.location.href = window.location.href.split("/login")[0];
+      localStorage.setItem('token', user.token)
+      localStorage.setItem('name', user.name)
+      localStorage.setItem('user', JSON.stringify(user))
+      window.location.href = window.location.href.split('/login')[0]
     }
-  }, [loading, user, twoFactorAuth]);
+  }, [loading, user, twoFactorAuth])
 
   return (
     <div className="login-container overflow-hidden">
@@ -62,7 +60,7 @@ export default function LoginInputs() {
             <input
               className="login-input bg-transparent outline-none w-full"
               placeholder="User Email"
-              {...register("email")}
+              {...register('email')}
               name="email"
               type="text"
             />
@@ -75,7 +73,7 @@ export default function LoginInputs() {
           <div className="w-80">
             <input
               className="login-input bg-transparent outline-none w-full"
-              {...register("password")}
+              {...register('password')}
               name="password"
               placeholder="User Password"
               type="password"
@@ -91,16 +89,16 @@ export default function LoginInputs() {
             type="submit"
             data-testid="loginbtn"
           >
-            <span className={`${loading ? "hidden" : ""}`}>Login</span>
+            <span className={`${loading ? 'hidden' : ''}`}>Login</span>
             {loading ? <Spinner withoutText={true} /> : null}
           </button>
-          <h6 className="forgot" onClick={() => navigate("/sendEmail")}>
+          <h6 className="forgot" onClick={() => navigate('/sendEmail')}>
             Forgot Password?
           </h6>
           <h6 className="forgot">
-            Don't have an account?{" "}
+            {"Don't have an account?"}
             <span
-              onClick={() => navigate("/register")}
+              onClick={() => navigate('/register')}
               className="text-primary font-semibold"
             >
               Sign up
@@ -110,5 +108,5 @@ export default function LoginInputs() {
         <GoogleButton />
       </div>
     </div>
-  );
+  )
 }
