@@ -1,5 +1,6 @@
 import AdminMain from "../../../pages/dashboard/admin/AdminMain";
 import React from "react";
+import "setimmediate";
 import { render, screen } from "../../jest.setup";
 import "@testing-library/jest-dom";
 

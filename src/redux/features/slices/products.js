@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { addReview } from "../actions/addreview";
 import {
   getProductsThunk,
   getCategoriesThunk,
@@ -136,6 +137,22 @@ const productSlice = createSlice({
           cotegoriesLoading: false,
           error: { payload: payload, status: true },
         };
+      }
+    },
+    [addReview.pending]: (state) => {
+      state.addingReviewLoading = true
+      state.addingReviewError = false
+    },
+    [addReview.fulfilled]: (state, { payload }) => {
+      state.addingReviewLoading = false
+      if (payload.error) {
+        state.addingReviewError = true
+      } else {
+        state.addingReviewError = false
+        state.selectedProduct.ratings = [
+          payload.review,
+          ...state.selectedProduct.ratings,
+        ]
       }
     },
     [deleteProductThunk.pending]: (state) => {

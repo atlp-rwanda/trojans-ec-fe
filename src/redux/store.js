@@ -18,6 +18,7 @@ import { logOutSlice } from "./features/slices/logout";
 import statistic from "./features/slices/statistic";
 import notificationReducer from "./features/slices/notification";
 import delNoticationReducer from "./features/slices/delNotification"
+import { addReviewSlice } from "./features/slices/addReview";
 
 export const reducers = {
   user: userReducer,
@@ -39,6 +40,7 @@ export const reducers = {
   statistic:statistic,
   notification: notificationReducer,
   delNotification: delNoticationReducer,
+  review: addReviewSlice.reducer,
 };
 
 const store = configureStore({
