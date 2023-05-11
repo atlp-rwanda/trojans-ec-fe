@@ -3,28 +3,35 @@ import { useParams } from "react-router-dom";
 import {
   getCategoriesThunk,
   getOneProductThunk,
-} from "../redux/features/actions/products";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
-import { removeSelectedProduct } from "../redux/features/slices/products";
-import SingleMainView from "../components/products/viewProducts/SingleMainView";
-import { getCartThunk } from "../redux/features/actions/cart";
-import ErrorHandler from "../components/shared/ErrorHandler";
-import { getWishListThunk } from "../redux/features/actions/wishlist";
-import RecommendProducts from "../components/recommend/recommend.products";
-import Navbar from "../components/Navbar";
+} from '../redux/features/actions/products'
+import { useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
+import { removeSelectedProduct } from '../redux/features/slices/products'
+import SingleMainView from '../components/products/viewProducts/SingleMainView'
+import { getCartThunk } from '../redux/features/actions/cart'
+import ErrorHandler from '../components/shared/ErrorHandler'
+import { getWishListThunk } from '../redux/features/actions/wishlist'
+import RecommendProducts from '../components/recommend/recommend.products'
+import Navbar from '../components/Navbar'
+import { getUserProfile } from '../redux/features/actions/getProfile'
 
 const MainProductDetail = () => {
   const { id } = useParams();
   const { selectedProduct, loading, categories, error } = useSelector(
     (state) => state.product
   );
-  const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.user)
   useEffect(() => {
-    dispatch(getWishListThunk());
-    dispatch(getCategoriesThunk());
-    dispatch(getOneProductThunk(id));
-    return () => {
+  console.log(user)
+}, [user])
+console.log(user)
+const dispatch = useDispatch()
+useEffect(() => {
+  dispatch(getUserProfile())
+  dispatch(getWishListThunk())
+  dispatch(getCategoriesThunk())
+  dispatch(getOneProductThunk(id))
+ return () => {
       dispatch(removeSelectedProduct());
     };
   }, [dispatch, id]);

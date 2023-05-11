@@ -2,25 +2,19 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ComfirmPopup from "../../shared/ComfirmPopup.js";
-import SuccessFailPopup from '../../shared/SuccessFailPopup';
 import { deleteProductThunk } from "../../../redux/features/actions/products.js";
   import {
     getProduct,
     setProductIdToDel,
     setProductNameToDel,
-    setSuccessMsg,
-    setUpdateDelError,
-    setProductToUpdate,
   } from "../../../redux/features/slices/products.js";
 
 const UpdateDeletePopup = () => {
-    const {
-        productIdToDel,
-        productNameToDel,
-        productToUpdate,
-      } = useSelector(getProduct);
-      const dispatch = useDispatch();
-    const deleteMessage = `Are you sure you want to delete the product ${productNameToDel}?`;
+  const { productIdToDel, productNameToDel, productToUpdate } = useSelector(
+    getProduct,
+  )
+  const dispatch = useDispatch()
+  const deleteMessage = `Are you sure you want to delete the product ${productNameToDel}?`
   const cancelDelete = (e) => {
     e.stopPropagation();
     dispatch(setProductNameToDel({ productNameToDel: null }));
