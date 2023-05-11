@@ -48,13 +48,13 @@ const MainProductDetail = () => {
             categories={categories}
             loading={loading}
           />
+          <RecommendProducts
+            id={id}
+            selectedProduct={selectedProduct}
+            categories={categories}
+          />
         </div>
       )}
-      <RecommendProducts
-        id={id}
-        selectedProduct={selectedProduct}
-        categories={categories}
-      />
     </>
   );
 };
