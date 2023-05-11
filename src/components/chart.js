@@ -5,13 +5,16 @@ import "chartjs-adapter-moment";
 // import { getOrders } from "../redux/features/actions/statistic";
 
 const OrdersChart = ({ data }) => {
+  console.log(data==undefined);
   console.log(data);
+  
+  console.log(typeof data);
   const [chart, setChart] = useState(null);
   const [interval, setInterval] = useState("year");
 
   useEffect(() => {
 
-    const ordersData = data ? data : [];
+    const ordersData = data? typeof data=='object'?data:[] : [];
 
     const ordersByInterval = ordersData.reduce((acc, order) => {
       const date = order.createdAt.split("T")[0];
