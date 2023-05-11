@@ -3,16 +3,15 @@ import {IoMdNotifications} from 'react-icons/io';
 import NotificationBadge, { Effect } from 'react-notification-badge'
 import useNotification from '../hooks/useNotification';
 import AllNotification from './allNotification';
-import { ToastContainer } from 'react-toastify';
 
-const Notification = () => {
+const Notification = ({position}) => {
     const {
         handleOpen,
         totalNotification,
-        isOpen,
+        isOpen
     } = useNotification();  
-    
 
+    
   return (
     
     <div>
@@ -25,7 +24,7 @@ const Notification = () => {
               </a>
           </div>
         {isOpen &&(
-          <div className='absolute right-0'>
+          <div className={`absolute md:right-0 ${position}`}>
             <AllNotification />
           </div>
         )}

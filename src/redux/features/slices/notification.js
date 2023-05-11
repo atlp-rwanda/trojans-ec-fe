@@ -28,7 +28,7 @@ const notificationSlice = createSlice({
         },
         setMarkAllAsRead: (state, {payload}) => {
             state.notifications = state.notifications.filter((notif) => !payload.includes(notif.id))
-            },
+        },
         },
     extraReducers: {
         [getNotifThunk.pending]: (state)=>{

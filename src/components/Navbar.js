@@ -110,7 +110,7 @@ const Navbar = () => {
             <div className="flex justify-between items-center w-[30vw]  sm:w-[15vw] mr-[3vw]">
               <CartIcon />
               {/* <ion-icon name="notifications-outline"></ion-icon> */}
-              <Notification />
+                <Notification position={`right-0 -mr-14`}/>
             </div>
           </div>
           <div

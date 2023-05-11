@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import MainNavbar from "../../../components/dashboard/MainNavbar";
 import BuyerLinks from "../../../components/dashboard/BuyerLinks";
 import BuyerSidebar from "../../../components/dashboard/BuyerSidebar";
+import Notification from "../../../components/notification/notification";
 
 const BuyerMain = ({ element }) => {
   const [active, setActive] = useState(false);
@@ -31,8 +32,8 @@ const BuyerMain = ({ element }) => {
             >
               <ion-icon name="menu-outline"></ion-icon>
             </div>
-            <span className="mt-5 mr-14">
-              {/* <ion-icon name="notifications-outline"></ion-icon> */}
+            <span className="mt-5 mr-14 ">
+              <Notification position={`lg:right-0 -ml-14`}/>
             </span>
           </div>
           <div className="flex justify-center items-center">{element}</div>

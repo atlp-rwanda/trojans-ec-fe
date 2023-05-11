@@ -16,11 +16,10 @@ const notificationLogic = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [viewMore, setViewMore] = useState(false);
     const [totalNotification, setTotalNotification] = useState(0)
-
     const [checkedItem, setCheckedItem] = useState([]);
     const isSelectAllSelected = checkedItem.length === notifications.length ;
     let visibleNotifications;
-
+    
     !viewMore ? visibleNotifications = notifications?.slice(-4).reverse() : visibleNotifications = notifications?.slice().reverse();
 
     useEffect(()=>{
@@ -35,11 +34,11 @@ const notificationLogic = () => {
       };
       window.addEventListener('click', handleClickOutside);
     }, []);
-
+    
     //handling notification when some notification added
     useEffect(()=>{
       socketHandle(socket, dispatch, setTotalNotif)
-    }, [])   
+    }, [])  
 
     //Generating new total notification
     useEffect(()=>{
@@ -97,7 +96,11 @@ const notificationLogic = () => {
       visibleNotifications,
       viewMore,
       setViewMore,
-      handleViewMore
+      handleViewMore,
+      socketHandle,
+      socket,
+      setTotalNotif,
+      toast 
     }
 }
 
