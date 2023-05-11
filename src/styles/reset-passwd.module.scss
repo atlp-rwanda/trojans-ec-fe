@@ -3,6 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
   .container {
     height: fit-content;
     text-align: center;
@@ -12,19 +13,6 @@
     h1 {
       font-size: 2em;
     }
-    input {
-      display: block;
-      width: 90%;
-      border-bottom: 1px Solid #7b7b7b;
-      margin-inline: auto;
-    }
-    button {
-      background-color: #5f3e8e;
-      border-color: #5f3e8e;
-      padding: 0.5rem;
-      color: white;
-      width: 90%;
-      margin-inline: auto;
-    }
+
   }
 }
