@@ -69,9 +69,6 @@ const chatModel = () => {
         createdAt: new Date(),
         message: messageData.message,
       };
-
-      dispatch(setSingle(msg));
-
       dispatch(setSingle(msg));
     });
 

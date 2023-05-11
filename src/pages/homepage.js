@@ -42,7 +42,7 @@ const Homepage = () => {
   }, [dispatch]);
 
   return (
-    <div data-testid="home" className="md:h-screen h-auto">
+    <div data-testid="home" className={products.length<10?"md:h-screen h-auto":""}>
       <div className="h-full">
       {/* {loading && <Spinner />} */}
       <ErrorHandler loading={loading} error={error} />
@@ -60,12 +60,8 @@ const Homepage = () => {
       <div id="modal">
         <ChatModel />
       </div>
-      <div id="modal">
-    <ChatModel/>
     </div>
-
-    </div>
-    <Footer/>
+    <Footer products={products}/>
 </div>
      
   );
