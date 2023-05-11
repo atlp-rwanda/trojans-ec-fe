@@ -6,6 +6,7 @@ import {
   deleteCartItemThunk,
   updateCartItemThunk,
 } from "../actions/cart";
+import checkoutThunk from "../actions/checkout";
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
@@ -17,12 +18,22 @@ const initialState = {
   error: { payload: null, status: false },
   sellers: [],
   sellerLoading: false,
+  checkingOut: false,
+  checkOutError: null,
+  checkOutData: null,
 };
 /* istanbul ignore next */
 const cartSlice = createSlice({
   name: "cart",
   initialState,
-  reducers: {},
+  reducers: {
+    setCheckOutError: (state) => {
+      return { ...state, checkOutError: null };
+    },
+    setCheckOutData: (state) => {
+      return { ...state, checkOutData: null };
+    },
+  },
   extraReducers: {
     [getCartThunk.pending]: (state) => {
       state.loading = true;
@@ -188,7 +199,36 @@ const cartSlice = createSlice({
         };
       }
     },
+    [checkoutThunk.pending]: (state) => {
+      state.checkingOut = true;
+    },
+    [checkoutThunk.rejected]: (state, { payload }) => {
+      const { message, error } = payload;
+        if(message){
+          return {
+            ...state,
+            checkingOut: false,
+            checkOutError: message,
+          };
+        };
+        if(error){
+          return {
+            ...state,
+            checkingOut: false,
+            checkOutError: error,
+          };
+        };     
+    },
+    [checkoutThunk.fulfilled]: (state, { payload }) => {
+      return {
+        ...state,
+        checkingOut: false,
+        checkOutError: null,
+        checkOutData: payload,
+      };
+    },
   },
 });
 export const getCart = (state) => state.cart;
+export const { setCheckOutData, setCheckOutError } = cartSlice.actions;
 export default cartSlice.reducer;

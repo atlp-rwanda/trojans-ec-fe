@@ -15,7 +15,7 @@ const ComfirmPopup = (props) => {
     return (
         <div data-testid={data_testid} className={className}>
             {actionType && <h1><b>{actionType}</b></h1>}
-           <p>{message}</p>
+           {message && <p>{message}</p>}
            <div>
                 <button className="button comfirm-btn" onClick={handleAction}>{comfirmActionMessage}</button>
                 <button className="button comfirm-btn" onClick={handleCancel}>{cancelMessage}</button>

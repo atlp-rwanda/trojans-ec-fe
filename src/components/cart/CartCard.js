@@ -30,7 +30,6 @@ const CartCard = ({
   const updateCart = (id, quantity) => {
     dispatchUpdateItem(id, quantity);
   };
-
   return (
     <div className="flex justify-center items-center w-full">
       <div className="mr-2 mb-7 p-5 flex flex-col sm:flex-row justify-around items-center shadow-sm border-2 rounded-xl w-[95vw] sm:w-[90%]">

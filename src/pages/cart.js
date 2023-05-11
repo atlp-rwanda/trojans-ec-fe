@@ -5,6 +5,8 @@ import { getCart } from "../redux/features/slices/cart";
 import CartView from "../components/cart/CartView";
 import ErrorHandler from "../components/shared/ErrorHandler";
 import Navbar from "../components/Navbar";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 /* istanbul ignore next */
 const Cart = () => {
@@ -28,6 +30,7 @@ const Cart = () => {
   }, [dispatch]);
   return (
     <div className="w-[100vw]">
+      <ToastContainer/>
       <ErrorHandler
         error={error}
         loading={loading}

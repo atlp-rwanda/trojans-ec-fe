@@ -1,0 +1,43 @@
+.proceed-cancel-payment{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    color: #5F3E8E;
+}
+
+.payment-back-home-link{
+    display: flex;
+    color: #5F3E8E;
+    width: 100px;
+    margin: auto;
+    padding-top: 20px;
+    opacity: 100%;
+}
+
+.span-value{
+    opacity: 70%;
+}
+@media screen and (max-width: 401px){
+    .payment-info{
+        width: 100%;
+        padding: 0 20px;
+    }
+}
+@media screen and (max-width: 375px){
+    .payment-info table{
+        width: 100%;
+    }
+    .amaout-pay-stat{
+        flex-direction: column;
+    }
+}
+@media screen and (max-width: 275px){
+    .payment-info, .top-header{
+        width: 275px;
+    }
+    .top-header{
+        font-size: 20px;
+    }
+
+}

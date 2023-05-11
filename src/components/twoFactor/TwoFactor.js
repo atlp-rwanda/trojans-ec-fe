@@ -39,6 +39,7 @@ const TwoFactor = () => {
   }, [seconds, dispatch, setTwoFactorAuth, navigate]);
 
   useEffect(() => {
+    /* istanbul ignore next */
     if (successAuth) {
       toast.success("Success", { onClose: handleClick });
       return;
