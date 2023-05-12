@@ -24,6 +24,7 @@ const initialState = {
   cotegoriesLoading: false,
   deleting: false,
   response: false,
+  selectResponse: false,
 };
 /* istanbul ignore next */
 const productSlice = createSlice({
@@ -95,6 +96,7 @@ const productSlice = createSlice({
         return {
           ...state,
           loading: false,
+          selectResponse: true,
           selectedProduct: { ...payload.product },
         };
       } else if (payload.status) {

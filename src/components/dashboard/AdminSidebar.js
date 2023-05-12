@@ -15,7 +15,7 @@ const AdminSidebar = () => {
   }, [dispatch]);
   if (userProfile) profile = userProfile.profilePic;
   return (
-    <div className="sidebar mr-9 bg-[#DBD2EA] px-5 py-8 flex flex-col justify-between items-center">
+    <div className="sidebar mr-5 bg-[#DBD2EA] px-5 py-8 flex flex-col justify-between items-center">
       <div className="flex flex-col justify-around items-center">
         <div className="rounded-full w-32 h-32 overflow-hidden flex justify-center items-center">
           <img src={profile} alt="profile-image" className="w-32 h-32" />

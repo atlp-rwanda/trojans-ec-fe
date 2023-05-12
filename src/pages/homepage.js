@@ -17,10 +17,21 @@ import { getCartThunk } from "../redux/features/actions/cart";
 import jwtDecode from "jwt-decode";
 import Footer from "../components/footer";
 
-
 const Homepage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      const { data } = jwtDecode(token);
+      if (data.role !== "buyer") {
+        return navigate("/login");
+      }
+    } else {
+      return navigate("/login");
+    }
+  });
   useEffect(() => {
     if (window.location.href.includes("token")) {
       const token = window.location.href.split("token=")[1];
@@ -28,8 +39,9 @@ const Homepage = () => {
       window.location.href = window.location.href.split("?token=")[0];
     }
   }, []);
-  const { products, loading, error, categories } = useSelector(getProduct);
-  console.log(error)
+  const { products, loading, error, categories, response } =
+    useSelector(getProduct);
+  console.log(error);
   useEffect(() => {
     if (localStorage.getItem("token")) {
       if (products.length === 0) {
@@ -42,32 +54,28 @@ const Homepage = () => {
   }, [dispatch]);
 
   return (
-    <div data-testid="home" className={products.length<10?"md:h-screen h-auto":""}>
-      <div className="h-full">
-      {/* {loading && <Spinner />} */}
-      <ErrorHandler loading={loading} error={error} />
-      {!error.status && (
-        <>
-          <ToastContainer />
-          <Navbar />
-          <MainProductView
-            products={products}
-            categories={categories}
-            loading={loading}
-          />
-        </>
-      )}
-      <div id="modal">
-        <ChatModel />
+    <div data-testid="home" className="md:h-screen h-auto">
+      <div className="">
+        {/* {loading && <Spinner />} */}
+        <ErrorHandler loading={loading} error={error} />
+        {!error.status && (
+          <>
+            <ToastContainer />
+            <Navbar />
+            <MainProductView
+              products={products.slice(0, 8)}
+              categories={categories}
+              loading={loading}
+              response={response}
+            />
+          </>
+        )}
+        <div id="modal">
+          <ChatModel />
+        </div>
       </div>
-      <div id="modal">
-    <ChatModel/>
+      <Footer />
     </div>
-
-    </div>
-    <Footer products={products}/>
-</div>
-     
   );
 };
 

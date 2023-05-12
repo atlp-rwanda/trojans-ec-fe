@@ -17,24 +17,10 @@ const AdminLinks = () => {
           </a>
         </NavLink>
       </li>
-
       <li
-        className={`${
-          lastPath === "notifications" ? "hovered" : ""
-        } dash-nav-link`}
+        className={`${lastPath === "profile" ? "hovered" : ""} dash-nav-link`}
       >
-        <NavLink to={"/dashboard/admin/notifications"}>
-          <a href="#">
-            <span className="icon">
-              <ion-icon name="notifications-outline"></ion-icon>
-            </span>
-            <span className="title">Notifications</span>
-          </a>
-        </NavLink>
-      </li>
-
-      <li className="dash-nav-link">
-        <NavLink to={"/user/profile"}>
+        <NavLink to={"/dashboard/admin/profile"}>
           <a href="#">
             <span className="icon">
               <ion-icon name="person-outline"></ion-icon>

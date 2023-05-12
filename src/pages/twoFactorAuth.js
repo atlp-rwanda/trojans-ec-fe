@@ -18,7 +18,7 @@ const TwoFactorAuth = () => {
           window.location.href.split("/auth")[0] + "/dashboard/admin/users");
       }
       return (window.location.href =
-        window.location.href.split("/auth")[0] + "/dashboard/seller/");
+        window.location.href.split("/auth")[0] + "/dashboard/seller");
     }
     if (!twoFactorAuth) {
       return navigate("/login");

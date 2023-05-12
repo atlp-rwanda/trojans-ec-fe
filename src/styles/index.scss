@@ -105,61 +105,102 @@ $dark-primary: #301f47;
   gap: 0.5rem;
   box-shadow: 0 5px 10px -7px #5f3e8e;
   border-radius: 10px;
-   h3 {
+  h3 {
     font-size: 1.2rem;
-    }
+  }
 }
-  .before-review {
-    display: flex;
-    justify-content: right;
-  
-    button {
-      width: fit-content;
+.before-review {
+  display: flex;
+  justify-content: right;
+
+  button {
+    width: fit-content;
+  }
+}
+.reviews {
+  padding: 1rem 2rem;
+  margin-inline: auto;
+  max-width: 60rem;
+  .grey {
+    color: #888;
+  }
+  h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+}
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  .username {
+    font-weight: bold;
+  }
+  .rates {
+    input {
+      width: 3rem;
+      margin-right: 0.5rem;
+      text-align: center;
+      padding-block: 0.3rem;
+      border: 1px solid #5f3e8e;
     }
   }
-    .reviews {
-      padding: 1rem 2rem;
-      margin-inline: auto;
-      max-width: 60rem;
-      .grey {
-        color: #888;
-      }
-      h1 {
-        font-size: 1.5rem;
-        font-weight: bold;
+  textarea {
+    border-bottom: 1px solid #5f3e8e;
+    padding: 1rem;
+  }
+  .buttons {
+    display: flex;
+    justify-content: right;
+    gap: 0.5rem;
+    button {
+      width: fit-content;
+      padding-inline: 1rem;
+    }
+  }
+}
+.main-p-card {
+  &:hover {
+    button {
+      visibility: visible;
+      &:hover {
+        div {
+          display: block;
+        }
       }
     }
-      form {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        .username {
-          font-weight: bold;
-        }
-        .rates {
-          input {
-            width: 3rem;
-            margin-right: 0.5rem;
-            text-align: center;
-            padding-block: 0.3rem;
-            border: 1px solid #5f3e8e;
-          }
-        }
-        textarea {
-          border-bottom: 1px solid #5f3e8e;
-          padding: 1rem;
-        }
-        .buttons {
-          display: flex;
-          justify-content: right;
-          gap: 0.5rem;
-          button {
-            width: fit-content;
-            padding-inline: 1rem;
-          }
-
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      .username {
+        font-weight: bold;
+      }
+      .rates {
+        input {
+          width: 3rem;
+          margin-right: 0.5rem;
+          text-align: center;
+          padding-block: 0.3rem;
+          border: 1px solid #5f3e8e;
         }
       }
-[name="close-outline"]{
+      textarea {
+        border-bottom: 1px solid #5f3e8e;
+        padding: 1rem;
+      }
+      .buttons {
+        display: flex;
+        justify-content: right;
+        gap: 0.5rem;
+        button {
+          width: fit-content;
+          padding-inline: 1rem;
+        }
+      }
+    }
+  }
+}
+[name="close-outline"] {
   font-size: 32px;
 }

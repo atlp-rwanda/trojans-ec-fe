@@ -13,12 +13,16 @@ function ViewSearch() {
   if (Array.isArray(searched.search)) {
     viewProducts = searched.search.map((prod) => {
       return (
-        <div
+        // <div
+        //   key={prod.id}
+        //   className="p-container shadow-sm m-5 py-5 px-3 flex justify-center border-2 rounded-3xl relative"
+        // >
+        <MainProductCard
           key={prod.id}
-          className="p-container shadow-sm m-5 py-5 px-3 flex justify-center border-2 rounded-3xl relative"
-        >
-          <MainProductCard product={prod} categories={cat.categories} />
-        </div>
+          product={prod}
+          categories={cat.categories}
+        />
+        // </div>
       );
     });
   } else if (searched.search) {

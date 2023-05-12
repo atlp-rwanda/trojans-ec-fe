@@ -45,14 +45,14 @@ const cartSlice = createSlice({
     [getCartThunk.fulfilled]: (state, { payload }) => {
       if (payload.status === 200) {
         if (typeof payload.cart === "string") {
-          return { ...state, loading: false, numberOfItems: 0 };
+          return { ...state, loading: false, numberOfItems: 0, response: true };
         } else {
           return {
             ...state,
-            loading: false,
             numberOfItems: payload.cart.items.length,
             cart: payload.cart.items,
             total: payload.cart.total,
+            loading: false,
             response: true,
           };
         }
@@ -204,20 +204,20 @@ const cartSlice = createSlice({
     },
     [checkoutThunk.rejected]: (state, { payload }) => {
       const { message, error } = payload;
-        if(message){
-          return {
-            ...state,
-            checkingOut: false,
-            checkOutError: message,
-          };
+      if (message) {
+        return {
+          ...state,
+          checkingOut: false,
+          checkOutError: message,
         };
-        if(error){
-          return {
-            ...state,
-            checkingOut: false,
-            checkOutError: error,
-          };
-        };     
+      }
+      if (error) {
+        return {
+          ...state,
+          checkingOut: false,
+          checkOutError: error,
+        };
+      }
     },
     [checkoutThunk.fulfilled]: (state, { payload }) => {
       return {

@@ -23,10 +23,12 @@ import BuyerNotifications from "./pages/dashboard/buyer/BuyerNotifications";
 import AdminNotifications from "./pages/dashboard/admin/AdminNotifications";
 import BuyerOrders from "./pages/dashboard/buyer/Order";
 import ProtectedRoutes from "./components/auth/ProtectedRoutes";
-import VerifyEmail from './pages/verifyEmail'
+import VerifyEmail from "./pages/verifyEmail";
+import SellerStatisticPage from "./pages/statistic";
+import BuyerProfile from "./pages/dashboard/buyer/BuyerProfile";
+import SellerProfile from "./pages/dashboard/seller/SellerProfile";
+import AdminProfile from "./pages/dashboard/admin/AdminProfile";
 import PaymentComfirmation from "./pages/PaymentComfirmation";
-
-import SellerStatisticPage from './pages/statistic'
 const AppRoutes = () => {
   return (
     <Routes>
@@ -37,6 +39,11 @@ const AppRoutes = () => {
           element={<AdminNotifications />}
         />
         <Route exact path="/dashboard/admin/users" element={<AllUsers />} />
+        <Route
+          exact
+          path="/dashboard/admin/profile"
+          element={<AdminProfile />}
+        />
       </Route>
       <Route element={<ProtectedRoutes role="seller" />}>
         <Route exact path="/dashboard/seller" element={<SellerDashboard />} />
@@ -49,6 +56,11 @@ const AppRoutes = () => {
           exact
           path="/dashboard/seller/notifications"
           element={<SellerNotifications />}
+        />
+        <Route
+          exact
+          path="/dashboard/seller/profile"
+          element={<SellerProfile />}
         />
         <Route
           exact
@@ -68,6 +80,11 @@ const AppRoutes = () => {
           exact
           path="/dashboard/buyer/notifications"
           element={<BuyerNotifications />}
+        />
+        <Route
+          exact
+          path="/dashboard/buyer/profile"
+          element={<BuyerProfile />}
         />
 
         <Route exact path="/dashboard/buyer/orders" element={<BuyerOrders />} />
@@ -90,9 +107,9 @@ const AppRoutes = () => {
       <Route exact path="/password-reset/" element={<ResetPasswd />} />
       <Route exact path="/sendEmail" element={<SendEmail />} />
       <Route exact path="/user/profile" element={<ProfileUpdate />} />
-      <Route exact path='/statistic' element={<SellerStatisticPage/>} />
-      <Route exact path='/users/verify-email' element={<VerifyEmail/>} />
-      <Route exact path="/payment/status" element={<PaymentComfirmation />}/>
+      <Route exact path="/statistic" element={<SellerStatisticPage />} />
+      <Route exact path="/users/verify-email" element={<VerifyEmail />} />
+      <Route exact path="/payment/status" element={<PaymentComfirmation />} />
       <Route path="*" element={<NotFound />}></Route>
     </Routes>
   );
