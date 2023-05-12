@@ -23,10 +23,10 @@ import BuyerNotifications from "./pages/dashboard/buyer/BuyerNotifications";
 import AdminNotifications from "./pages/dashboard/admin/AdminNotifications";
 import BuyerOrders from "./pages/dashboard/buyer/Order";
 import ProtectedRoutes from "./components/auth/ProtectedRoutes";
-import VerifyEmail from './pages/verifyEmail'
+import VerifyEmail from "./pages/verifyEmail";
 import PaymentComfirmation from "./pages/PaymentComfirmation";
-
-import SellerStatisticPage from './pages/statistic'
+import SellerOrders from "./pages/dashboard/seller/SellerOrders";
+import SellerStatisticPage from "./pages/statistic";
 const AppRoutes = () => {
   return (
     <Routes>
@@ -49,6 +49,11 @@ const AppRoutes = () => {
           exact
           path="/dashboard/seller/notifications"
           element={<SellerNotifications />}
+        />
+        <Route
+          exact
+          path="/dashboard/seller/orders"
+          element={<SellerOrders />}
         />
         <Route
           exact
@@ -90,9 +95,9 @@ const AppRoutes = () => {
       <Route exact path="/password-reset/" element={<ResetPasswd />} />
       <Route exact path="/sendEmail" element={<SendEmail />} />
       <Route exact path="/user/profile" element={<ProfileUpdate />} />
-      <Route exact path='/statistic' element={<SellerStatisticPage/>} />
-      <Route exact path='/users/verify-email' element={<VerifyEmail/>} />
-      <Route exact path="/payment/status" element={<PaymentComfirmation />}/>
+      <Route exact path="/statistic" element={<SellerStatisticPage />} />
+      <Route exact path="/users/verify-email" element={<VerifyEmail />} />
+      <Route exact path="/payment/status" element={<PaymentComfirmation />} />
       <Route path="*" element={<NotFound />}></Route>
     </Routes>
   );
