@@ -17,10 +17,11 @@ import { sellerSlice } from "./features/slices/seller";
 import { logOutSlice } from "./features/slices/logout";
 import statistic from "./features/slices/statistic";
 import notificationReducer from "./features/slices/notification";
-import delNoticationReducer from "./features/slices/delNotification"
+import delNoticationReducer from "./features/slices/delNotification";
 import { addReviewSlice } from "./features/slices/addReview";
-import paymentSuccess from "./features/slices/paymentSuccess"
-import orderReducer from "./features/slices/order"
+import paymentSuccess from "./features/slices/paymentSuccess";
+import orderReducer from "./features/slices/order";
+import { saleSlice } from "./features/slices/sales";
 
 export const reducers = {
   user: userReducer,
@@ -39,12 +40,13 @@ export const reducers = {
   getUsers: getUsersReducer,
   Sellers: sellerSlice.reducer,
   logout: logOutSlice.reducer,
-  statistic:statistic,
+  statistic: statistic,
   notification: notificationReducer,
   delNotification: delNoticationReducer,
   review: addReviewSlice.reducer,
   paymentSuccess,
-  orders:orderReducer
+  orders: orderReducer,
+  sales: saleSlice.reducer,
 };
 
 const store = configureStore({

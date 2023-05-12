@@ -29,6 +29,7 @@ import BuyerProfile from "./pages/dashboard/buyer/BuyerProfile";
 import SellerProfile from "./pages/dashboard/seller/SellerProfile";
 import AdminProfile from "./pages/dashboard/admin/AdminProfile";
 import PaymentComfirmation from "./pages/PaymentComfirmation";
+import SellerOrders from "./pages/dashboard/seller/SellerOrders";
 const AppRoutes = () => {
   return (
     <Routes>
@@ -62,6 +63,7 @@ const AppRoutes = () => {
           path="/dashboard/seller/profile"
           element={<SellerProfile />}
         />
+        <Route path="/dashboard/seller/orders" element={<SellerOrders />} />
         <Route
           exact
           path="/dashboard/seller/products"
