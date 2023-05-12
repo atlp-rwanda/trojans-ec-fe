@@ -69,16 +69,12 @@ const chatModel = () => {
         createdAt: new Date(),
         message: messageData.message,
       };
-
-      dispatch(setSingle(msg));
-
       dispatch(setSingle(msg));
     });
 
     socket.emit("new-user", username);
 
     socket.on("user-connected", (name) => {
-      console.log(`${name} connected`, "");
       setConnectedUser(name);
       setShowConnectedUser(true);
 
@@ -87,22 +83,15 @@ const chatModel = () => {
         setShowConnectedUser(false);
       }, 4000);
     });
-
-    socket.on("notifications", (message) => {
-      console.log(message);
-    });
     socket.on("all-messages", (message) => {
-      console.log("here");
-      console.log(message);
       dispatch(setData(message));
     });
-    socket.on("connect_error", (err) => {});
-
     socket.on("username", (name) => {
       console.log(username);
       setUsername(name);
     });
-  }, [setData]);
+    
+  }, []);
 
   const sendMessage = (e) => {
     e.preventDefault();

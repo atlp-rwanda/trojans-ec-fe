@@ -54,8 +54,8 @@ const Homepage = () => {
   }, [dispatch]);
 
   return (
-    <div data-testid="home" className="md:h-screen h-auto">
-      <div className="">
+    <div data-testid="home" className={products.length<=8?"md:h-screen h-auto":""}>
+      <div className="h-full">
         {/* {loading && <Spinner />} */}
         <ErrorHandler loading={loading} error={error} />
         {!error.status && (
