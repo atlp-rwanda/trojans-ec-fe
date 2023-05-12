@@ -4,7 +4,7 @@ import AllNotification from "../../../components/notification/allNotification";
 const BuyerNotifications = () => {
   return (
     <div>
-      <BuyerMain element={<AllNotification/>} />
+      {/* <BuyerMain element={<AllNotification/>} /> */}
     </div>
   );
 };

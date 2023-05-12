@@ -20,7 +20,6 @@ const AllNotification = () => {
         notifications,
         loading
     } = useNotification(); 
-
     const CheckNotifLength = totalNotification >= 4;
   return (
     <>

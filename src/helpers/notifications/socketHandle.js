@@ -1,5 +1,7 @@
+
 export const socketHandle = (socket, dispatch, setTotalNotif)=>{
-    socket.on("productAdded", (data) => {
+  
+      socket.on("productAdded", (data) => {
         dispatch(setTotalNotif(data))
       });
       
@@ -11,23 +13,23 @@ export const socketHandle = (socket, dispatch, setTotalNotif)=>{
         dispatch(setTotalNotif(data))
       });
       
-      socket.on("addedToWishList", (data) => {
-        dispatch(setTotalNotif(data))
+      socket.on("addedToWishList", async(data) => {
+        await dispatch(setTotalNotif(data))
       });
 
-      socket.on("removedFromWishList", (data) => {
-        dispatch(setTotalNotif(data))
+      socket.on("removedFromWishList", async(data) => {
+        await dispatch(setTotalNotif(data))
       });
       
-      socket.on("productBought", (data) => {
-        dispatch(setTotalNotif(data))
-      });
-
       socket.on("productMadeAvailable", (data) => {
         dispatch(setTotalNotif(data))
       });
 
       socket.on("productMadeUnAvailable", (data) => {
+        dispatch(setTotalNotif(data))
+      });
+
+      socket.on("productBought", (data) => {
         dispatch(setTotalNotif(data))
       });
 

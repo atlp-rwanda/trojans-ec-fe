@@ -4,7 +4,7 @@ import AllNotification from "../../../components/notification/allNotification";
 const AdminNotifications = () => {
   return (
     <div>
-      <AdminMain element={ <AllNotification/> } />
+      {/* <AdminMain element={ <AllNotification/> } /> */}
      
     </div>
   );

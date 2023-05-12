@@ -33,6 +33,9 @@ const AdminMain = ({ element }) => {
             </div>
             <span className="mt-5 mr-14">
             </span>
+            <span className="mt-5 mr-14 ">
+              <Notification position={`lg:right-0 -ml-14`}/>
+            </span>
           </div>
           {element}
         </div>

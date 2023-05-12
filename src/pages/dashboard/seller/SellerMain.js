@@ -31,7 +31,8 @@ const SellerMain = ({ error, element, noSidebar }) => {
             >
               <ion-icon name="menu-outline"></ion-icon>
             </div>
-            <span className="mt-5 mr-14">
+            <span className="mt-5 mr-14 ">
+              <Notification position={`lg:right-0 -ml-14`}/>
             </span>
           </div>
           {element}
