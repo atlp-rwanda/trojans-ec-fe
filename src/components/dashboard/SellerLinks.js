@@ -34,6 +34,16 @@ const SellerLinks = () => {
           </a>
         </NavLink>
       </li>
+      <li className={`${lastPath === "orders" ? "hovered" : ""} dash-nav-link`}>
+        <NavLink to={"/dashboard/seller/orders"}>
+          <a href="#">
+            <span className="icon">
+              <ion-icon name="cart-outline"></ion-icon>
+            </span>
+            <span className="title">Orders</span>
+          </a>
+        </NavLink>
+      </li>
       <li
         className={`${
           lastPath === "profile" || paths.includes("profile") ? "hovered" : ""

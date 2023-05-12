@@ -28,6 +28,7 @@ const SellerProducts = ({ noSidebar }) => {
     successMsg,
     updateDelError,
   } = useSelector(getProduct);
+  const { error: prodError } = useSelector((state) => state.prod);
   const handleClick = () => {
     dispatch(setUpdateDelError({ updateDelError: null }));
     dispatch(setSuccessMsg({ successMsg: null }));
@@ -51,6 +52,17 @@ const SellerProducts = ({ noSidebar }) => {
       return;
     }
   }, [successMsg, updateDelError]);
+  useEffect(() => {
+    if (prodError) {
+      if (prodError.status === 401) {
+        toast.error("you are unauthorized");
+      } else if (prodError.status === 409) {
+        toast.error(`this product already exists`);
+      } else if (prodError.status === 400) {
+        toast.error("something is wrong try again later");
+      }
+    }
+  }, [prodError]);
   return (
     <div className="">
       <ToastContainer />

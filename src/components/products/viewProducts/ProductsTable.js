@@ -58,7 +58,6 @@ const ProductsTable = ({ products, categories, loading, response }) => {
           </p>
         </div>
       )}
-      {addProduct && <AddProduct handleCancel={() => setAddProduct(false)} />}
     </div>
   );
 };

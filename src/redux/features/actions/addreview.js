@@ -11,7 +11,7 @@ export const addReview = createAsyncThunk(
       const { rate, id } = data
       const response = await axios.post(
         `/products/${id}/ratings`,
-        { rate },
+        { ...rate },
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
