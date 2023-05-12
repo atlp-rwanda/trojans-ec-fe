@@ -21,6 +21,8 @@ import delNoticationReducer from "./features/slices/delNotification"
 import { addReviewSlice } from "./features/slices/addReview";
 import paymentSuccess from "./features/slices/paymentSuccess"
 import orderReducer from "./features/slices/order"
+import { getSalesSlice } from "./features/slices/getSales";
+import { saleStatusSlice } from "./features/slices/sales";
 
 export const reducers = {
   user: userReducer,
@@ -44,7 +46,9 @@ export const reducers = {
   delNotification: delNoticationReducer,
   review: addReviewSlice.reducer,
   paymentSuccess,
-  orders:orderReducer
+  orders:orderReducer,
+  getSales: getSalesSlice.reducer,
+  updateSales:saleStatusSlice.reducer
 };
 
 const store = configureStore({
