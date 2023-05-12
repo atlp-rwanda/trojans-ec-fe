@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { logOutThunk } from "../redux/features/actions/logout";
 import Spinner from "./products/viewProducts/spinner";
 
-
 function Logout() {
   const dispatch = useDispatch();
   const navigate = useNavigate();

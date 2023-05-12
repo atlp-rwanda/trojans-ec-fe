@@ -8,3 +8,8 @@ export const getSeller = (array, id) => {
     return { name: "Anonymous" };
   }
 };
+export const getProduct = (array, id) => {
+  const product = array.find((product) => product.id === id);
+  console.log(product);
+  return product;
+};

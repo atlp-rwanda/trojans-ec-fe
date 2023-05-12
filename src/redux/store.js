@@ -20,6 +20,7 @@ import notificationReducer from "./features/slices/notification";
 import delNoticationReducer from "./features/slices/delNotification"
 import { addReviewSlice } from "./features/slices/addReview";
 import paymentSuccess from "./features/slices/paymentSuccess"
+import orderReducer from "./features/slices/order"
 
 export const reducers = {
   user: userReducer,
@@ -43,6 +44,7 @@ export const reducers = {
   delNotification: delNoticationReducer,
   review: addReviewSlice.reducer,
   paymentSuccess,
+  orders:orderReducer
 };
 
 const store = configureStore({
