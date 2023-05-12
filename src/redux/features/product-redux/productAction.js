@@ -27,7 +27,7 @@ export const submitForm = createAsyncThunk(
       thunkApi.dispatch(addProductSuccess(addProduct.data));
       return addProduct.data;
     } catch (error) {
-      thunkApi.dispatch(addProductFailure(error.response.data.error));
+      thunkApi.dispatch(addProductFailure(error.response.data));
     }
   }
 );

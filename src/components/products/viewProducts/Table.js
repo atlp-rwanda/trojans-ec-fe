@@ -7,8 +7,7 @@ import UpdateProductForm from "../updateProduct/UpdateProduct.js";
 import { useSelector } from "react-redux";
 import AddProduct from "../addProduct/addProduct.js";
 
-const Table = ({ products, categories }) => {
-  const [addProduct, setAddProduct]= useState(false)
+const Table = ({ products, categories, addProduct, setAddProduct }) => {
   const { productToUpdate } = useSelector(getProduct);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 7;
@@ -29,20 +28,6 @@ const Table = ({ products, categories }) => {
   };
   return (
     <div className="relative">
-      <div className="w-full flex justify-between items-center">
-        <Header
-          textContent="All Products"
-          headerClassName="header mt-2 mb-4 ml-8"
-          className="p-title mt-4 font-semibold text-3xl text-primary"
-        />
-        <button
-          onClick={() => setAddProduct(true)}
-          className="bg-primary px-3 py-1 text-white flex justify-center items-center rounded-md mr-3"
-        >
-          <ion-icon name="add-outline"></ion-icon>
-          <span>Add Product</span>
-        </button>
-      </div>
       <table className="w-full table overflow-x-auto">
         <thead>
           <tr className="bg-gray-200">
@@ -78,7 +63,7 @@ const Table = ({ products, categories }) => {
         currentPage={currentPage}
       />
       {productToUpdate && <UpdateProductForm />}
-      {addProduct && <AddProduct handleCancel={()=> setAddProduct(false)} />}
+      {addProduct && <AddProduct handleCancel={() => setAddProduct(false)} />}
     </div>
   );
 };

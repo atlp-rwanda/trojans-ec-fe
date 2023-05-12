@@ -1,32 +1,37 @@
 /* eslint-disable react/prop-types */
-import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { addReview } from '../../../redux/features/actions/addreview'
-import StarRating from './StarRating'
-import { toast } from 'react-toastify'
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addReview } from "../../../redux/features/actions/addreview";
+import StarRating from "./StarRating";
+import { toast } from "react-toastify";
 
 const AddReviewForm = ({ id }) => {
-  const dispatch = useDispatch()
-  const [number, setNumber] = useState(4)
-  const [add, setAdd] = useState(false)
-  const [feedback, feedText] = useState('')
+  const dispatch = useDispatch();
+  const [number, setNumber] = useState(4);
+  const [add, setAdd] = useState(false);
+  const [feedback, feedText] = useState("");
 
-  const { message, response } = useSelector((state) => state.review)
+  const { message, response, isLoading } = useSelector((state) => state.review);
 
   useEffect(() => {
-    toast(message)
-  }, [message])
+    toast(message);
+  }, [message]);
   useEffect(() => {
-    if (response && response.status && response.status === 200) {
-      location.reload()
+    if (
+      isLoading === false &&
+      response &&
+      response.status &&
+      response.status === 200
+    ) {
+      location.reload();
     }
-  }, [response])
+  }, [response]);
   const submit = (e) => {
-    const data = { id, rate: { rate: number, feedback } }
-    dispatch(addReview(data))
-    e.preventDefault()
-    console.log(data)
-  }
+    const data = { id, rate: { rate: number, feedback } };
+    dispatch(addReview(data));
+    e.preventDefault();
+    console.log(data);
+  };
   return (
     <>
       {!add ? (
@@ -66,7 +71,7 @@ const AddReviewForm = ({ id }) => {
         </form>
       )}
     </>
-  )
-}
+  );
+};
 
-export default AddReviewForm
+export default AddReviewForm;

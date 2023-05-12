@@ -24,9 +24,12 @@ import AdminNotifications from "./pages/dashboard/admin/AdminNotifications";
 import BuyerOrders from "./pages/dashboard/buyer/Order";
 import ProtectedRoutes from "./components/auth/ProtectedRoutes";
 import VerifyEmail from "./pages/verifyEmail";
+import SellerStatisticPage from "./pages/statistic";
+import BuyerProfile from "./pages/dashboard/buyer/BuyerProfile";
+import SellerProfile from "./pages/dashboard/seller/SellerProfile";
+import AdminProfile from "./pages/dashboard/admin/AdminProfile";
 import PaymentComfirmation from "./pages/PaymentComfirmation";
 import SellerOrders from "./pages/dashboard/seller/SellerOrders";
-import SellerStatisticPage from "./pages/statistic";
 const AppRoutes = () => {
   return (
     <Routes>
@@ -37,6 +40,11 @@ const AppRoutes = () => {
           element={<AdminNotifications />}
         />
         <Route exact path="/dashboard/admin/users" element={<AllUsers />} />
+        <Route
+          exact
+          path="/dashboard/admin/profile"
+          element={<AdminProfile />}
+        />
       </Route>
       <Route element={<ProtectedRoutes role="seller" />}>
         <Route exact path="/dashboard/seller" element={<SellerDashboard />} />
@@ -52,9 +60,10 @@ const AppRoutes = () => {
         />
         <Route
           exact
-          path="/dashboard/seller/orders"
-          element={<SellerOrders />}
+          path="/dashboard/seller/profile"
+          element={<SellerProfile />}
         />
+        <Route path="/dashboard/seller/orders" element={<SellerOrders />} />
         <Route
           exact
           path="/dashboard/seller/products"
@@ -73,6 +82,11 @@ const AppRoutes = () => {
           exact
           path="/dashboard/buyer/notifications"
           element={<BuyerNotifications />}
+        />
+        <Route
+          exact
+          path="/dashboard/buyer/profile"
+          element={<BuyerProfile />}
         />
 
         <Route exact path="/dashboard/buyer/orders" element={<BuyerOrders />} />

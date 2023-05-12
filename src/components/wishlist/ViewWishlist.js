@@ -17,7 +17,7 @@ export default function ViewWishlist() {
     dispatch(getWishListThunk()).then(() => dispatch(getSellersThunk()));
   }, [dispatch]);
   return (
-    <div className="w-full h-full lg:full">
+    <div className="w-full h-full lg:w-full">
       <ErrorHandler error={error} loading={loading} />
       {!error.status && (
         <h1 className="ml-10 font-semibold text-2xl mb-4 text-dark text-center">
@@ -42,7 +42,7 @@ export default function ViewWishlist() {
           )}
           {!error.status && wishlist.length === 0 && response && (
             <div className="w-full flex justify-center items-center">
-              <div className="m-7 w-full lg:w-[40vw] h-[60vh] flex flex-col justify-center items-center text-right rounded-xl border border-gray-300">
+              <div className="m-7 w-full h-[60vh] flex flex-col justify-center items-center text-right rounded-xl border border-gray-300">
                 <p>No wishes yet!</p>
               </div>
             </div>

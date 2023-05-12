@@ -1,47 +1,62 @@
 import React from "react";
 import { Skeleton } from "@mui/material";
-import LoadingImages from "../skeleton/LoadingImages";
+import LoadingMainImages from "./LoadingMainImages";
 export const LoadingSingleMain = () => {
   return (
     <div
       data-testid="skel-singleMain"
-      className="w-full flex justify-center flex-col items-center sm:flex-row sm:justify-center"
+      className="flex justify-center flex-col items-center sm:flex-row lg:justify-start lg:ml-[15vw]"
     >
       <div className="sm:mr-10">
-        <LoadingImages />
+        <LoadingMainImages />
       </div>
-      <div className="my-8 flex flex-col justify-between">
-        <Skeleton variant="text" sx={{ fontSize: "2.25rem" }} />
+      <div className="my-8 relative flex flex-col justify-start h-full">
+        <div className="w-full flex justify-end items-center mb-5">
+          <Skeleton
+            variant="circular"
+            animation="wave"
+            width={80}
+            height={80}
+          />
+        </div>
+        <h1 className="font-[500] text-4xl text-primary lg:mb-5">
+          <Skeleton animation="wave" width={200} sx={{ fontSize: "2rem" }} />
+        </h1>
+        <p className="text-lg">
+          <Skeleton animation="wave" width={150} sx={{ fontSize: "1.5rem" }} />
+        </p>
         <div className="my-6">
           <p className="text-lg">
             <Skeleton
-              variant="text"
-              sx={{ fontSize: "1.125rem" }}
-              width={180}
-            />
-            <Skeleton
-              variant="text"
-              sx={{ fontSize: "1.125rem" }}
+              animation="wave"
               width={150}
+              sx={{ fontSize: "1.5rem" }}
             />
           </p>
-          <p className="text-lg"></p>
           <p className="text-lg">
             <Skeleton
-              variant="text"
-              sx={{ fontSize: "1.125rem" }}
-              width={200}
+              animation="wave"
+              width={150}
+              sx={{ fontSize: "1.5rem" }}
             />
           </p>
         </div>
-        <div className="w-60 h-10 sm:w-72 sm:h-12 overflow-hidden">
+        <button>
           <Skeleton
             variant="rectangular"
             animation="wave"
-            width={288}
-            height={48}
+            width={190}
+            height={30}
           />
-        </div>
+        </button>
+        <button className="mt-2">
+          <Skeleton
+            variant="rectangular"
+            animation="wave"
+            width={190}
+            height={30}
+          />
+        </button>
       </div>
     </div>
   );

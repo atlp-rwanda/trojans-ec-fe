@@ -1,34 +1,40 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { getSalesFail, getSalesLoading, getSaleSuccess } from "../slices/getSales";
-import { updateSaleStatusFail, updateSaleStatusLoading, updateSaleStatusSuccess } from "../slices/sales";
 
 export const updateSaleThunk = createAsyncThunk(
   "update-sale-status",
-  async (data, thunkAPI) => {
-    thunkAPI.dispatch(updateSaleStatusLoading());
+  async (data) => {
     try {
+      const { id, Status } = data;
       const response = await axios.patch(
-        `${process.env.BACKEND_URL}/sales/${data}`,
-        {},
+        `${process.env.BACKEND_URL}/sales/${id}`,
+        {
+          Status,
+        },
         {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }
       );
-      thunkAPI.dispatch(updateSaleStatusSuccess(response.data))
-      return response.data
+      return response.data;
     } catch (error) {
-      thunkAPI.dispatch(updateSaleStatusFail(error.data))
+      if (error.response) {
+        return error.response.data;
+      }
+      return error.message;
     }
   }
 );
 
-export const getSaleThunk = createAsyncThunk ("get-sales-status", async (data, thunkAPI)=>{
-  thunkAPI.dispatch(getSalesLoading())
+export const getSaleThunk = createAsyncThunk("get-sales-status", async () => {
   try {
-    const response = await axios.get(`${process.env.BACKEND_URL}/sales`, {headers:{Authorization: `Bearer ${localStorage.getItem("token")}`}})
-    thunkAPI.dispatch(getSaleSuccess(response.data))
+    const response = await axios.get(`${process.env.BACKEND_URL}/sales`, {
+      headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+    });
+    return response.data;
   } catch (error) {
-    thunkAPI.dispatch(getSalesFail(error.data))
+    if (error.response) {
+      return error.response.data;
+    }
+    return error.message;
   }
-})
+});

@@ -1,13 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { submitForm } from "../../../redux/features/product-redux/productAction";
 import gallery from "../../../assets/images//icons8-image-gallery-64.png";
-import Spinner from "../../shared/Spinner";
+import Spinner from "../viewProducts/spinner";
 import { InputField } from "../../shared/InputField";
 import { SelectOption } from "../../shared/SelectOption";
 import { handleImageUpload } from "../../../helpers/ImageUpload";
 import { nextPage } from "../../../helpers/nextPage";
 import { submitProductForm } from "../../../helpers/submitForm";
-import { ToastContainer, toast } from "react-toastify";
 import useAddProduct from "./useAddProduct";
 function AddProduct({handleCancel}) {
   const {
@@ -20,7 +19,6 @@ function AddProduct({handleCancel}) {
     register2,
     errors2,
     errors,
-    error,
     categories,
     prevPage,
     secondPage,
@@ -33,19 +31,8 @@ function AddProduct({handleCancel}) {
     handleFilter,
     setImagePreview,
   } = useAddProduct();
-
-  useEffect(() => {
-    if (error) {
-      if (error.status === 401) {
-        toast.error("you are unauthorized");
-      } else if (error.status === 409) {
-        toast.error(`${formData.name} already exists`);
-      }
-    }
-  }, [error]);
   return (
     <div className="absolute  top-[8%] left-[15%] screen-base:left-[0%] w-6/12 screen-base:w-full bg-white  border-primary-color border rounded-lg">
-      <ToastContainer />
       <div className="overflow-hidden py-10 mx-[5%] relative">
         <h1 className="text-center text-2xl">Add A Product</h1>
         {firstPage && (
@@ -234,7 +221,7 @@ function AddProduct({handleCancel}) {
               className="submit text-white px-4 py-2 w-full rounded-xl"
               data-testId="submit-second-form"
             >
-              {isLoading ? <Spinner /> : "Add Product"}
+              {isLoading ? <Spinner withoutText={true} /> : "Add Product"}
             </button>
             <div className="flex justify-between items-center">
               <div className="flex items-center my-5">
